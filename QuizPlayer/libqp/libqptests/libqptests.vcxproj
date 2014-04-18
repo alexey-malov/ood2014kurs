@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libqptests.cpp" />
+    <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />
     <ClCompile Include="QuizPlayerTests.cpp" />
     <ClCompile Include="QuizTests.cpp" />

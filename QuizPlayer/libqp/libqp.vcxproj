@@ -76,6 +76,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Questions.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
@@ -86,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="Questions.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />
     <ClCompile Include="stdafx.cpp">
