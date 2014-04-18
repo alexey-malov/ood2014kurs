@@ -33,5 +33,12 @@ BOOST_AUTO_TEST_CASE(IncorrectFeedbackCanBeChanged)
 	BOOST_MESSAGE("TODO: implement incorrect feedback changing for question");
 }
 
+BOOST_AUTO_TEST_CASE(ScoreIsPassedAsAnOptionalParameterToConstructor)
+{
+	// CQuestion q("descr") => score=0
+	// CQuestion q1("descr", 100") => score=100
+	BOOST_MESSAGE("TODO: Implement passing score as an optional parameter of the constructo");
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()
