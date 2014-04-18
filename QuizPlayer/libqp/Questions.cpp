@@ -13,18 +13,6 @@ CQuestions::CQuestions()
 {
 }
 
-CQuestions::CQuestions(CQuestions && /*questions*/)
-{
-	//questions;
-	throw logic_error("Questions move constructor is not implemented");
-}
-
-CQuestions& CQuestions::operator=(CQuestions && questions)
-{
-	questions;
-	throw logic_error("Questions move assignment operator is not implemented");
-}
-
 size_t CQuestions::GetCount() const
 {
 	return 0;

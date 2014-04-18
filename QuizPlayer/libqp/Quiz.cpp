@@ -6,8 +6,8 @@ namespace qp
 
 using namespace std;
 
-CQuiz::CQuiz(const std::string & title)
-	:m_title(title)
+CQuiz::CQuiz(std::string title)
+	:m_title(move(title))
 {
 }
 
@@ -25,9 +25,9 @@ const CQuestions & CQuiz::GetQuestions() const
 	return m_questions;
 }
 
-void CQuiz::SetQuestions(CQuestions && questions)
+void CQuiz::SetQuestions(const CQuestions & questions)
 {
-	m_questions = move(questions);
+	m_questions = questions;
 }
 
 }

@@ -8,14 +8,13 @@ namespace qp
 class CQuiz
 {
 public:
-	CQuiz(const std::string & title);
+	CQuiz(std::string title = std::string());
 
 	std::string const& GetTitle()const;
 
 	const CQuestions & GetQuestions()const;
 
-	// Задает коллекцию вопросов, перемещая ее от переданного объекта
-	void SetQuestions(CQuestions && questions);
+	void SetQuestions(const CQuestions & questions);
 
 	~CQuiz(void);
 private:
