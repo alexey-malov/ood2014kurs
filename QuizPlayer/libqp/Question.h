@@ -1,6 +1,7 @@
 #pragma once
 
 #include "types.h"
+#include "Question_fwd.h"
 
 namespace qp
 {

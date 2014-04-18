@@ -9,7 +9,7 @@ using namespace std;
 	
 
 CQuestion::CQuestion(string description)
-:m_description(VerifyIfNotEmpty(description))
+:m_description(move(VerifyIfNotEmpty(description)))
 ,m_score(0.0)
 {
 }

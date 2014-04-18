@@ -5,6 +5,7 @@
 BOOST_AUTO_TEST_SUITE(Quiz)
 
 using namespace qp;
+using namespace std;
 
 BOOST_AUTO_TEST_CASE(QuizHasTitle)
 {
@@ -12,11 +13,19 @@ BOOST_AUTO_TEST_CASE(QuizHasTitle)
 	BOOST_CHECK_EQUAL(quiz.GetTitle(), "Quiz title"); 
 }
 
-BOOST_AUTO_TEST_CASE(QuizHasEmptyQuestions)
+BOOST_AUTO_TEST_CASE(QuizInitiallyHasEmptyQuestionsCollection)
 {
-	const CQuiz quiz("Quiz");
-	CQuestions const& questions = quiz.GetQuestions();
-	BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
+	{
+		const CQuiz constQuiz("Quiz");
+		const CQuestions & questions = constQuiz.GetQuestions();
+		BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
+	}
+
+	{
+		CQuiz quiz("Quiz");
+		CQuestions & questions = quiz.GetQuestions();
+		BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
+	}
 }
 
 BOOST_AUTO_TEST_SUITE_END()

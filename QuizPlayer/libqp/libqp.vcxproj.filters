@@ -45,6 +45,9 @@
     <ClInclude Include="Questions.h">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="Question_fwd.h">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

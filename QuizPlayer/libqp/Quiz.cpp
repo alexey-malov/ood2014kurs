@@ -25,4 +25,9 @@ const CQuestions & CQuiz::GetQuestions() const
 	return m_questions;
 }
 
+CQuestions & CQuiz::GetQuestions()
+{
+	return m_questions;
+}
+
 }

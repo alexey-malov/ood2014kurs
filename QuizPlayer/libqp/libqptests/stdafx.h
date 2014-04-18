@@ -11,6 +11,7 @@
 #include <tchar.h>
 
 #include <boost/optional.hpp>
+#include <boost/noncopyable.hpp>
 
 #define BOOST_TEST_MODULE LibQPTestModule
 #define BOOST_TEST_INCLUDED
