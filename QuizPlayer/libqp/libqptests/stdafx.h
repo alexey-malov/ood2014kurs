@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include <boost/optional.hpp>
 
 #define BOOST_TEST_MODULE LibQPTestModule
 #define BOOST_TEST_INCLUDED
