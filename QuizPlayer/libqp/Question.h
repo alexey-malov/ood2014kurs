@@ -6,7 +6,7 @@
 namespace qp
 {
 
-class CQuestion
+class CQuestion : boost::noncopyable
 {
 public:
 	CQuestion(std::string description);

@@ -27,7 +27,6 @@ BOOST_AUTO_TEST_CASE(CanAssignQuestionsToQuiz)
 	BOOST_MESSAGE("TODO: add some questions to questions collection");
 	quiz.SetQuestions(questions);
 	BOOST_MESSAGE("TODO: verity that quiz questions collection has been updated");
-
 }
 
 BOOST_AUTO_TEST_SUITE_END()
