@@ -33,6 +33,9 @@
     <ClInclude Include="Quiz.h">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="Question.h">
+      <Filter>Model</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +45,9 @@
       <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuizPlayer.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Question.cpp">
       <Filter>Model</Filter>
     </ClCompile>
   </ItemGroup>
