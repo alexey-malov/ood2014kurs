@@ -13,11 +13,17 @@ BOOST_AUTO_TEST_CASE(QuestionsCollectionIsInitiallyEmpty)
 	BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
 }
 
-BOOST_AUTO_TEST_CASE(QuestionPointerCanBeAddedToCollection)
+BOOST_AUTO_TEST_CASE(QuestionCanBeAddedToCollectionAndAccessed)
 {
 	CQuestions questions;
 	auto question = make_shared<CQuestion>("Some question");
 	BOOST_MESSAGE("TODO: verify that question can be added to questions collection");
+}
+
+BOOST_AUTO_TEST_CASE(QuestionsHaveMoveConstructorAndAssignment)
+{
+	BOOST_MESSAGE("TODO: implement move constructor and test it");
+	BOOST_MESSAGE("TODO: implement move assignment and test it");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

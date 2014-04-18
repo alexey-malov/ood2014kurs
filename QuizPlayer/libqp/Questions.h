@@ -9,6 +9,8 @@ class CQuestions : boost::noncopyable
 {
 public:
 	CQuestions();
+	CQuestions(CQuestions && questions);
+	CQuestions& operator=(CQuestions && questions);
 
 	size_t GetCount()const;
 	void AddQuestion(CQuestionPtr question);

@@ -20,12 +20,6 @@ BOOST_AUTO_TEST_CASE(QuizInitiallyHasEmptyQuestionsCollection)
 		const CQuestions & questions = constQuiz.GetQuestions();
 		BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
 	}
-
-	{
-		CQuiz quiz("Quiz");
-		CQuestions & questions = quiz.GetQuestions();
-		BOOST_CHECK_EQUAL(questions.GetCount(), 0u);
-	}
 }
 
 BOOST_AUTO_TEST_SUITE_END()

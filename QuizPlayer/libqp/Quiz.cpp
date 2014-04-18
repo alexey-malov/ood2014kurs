@@ -25,9 +25,9 @@ const CQuestions & CQuiz::GetQuestions() const
 	return m_questions;
 }
 
-CQuestions & CQuiz::GetQuestions()
+void CQuiz::SetQuestions(CQuestions && questions)
 {
-	return m_questions;
+	m_questions = move(questions);
 }
 
 }
