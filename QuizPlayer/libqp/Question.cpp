@@ -5,7 +5,10 @@
 namespace qp
 {
 
-CQuestion::CQuestion(std::string description)
+using namespace std;
+	
+
+CQuestion::CQuestion(string description)
 :m_description(VerifyIfNotEmpty(description))
 ,m_score(0.0)
 {
@@ -15,7 +18,7 @@ CQuestion::~CQuestion()
 {
 }
 
-std::string const& CQuestion::GetDescription()const
+string const& CQuestion::GetDescription()const
 {
 	return m_description;
 }
@@ -35,5 +38,17 @@ double CQuestion::GetScore()const
 {
 	return m_score;
 }
+
+void CQuestion::SetCorrectFeedback(string feedback)
+{
+	m_correctFeedback = move(feedback);
+}
+
+void CQuestion::SetIncorrectFeedback(std::string text)
+{
+	throw logic_error("Not implemented");
+}
+
+
 
 }
