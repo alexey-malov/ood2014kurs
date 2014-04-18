@@ -1,4 +1,4 @@
 ood2014kurs
 ===========
 
-Test
+Test checkout
