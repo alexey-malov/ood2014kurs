@@ -30,14 +30,25 @@ BOOST_AUTO_TEST_CASE(CorrectFeedbackCanBeChanged)
 
 BOOST_AUTO_TEST_CASE(IncorrectFeedbackCanBeChanged)
 {
-	BOOST_MESSAGE("TODO: implement incorrect feedback changing for question");
+	CQuestion question("Description");
+	question.SetIncorrectFeedback("Non empty feedback");
+	BOOST_REQUIRE(question.GetIncorrectFeedback());
+	BOOST_CHECK_EQUAL(question.GetIncorrectFeedback().get(), "Non empty feedback");
+
+	question.SetIncorrectFeedback("");
+	BOOST_REQUIRE(question.GetIncorrectFeedback());
+	BOOST_CHECK_EQUAL(question.GetIncorrectFeedback().get(), "");
 }
 
 BOOST_AUTO_TEST_CASE(ScoreIsPassedAsAnOptionalParameterToConstructor)
 {
-	// CQuestion q("descr") => score=0
-	// CQuestion q1("descr", 100") => score=100
-	BOOST_MESSAGE("TODO: Implement passing score as an optional parameter of the constructo");
+	CQuestion quest1("Question description", 2.0);
+	BOOST_REQUIRE_EQUAL(quest1.GetDescription(), "Question description");
+	BOOST_REQUIRE_CLOSE(quest1.GetScore(), 2.0, 0.0001);
+	BOOST_REQUIRE(!quest1.GetCorrectFeedback());
+	BOOST_REQUIRE(!quest1.GetIncorrectFeedback());
+
+	BOOST_REQUIRE_THROW(CQuestion quest2("Question description", -2.0), std::invalid_argument);
 }
 
 
