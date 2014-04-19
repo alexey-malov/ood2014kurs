@@ -15,20 +15,25 @@ CQuestions::CQuestions()
 
 size_t CQuestions::GetCount() const
 {
-	return 0;
+	return m_questions.size();
 }
 
 void CQuestions::AddQuestion(CQuestionPtr question)
 {
-	throw std::logic_error("CQuestions::AddQuestion is not implemented");
+	if (find(m_questions.begin(), m_questions.end(), question) == m_questions.end())
+	{
+		m_questions.push_back(question);
+	}
 }
 
 qp::CConstQuestionPtr CQuestions::GetQuestionAtIndex(size_t index) const
 {
-	index;
-	throw std::logic_error("CQuestions::GetQuestionAtIndex()const is not implemented");
+	if (index >= GetCount())
+	{
+		throw invalid_argument("Index is out of range");
+	}
+	return m_questions[index];
 }
-
 
 }
 

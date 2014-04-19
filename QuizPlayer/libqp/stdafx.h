@@ -11,6 +11,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
 

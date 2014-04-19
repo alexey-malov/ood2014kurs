@@ -17,7 +17,34 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeAddedToCollectionAndAccessed)
 {
 	CQuestions questions;
 	auto question = make_shared<CQuestion>("Some question");
-	BOOST_MESSAGE("TODO: verify that question can be added to questions collection");
+	questions.AddQuestion(question);
+	BOOST_CHECK_EQUAL(questions.GetCount(), 1u);
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
+
+	//check index out of range
+	BOOST_CHECK_THROW(questions.GetQuestionAtIndex(1), invalid_argument);
+}
+
+BOOST_AUTO_TEST_CASE(SameQuestionsAreNotAdded)
+{
+	CQuestions questions;
+	auto question = make_shared<CQuestion>("Some question");
+	questions.AddQuestion(question);
+	questions.AddQuestion(question);
+	BOOST_CHECK_EQUAL(questions.GetCount(), 1u);
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
+}
+
+BOOST_AUTO_TEST_CASE(DifferentQuestionsCanBeAdded)
+{
+	CQuestions questions;
+	auto question = make_shared<CQuestion>("Some question");
+	auto question1 = make_shared<CQuestion>("Another question");
+	questions.AddQuestion(question);
+	questions.AddQuestion(question1);
+	BOOST_CHECK_EQUAL(questions.GetCount(), 2u);
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(1), question1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

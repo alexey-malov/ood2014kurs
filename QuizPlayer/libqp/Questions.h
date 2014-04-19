@@ -13,6 +13,9 @@ public:
 	size_t GetCount()const;
 	void AddQuestion(CQuestionPtr question);
 	CConstQuestionPtr GetQuestionAtIndex(size_t index)const;
+
+private:
+	std::vector<CQuestionPtr> m_questions;
 };
 
 }
