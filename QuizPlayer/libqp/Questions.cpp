@@ -30,7 +30,7 @@ qp::CConstQuestionPtr CQuestions::GetQuestionAtIndex(size_t index) const
 {
 	if (index >= GetCount())
 	{
-		throw invalid_argument("Index is out of range");
+		throw out_of_range("Index is out of range");
 	}
 	return m_questions[index];
 }

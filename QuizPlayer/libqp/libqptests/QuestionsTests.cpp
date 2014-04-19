@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeAddedToCollectionAndAccessed)
 	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
 
 	//check index out of range
-	BOOST_CHECK_THROW(questions.GetQuestionAtIndex(1), invalid_argument);
+	BOOST_CHECK_THROW(questions.GetQuestionAtIndex(1), out_of_range);
 }
 
 BOOST_AUTO_TEST_CASE(SameQuestionsAreNotAdded)
