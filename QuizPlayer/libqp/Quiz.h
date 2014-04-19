@@ -5,7 +5,7 @@
 namespace qp
 {
 
-class CQuiz
+class CQuiz : boost::noncopyable
 {
 public:
 	CQuiz(std::string title = std::string());

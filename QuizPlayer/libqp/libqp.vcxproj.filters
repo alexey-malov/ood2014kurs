@@ -16,6 +16,15 @@
     <Filter Include="Model">
       <UniqueIdentifier>{91fa498d-73bc-4096-9c57-e8630a057886}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Model\Session">
+      <UniqueIdentifier>{d53a26a7-8681-4158-a45d-5ce6c4ef21d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Quiz">
+      <UniqueIdentifier>{abbcee58-142a-4f08-9543-c9f8ecf2277c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Quiz\Questions">
+      <UniqueIdentifier>{2f25a3d3-f2b5-4972-b887-569f70025491}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -30,40 +39,40 @@
     <ClInclude Include="QuizPlayer.h">
       <Filter>Model</Filter>
     </ClInclude>
-    <ClInclude Include="Quiz.h">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="Question.h">
-      <Filter>Model</Filter>
-    </ClInclude>
     <ClInclude Include="types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Questions.h">
-      <Filter>Model</Filter>
+    <ClInclude Include="Question.h">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
     <ClInclude Include="Question_fwd.h">
-      <Filter>Model</Filter>
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="Questions.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="Quiz.h">
+      <Filter>Model\Quiz</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Quiz.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
     <ClCompile Include="QuizPlayer.cpp">
       <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="Question.cpp">
-      <Filter>Model</Filter>
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
     <ClCompile Include="Questions.cpp">
-      <Filter>Model</Filter>
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="Quiz.cpp">
+      <Filter>Model\Quiz</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
