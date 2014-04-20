@@ -24,6 +24,10 @@ void CQuestions::AddQuestion(CQuestionPtr question)
 	{
 		m_questions.push_back(question);
 	}
+	else
+	{
+		throw runtime_error("This question is already added");
+	}
 }
 
 qp::CConstQuestionPtr CQuestions::GetQuestionAtIndex(size_t index) const

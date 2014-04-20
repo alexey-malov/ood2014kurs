@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_CASE(SameQuestionsAreNotAdded)
 	CQuestions questions;
 	auto question = make_shared<CQuestion>("Some question");
 	questions.AddQuestion(question);
-	questions.AddQuestion(question);
+	BOOST_CHECK_THROW(questions.AddQuestion(question), runtime_error);
 	BOOST_CHECK_EQUAL(questions.GetCount(), 1u);
 	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
 }
