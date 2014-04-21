@@ -14,8 +14,13 @@ public:
 	// Indicates whether the question has been submitted (user has givenan  answer to the question)
 	bool Submitted()const;
 
+	void Submit();
+
 	virtual ~CQuestionState();
+protected:
+	virtual void DoSubmit() = 0;
 private:
+	bool m_submitted;
 	CConstQuestionPtr const m_question;
 };
 
