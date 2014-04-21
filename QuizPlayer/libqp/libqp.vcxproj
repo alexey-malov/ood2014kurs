@@ -78,7 +78,10 @@
   <ItemGroup>
     <ClInclude Include="IQuizView.h" />
     <ClInclude Include="Questions.h" />
+    <ClInclude Include="QuestionState.h" />
+    <ClInclude Include="QuestionState_fwd.h" />
     <ClInclude Include="Question_fwd.h" />
+    <ClInclude Include="QuizSession.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
     <ClInclude Include="types.h" />
@@ -92,8 +95,10 @@
   <ItemGroup>
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Questions.cpp" />
+    <ClCompile Include="QuestionState.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />
+    <ClCompile Include="QuizSession.cpp" />
     <ClCompile Include="QuizView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

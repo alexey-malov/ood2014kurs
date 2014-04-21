@@ -2,6 +2,7 @@
 
 namespace qp
 {
+
 template <typename T>
 inline T const& VerifyIfNotEmpty(T const& collection, std::string const& errorMessage = std::string("Empty argument is not allowed"))
 {
@@ -21,4 +22,15 @@ inline T const& VerifyIfNotNegative(T const& number, std::string const& errorMes
 	}
 	return number;
 }
+
+template <typename T>
+inline T const& Verify(T const& value, std::string const& errorMessage = std::string("Verification failed"))
+{
+	if (!static_cast<bool>(value))
+	{
+		throw std::invalid_argument(errorMessage);
+	}
+	return value;
+}
+
 }

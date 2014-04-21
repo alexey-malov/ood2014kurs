@@ -56,5 +56,11 @@
     <ClCompile Include="MockQuizView.cpp">
       <Filter>Mocks\Views</Filter>
     </ClCompile>
+    <ClCompile Include="QuizSessionTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionStateTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

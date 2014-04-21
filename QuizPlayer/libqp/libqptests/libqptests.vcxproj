@@ -104,9 +104,11 @@
   <ItemGroup>
     <ClCompile Include="libqptests.cpp" />
     <ClCompile Include="MockQuizView.cpp" />
+    <ClCompile Include="QuestionStateTests.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />
     <ClCompile Include="QuizPlayerTests.cpp" />
+    <ClCompile Include="QuizSessionTests.cpp" />
     <ClCompile Include="QuizTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
