@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Quiz_fwd.h"
 #include "Questions.h"
 
 namespace qp

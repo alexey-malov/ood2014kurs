@@ -97,11 +97,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MockQuizView.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libqptests.cpp" />
+    <ClCompile Include="MockQuizView.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />
     <ClCompile Include="QuizPlayerTests.cpp" />

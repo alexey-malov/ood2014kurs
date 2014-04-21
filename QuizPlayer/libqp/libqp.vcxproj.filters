@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{6e65e531-512a-4070-8ebb-6fdc58bb594e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{4e5cdfc4-f919-4ee7-8c76-dbac304c0ab7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Model">
       <UniqueIdentifier>{91fa498d-73bc-4096-9c57-e8630a057886}</UniqueIdentifier>
     </Filter>
@@ -36,9 +42,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuizPlayer.h">
-      <Filter>Model</Filter>
-    </ClInclude>
     <ClInclude Include="types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,13 +60,22 @@
     <ClInclude Include="Quiz.h">
       <Filter>Model\Quiz</Filter>
     </ClInclude>
+    <ClInclude Include="Quiz_fwd.h">
+      <Filter>Model\Quiz</Filter>
+    </ClInclude>
+    <ClInclude Include="QuizPlayer.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="IQuizView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="QuizView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="QuizPlayer.cpp">
-      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="Question.cpp">
       <Filter>Model\Quiz\Questions</Filter>
@@ -73,6 +85,12 @@
     </ClCompile>
     <ClCompile Include="Quiz.cpp">
       <Filter>Model\Quiz</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizPlayer.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizView.cpp">
+      <Filter>Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

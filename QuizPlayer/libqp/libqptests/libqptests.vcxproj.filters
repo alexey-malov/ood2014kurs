@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Mocks">
+      <UniqueIdentifier>{c5fe1ef7-8d78-4c41-adb0-0c9e566d9c1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Views">
+      <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -23,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MockQuizView.h">
+      <Filter>Mocks\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="QuestionsTests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MockQuizView.cpp">
+      <Filter>Mocks\Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
