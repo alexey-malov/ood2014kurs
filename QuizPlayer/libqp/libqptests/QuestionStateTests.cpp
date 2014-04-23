@@ -54,6 +54,7 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeSubmittedOnlyOnce)
 
 	//try to submit again
 	BOOST_CHECK_THROW(questionState.Submit(), logic_error);
+	BOOST_CHECK_EQUAL(questionState.doSubmitCallCounter, 1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
