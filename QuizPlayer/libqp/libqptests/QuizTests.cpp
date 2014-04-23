@@ -25,10 +25,10 @@ BOOST_AUTO_TEST_CASE(CanAssignQuestionsToQuiz)
 {
 	CQuiz quiz;
 	CQuestions questions;
-
+	const CQuestions & quisQuestions = quiz.GetQuestions();
 	//add empty question collection
 	quiz.SetQuestions(questions);
-	BOOST_CHECK_EQUAL(questions.GetCount(), quiz.GetQuestions().GetCount());
+	BOOST_CHECK_EQUAL(questions.GetCount(), quisQuestions.GetCount());
 	
 	//add not empty question collection
 	auto question1 = make_shared<CQuestion>("First question");
@@ -36,9 +36,9 @@ BOOST_AUTO_TEST_CASE(CanAssignQuestionsToQuiz)
 	questions.AddQuestion(question1);
 	questions.AddQuestion(question2);
 	quiz.SetQuestions(questions);
-	BOOST_CHECK_EQUAL(questions.GetCount(), quiz.GetQuestions().GetCount());
-	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), quiz.GetQuestions().GetQuestionAtIndex(0));
-	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(1), quiz.GetQuestions().GetQuestionAtIndex(1));
+	BOOST_CHECK_EQUAL(questions.GetCount(), quisQuestions.GetCount());
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), quisQuestions.GetQuestionAtIndex(0));
+	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(1), quisQuestions.GetQuestionAtIndex(1));
 }
 
 BOOST_AUTO_TEST_SUITE_END()
