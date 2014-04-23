@@ -52,7 +52,8 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeSubmittedOnlyOnce)
 	BOOST_CHECK(questionState.Submitted());
 	BOOST_CHECK_EQUAL(questionState.doSubmitCallCounter, 1);
 
-	BOOST_MESSAGE("TODO: verify if subsequent call to question.Submit() throws logic_error.");
+	//try to submit again
+	BOOST_CHECK_THROW(questionState.Submit(), logic_error);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

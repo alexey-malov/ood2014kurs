@@ -23,8 +23,15 @@ bool CQuestionState::Submitted()const
 
 void CQuestionState::Submit()
 {
-	DoSubmit();
-	m_submitted = true;
+	if (m_submitted)
+	{
+		throw std::logic_error("Question state has been already submitted");
+	}
+	else
+	{
+		DoSubmit();
+		m_submitted = true;
+	}
 }
 
 }
