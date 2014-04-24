@@ -8,8 +8,8 @@ namespace qp
 using namespace std;
 	
 
-CQuestion::CQuestion(string description, double score)
-:m_description(move(VerifyIfNotEmpty(description)))
+CQuestion::CQuestion(string const& description, double score)
+:m_description(VerifyIfNotEmpty(description))
 ,m_score(VerifyIfNotNegative(score))
 {
 }

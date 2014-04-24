@@ -9,7 +9,7 @@ namespace qp
 class CQuestion : boost::noncopyable
 {
 public:
-	CQuestion(std::string description, double score = 0.0);
+	CQuestion(std::string const& description, double score = 0.0);
 	virtual ~CQuestion();
 
 	const std::string & GetDescription()const;
