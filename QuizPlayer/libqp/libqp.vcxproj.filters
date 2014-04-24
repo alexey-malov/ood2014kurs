@@ -84,6 +84,9 @@
     <ClInclude Include="QuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -109,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="QuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
