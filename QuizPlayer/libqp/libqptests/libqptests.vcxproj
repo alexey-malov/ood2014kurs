@@ -54,7 +54,7 @@
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>true</TreatWarningAsError>
       <ExceptionHandling>Async</ExceptionHandling>
-      <AdditionalIncludeDirectories>..</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\tools\boost;..</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +104,7 @@
   <ItemGroup>
     <ClCompile Include="libqptests.cpp" />
     <ClCompile Include="MockQuizView.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionTests.cpp" />
     <ClCompile Include="QuestionStateTests.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />

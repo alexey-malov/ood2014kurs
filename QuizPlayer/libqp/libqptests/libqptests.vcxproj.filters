@@ -65,5 +65,8 @@
     <ClCompile Include="libqptests.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionTests.cpp">
+      <Filter>Header Files\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
