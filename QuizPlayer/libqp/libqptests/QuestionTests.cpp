@@ -43,10 +43,7 @@ BOOST_AUTO_TEST_CASE(IncorrectFeedbackCanBeChanged)
 BOOST_AUTO_TEST_CASE(ScoreIsPassedAsAnOptionalParameterToConstructor)
 {
 	CQuestion quest1("Question description", 2.0);
-	BOOST_REQUIRE_EQUAL(quest1.GetDescription(), "Question description");
 	BOOST_REQUIRE_CLOSE(quest1.GetScore(), 2.0, 0.0001);
-	BOOST_REQUIRE(!quest1.GetCorrectFeedback());
-	BOOST_REQUIRE(!quest1.GetIncorrectFeedback());
 
 	BOOST_REQUIRE_THROW(CQuestion quest2("Question description", -2.0), std::invalid_argument);
 }
