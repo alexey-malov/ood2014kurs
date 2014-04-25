@@ -14,5 +14,4 @@ CMultipleResponseQuestion::~CMultipleResponseQuestion()
 {
 }
 
-
 }

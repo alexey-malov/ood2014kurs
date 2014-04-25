@@ -10,15 +10,18 @@ CMultipleChoiceQuestion::CMultipleChoiceQuestion(std::string const & description
 {
 }
 
-void CMultipleChoiceQuestion::SetRightAnswer(unsigned int answer)
-{
-	m_rightAnswer = answer;
-}
-
 CMultipleChoiceQuestion::~CMultipleChoiceQuestion()
 {
 }
 
+size_t CMultipleChoiceQuestion::GetAnswersCount()const
+{
+	return m_choices.size();
+}
 
+void CMultipleChoiceQuestion::AddChoice(std::string const & answer, bool isCorrect)
+{
+	m_choices.push_back({ answer, isCorrect });
+}
 
 }

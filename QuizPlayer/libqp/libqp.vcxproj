@@ -79,6 +79,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GradedChoice.h" />
     <ClInclude Include="MultipleChoiceQuestion.h" />
     <ClInclude Include="IQuizView.h" />
     <ClInclude Include="MultipleResponseQuestion.h" />

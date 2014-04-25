@@ -93,6 +93,9 @@
     <ClInclude Include="QuestionStates.h">
       <Filter>Model\Session</Filter>
     </ClInclude>
+    <ClInclude Include="GradedChoice.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

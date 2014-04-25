@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Question.h"
+#include "GradedChoice.h"
 
 namespace qp
 {
@@ -10,12 +11,10 @@ class CMultipleChoiceQuestion : public CQuestion
 public:
 	CMultipleChoiceQuestion(std::string const &description, double score = 0.0);
 	virtual ~CMultipleChoiceQuestion();
-		
-	void SetRightAnswer(unsigned int answer);
-
+	size_t GetAnswersCount()const;
+	void AddChoice(std::string const & answer, bool isCorrect);
 private:
-	unsigned int m_rightAnswer;
-	std::vector<std::string> m_questionAnswers;
+	std::vector<GradedChoice> m_choices;
 };
 
 }
