@@ -13,6 +13,7 @@ public:
 	virtual ~CMultipleChoiceQuestion();
 	size_t GetAnswersCount()const;
 	void AddChoice(std::string const & answer, bool isCorrect);
+	const GradedChoice GetChoice(size_t index) const;
 private:
 	std::vector<GradedChoice> m_choices;
 };
