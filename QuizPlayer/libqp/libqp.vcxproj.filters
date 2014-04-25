@@ -87,10 +87,7 @@
     <ClInclude Include="MultipleChoiceQuestion.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
-    <ClInclude Include="MultipleChoiceQuestionState.h">
-      <Filter>Model\Session\Questions</Filter>
-    </ClInclude>
-    <ClInclude Include="MultipleChoiceQuestion_fwd.h">
+    <ClInclude Include="MultipleResponseQuestion.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
   </ItemGroup>
@@ -122,8 +119,8 @@
     <ClCompile Include="MultipleChoiceQuestion.cpp">
       <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
-    <ClCompile Include="MultipleChoiceQuestionState.cpp">
-      <Filter>Model\Session\Questions</Filter>
+    <ClCompile Include="MultipleResponseQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
