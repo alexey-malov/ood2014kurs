@@ -10,8 +10,15 @@ CMultipleChoiceQuestion::CMultipleChoiceQuestion(std::string const description, 
 {
 }
 
+void CMultipleChoiceQuestion::SetRightAnswer(unsigned int answer)
+{
+	m_rightAnswer = answer;
+}
+
 CMultipleChoiceQuestion::~CMultipleChoiceQuestion()
 {
 }
+
+
 
 }

@@ -14,8 +14,8 @@ public:
 	void SetRightAnswer(unsigned int answer);
 
 private:
-	unsigned int rightAnswer;
-	std::vector<std::string> questionAnswers;
+	unsigned int m_rightAnswer;
+	std::vector<std::string> m_questionAnswers;
 };
 
 }
