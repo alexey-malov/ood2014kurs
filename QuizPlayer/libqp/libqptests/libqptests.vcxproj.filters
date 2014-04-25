@@ -74,5 +74,8 @@
     <ClCompile Include="MultipleResponseQuestionTests.cpp">
       <Filter>Header Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="QuestionStatesTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

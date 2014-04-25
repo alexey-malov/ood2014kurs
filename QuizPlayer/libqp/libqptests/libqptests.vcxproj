@@ -107,6 +107,7 @@
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionTests.cpp" />
+    <ClCompile Include="QuestionStatesTests.cpp" />
     <ClCompile Include="QuestionStateTests.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />
