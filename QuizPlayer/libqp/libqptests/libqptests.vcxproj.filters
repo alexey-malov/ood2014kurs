@@ -68,5 +68,8 @@
     <ClCompile Include="MultipleChoiceQuestionTests.cpp">
       <Filter>Header Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionStateTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
