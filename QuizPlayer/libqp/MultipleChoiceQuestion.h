@@ -5,15 +5,17 @@
 namespace qp
 {
 
-	class CMultipleChoiceQuestion : public CQuestion
-	{
-	public:
-		CMultipleChoiceQuestion(std::string description, double score = 0.0);
-		virtual ~CMultipleChoiceQuestion();
+class CMultipleChoiceQuestion : public CQuestion
+{
+public:
+	CMultipleChoiceQuestion(std::string const description, double score = 0.0);
+	virtual ~CMultipleChoiceQuestion();
 		
+	void SetRightAnswer(unsigned int answer);
 
-	private:
-		
-	};
+private:
+	unsigned int rightAnswer;
+	std::vector<std::string> questionAnswers;
+};
 
 }
