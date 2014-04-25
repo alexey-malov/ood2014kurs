@@ -5,19 +5,22 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Model">
+    <Filter Include="Header Files\Mocks">
+      <UniqueIdentifier>{c5fe1ef7-8d78-4c41-adb0-0c9e566d9c1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
       <UniqueIdentifier>{3996d282-358f-4c3c-a0c3-0fe93796dd65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Header Files\Views">
+      <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Header Files\Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Views">
-      <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
+    <Filter Include="Header Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -25,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MockQuizView.h">
-      <Filter>Views</Filter>
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
@@ -36,43 +39,46 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MockQuizView.cpp">
-      <Filter>Views</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionStateTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionsTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuizPlayerTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuizSessionTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuizTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="MultipleChoiceQuestionTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="MultipleChoiceQuestionStateTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="MultipleResponseQuestionTests.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionStatesTests.cpp">
-      <Filter>Model</Filter>
+      <Filter>Header Files\Views</Filter>
     </ClCompile>
     <ClCompile Include="libqptests.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionStateTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionsTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizPlayerTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizSessionTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuizTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionStateTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleResponseQuestionTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionStatesTests.cpp">
+      <Filter>Header Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionWithChoicesTests.cpp">
+      <Filter>Header Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -96,6 +96,9 @@
     <ClInclude Include="GradedChoice.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="QuestionWithChoices.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -130,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="QuestionStates.cpp">
       <Filter>Model\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionWithChoices.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
