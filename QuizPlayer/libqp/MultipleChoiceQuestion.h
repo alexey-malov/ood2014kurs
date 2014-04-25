@@ -11,8 +11,8 @@ class CMultipleChoiceQuestion : public CQuestion
 public:
 	CMultipleChoiceQuestion(std::string const &description, double score = 0.0);
 	virtual ~CMultipleChoiceQuestion();
-	size_t GetAnswersCount()const;
-	void AddChoice(std::string const & answer, bool isCorrect);
+	size_t GetChoiceCount()const;
+	void AddChoice(std::string const & text, bool isCorrect);
 	const GradedChoice GetChoice(size_t index) const;
 private:
 	std::vector<GradedChoice> m_choices;

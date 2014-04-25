@@ -14,14 +14,14 @@ CMultipleChoiceQuestion::~CMultipleChoiceQuestion()
 {
 }
 
-size_t CMultipleChoiceQuestion::GetAnswersCount()const
+size_t CMultipleChoiceQuestion::GetChoiceCount()const
 {
 	return m_choices.size();
 }
 
-void CMultipleChoiceQuestion::AddChoice(std::string const & answer, bool isCorrect)
+void CMultipleChoiceQuestion::AddChoice(std::string const & text, bool isCorrect)
 {
-	m_choices.push_back({ answer, isCorrect });
+	m_choices.push_back({ text, isCorrect });
 }
 
 const GradedChoice CMultipleChoiceQuestion::GetChoice(size_t index) const
