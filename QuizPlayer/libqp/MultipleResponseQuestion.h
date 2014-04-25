@@ -4,11 +4,13 @@
 namespace qp
 {
 
-	class CMultipleResponseQuestion : public CQuestion
-	{
-	public:
-		CMultipleResponseQuestion(std::string description, double score = 0.0);
-		virtual ~CMultipleResponseQuestion();
-	};
+class CMultipleResponseQuestion : public CQuestion
+{
+public:
+	CMultipleResponseQuestion(std::string const& description, double score = 0.0);
+	virtual ~CMultipleResponseQuestion();
+private:
+		
+};
 
 }
