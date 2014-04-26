@@ -6,11 +6,11 @@
 namespace qp
 {
 
-	class CMultipleResponseQuestion : public CQuestionWithChoices
-	{
-	public:
-		CMultipleResponseQuestion(std::string const &description, double score = 0.0);
-		virtual ~CMultipleResponseQuestion();
-	};
+class CMultipleResponseQuestion : public CQuestionWithChoices
+{
+public:
+	CMultipleResponseQuestion(std::string const &description, double score = 0.0);
+	virtual ~CMultipleResponseQuestion();
+};
 
 }
