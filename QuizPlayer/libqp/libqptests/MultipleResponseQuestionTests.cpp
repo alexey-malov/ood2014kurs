@@ -4,6 +4,7 @@
 BOOST_AUTO_TEST_SUITE(MultipleResponseQuestionTests)
 
 using namespace qp;
+using namespace std;
 
 BOOST_AUTO_TEST_CASE(Construction)
 {
@@ -12,36 +13,12 @@ BOOST_AUTO_TEST_CASE(Construction)
 	BOOST_REQUIRE_CLOSE(quest1.GetScore(), 0.0, 0.0001);
 }
 
-BOOST_AUTO_TEST_CASE(CorrectFeedbackCanBeChanged)
+BOOST_AUTO_TEST_CASE(QuestionHasChoices)
 {
-	CMultipleResponseQuestion question("Description");
-	question.SetCorrectFeedback("Non empty feedback");
-	BOOST_REQUIRE(question.GetCorrectFeedback());
-	BOOST_CHECK_EQUAL(question.GetCorrectFeedback().get(), "Non empty feedback");
+	CMultipleResponseQuestion question("2+2=");
 
-	question.SetCorrectFeedback("");
-	BOOST_REQUIRE(question.GetCorrectFeedback());
-	BOOST_CHECK_EQUAL(question.GetCorrectFeedback().get(), "");
+	BOOST_REQUIRE_NO_THROW({ CQuestionWithChoices& question2 = dynamic_cast<CQuestionWithChoices&>(question); question2; });
 }
 
-BOOST_AUTO_TEST_CASE(IncorrectFeedbackCanBeChanged)
-{
-	CMultipleResponseQuestion question("Description");
-	question.SetIncorrectFeedback("Non empty feedback");
-	BOOST_REQUIRE(question.GetIncorrectFeedback());
-	BOOST_CHECK_EQUAL(question.GetIncorrectFeedback().get(), "Non empty feedback");
-
-	question.SetIncorrectFeedback("");
-	BOOST_REQUIRE(question.GetIncorrectFeedback());
-	BOOST_CHECK_EQUAL(question.GetIncorrectFeedback().get(), "");
-}
-
-BOOST_AUTO_TEST_CASE(ScoreIsPassedAsAnOptionalParameterToConstructor)
-{
-	CMultipleResponseQuestion quest1("Question description", 2.0);
-	BOOST_REQUIRE_CLOSE(quest1.GetScore(), 2.0, 0.0001);
-
-	BOOST_REQUIRE_THROW(CMultipleResponseQuestion quest2("Question description", -2.0), std::invalid_argument);
-}
 
 BOOST_AUTO_TEST_SUITE_END()

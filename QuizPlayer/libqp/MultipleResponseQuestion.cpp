@@ -3,15 +3,16 @@
 
 namespace qp
 {
+	using namespace std;
 
-CMultipleResponseQuestion::CMultipleResponseQuestion(std::string const& description, double score /*= 0.0*/)
-	:CQuestion(description, score)
-{
+	CMultipleResponseQuestion::CMultipleResponseQuestion(std::string const & description, double score)
+		:CQuestionWithChoices(description, score)
+	{
+	}
 
-}
+	CMultipleResponseQuestion::~CMultipleResponseQuestion()
+	{
+	}
 
-CMultipleResponseQuestion::~CMultipleResponseQuestion()
-{
-}
 
 }
