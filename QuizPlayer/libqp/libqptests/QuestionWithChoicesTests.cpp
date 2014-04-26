@@ -7,7 +7,7 @@ BOOST_AUTO_TEST_SUITE(QuestionWithChoicesTests)
 using namespace qp;
 using namespace std;
 
-BOOST_AUTO_TEST_CASE(GradedChoicesQuestionHasChoices)
+BOOST_AUTO_TEST_CASE(GradedChoicesCollection)
 {
 	CGradedChoices choices;
 
@@ -33,16 +33,19 @@ BOOST_AUTO_TEST_CASE(GradedChoicesQuestionHasChoices)
 	}
 }
 
-BOOST_AUTO_TEST_CASE(QuestionWithChoicesSetAndGetChoices)
+BOOST_AUTO_TEST_CASE(QuestionConstruction)
 {
-	CGradedChoices choices;
-	choices.AddChoice("3", false);
-	choices.AddChoice("4", true);
-
 	CQuestionWithChoices question("Question description");
 	BOOST_REQUIRE_EQUAL(question.GetDescription(), "Question description");
 	BOOST_REQUIRE_CLOSE(question.GetScore(), 0.0, 0.0001);
+}
 
+BOOST_AUTO_TEST_CASE(ChoicesAccessors)
+{
+	CQuestionWithChoices question("Question description");
+	CGradedChoices choices;
+	choices.AddChoice("3", false);
+	choices.AddChoice("4", true);
 	question.SetChoices(choices);
 	CGradedChoices choices2 = question.GetChoices();
 	BOOST_REQUIRE_EQUAL(choices.GetChoiceCount(), choices2.GetChoiceCount());
