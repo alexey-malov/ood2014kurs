@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="libqptests.cpp" />
+    <ClCompile Include="MatchingQuestionTests.cpp" />
     <ClCompile Include="MockQuizView.cpp" />
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />

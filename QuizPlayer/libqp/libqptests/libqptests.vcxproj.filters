@@ -83,5 +83,8 @@
     <ClCompile Include="SequenceQuestionTests.cpp">
       <Filter>Header Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="MatchingQuestionTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
