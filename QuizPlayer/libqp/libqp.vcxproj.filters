@@ -102,6 +102,12 @@
     <ClInclude Include="MatchingQuestion.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestion_fwd.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -142,6 +148,9 @@
     </ClCompile>
     <ClCompile Include="MatchingQuestion.cpp">
       <Filter>Model\Quiz\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionState.cpp">
+      <Filter>Model\Session\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
