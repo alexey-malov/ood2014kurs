@@ -108,6 +108,12 @@
     <ClInclude Include="MultipleChoiceQuestion_fwd.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="QuestionReview.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionReview_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -150,6 +156,9 @@
       <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionState.cpp">
+      <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionReview.cpp">
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
   </ItemGroup>
