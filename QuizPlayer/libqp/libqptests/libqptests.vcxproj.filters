@@ -80,5 +80,8 @@
     <ClCompile Include="libqptests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatchingQuestionTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

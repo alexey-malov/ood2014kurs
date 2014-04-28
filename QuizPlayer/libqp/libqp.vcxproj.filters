@@ -99,6 +99,9 @@
     <ClInclude Include="QuestionWithChoices.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MatchingQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -135,6 +138,9 @@
       <Filter>Model\Session</Filter>
     </ClCompile>
     <ClCompile Include="QuestionWithChoices.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchingQuestion.cpp">
       <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
