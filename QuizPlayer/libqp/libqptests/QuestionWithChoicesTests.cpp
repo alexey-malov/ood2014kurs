@@ -33,6 +33,15 @@ BOOST_AUTO_TEST_CASE(GradedChoicesCollection)
 	}
 }
 
+BOOST_AUTO_TEST_CASE(DuplicateChoice)
+{
+	CGradedChoices choices;
+	choices.AddChoice("text 1", false);
+	BOOST_REQUIRE_NO_THROW(choices.AddChoice("text 2", false));
+	BOOST_REQUIRE_THROW(choices.AddChoice("text 2", false), invalid_argument);
+	BOOST_REQUIRE_THROW(choices.AddChoice("text 2", true), invalid_argument);
+}
+
 BOOST_AUTO_TEST_CASE(QuestionConstruction)
 {
 	CQuestionWithChoices question("Question description");

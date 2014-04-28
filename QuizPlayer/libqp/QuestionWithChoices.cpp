@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "QuestionWithChoices.h"
+#include "boost/bind.hpp"
 
 namespace qp
 {
@@ -12,6 +13,10 @@ size_t CGradedChoices::GetChoiceCount() const
 
 void CGradedChoices::AddChoice(std::string const & text, bool isCorrect)
 {
+	if (std::find_if(m_choices.begin(), m_choices.end(), boost::bind(&GradedChoice::text, _1) == text) != m_choices.end())
+	{
+		throw(std::invalid_argument("Duplicate choice text"));
+	}
 	m_choices.push_back({ text, isCorrect });
 }
 
