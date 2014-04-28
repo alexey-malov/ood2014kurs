@@ -92,6 +92,7 @@
     <ClInclude Include="QuizSession.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
+    <ClInclude Include="SequenceQuestion.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="QuizPlayer.cpp" />
     <ClCompile Include="QuizSession.cpp" />
     <ClCompile Include="QuizView.cpp" />
+    <ClCompile Include="SequenceQuestion.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
