@@ -17,12 +17,22 @@ public:
 	CMatchingPairs();
 	~CMatchingPairs();
 
-	void AddPair(std::string leftItem, std::string rightItem);
-	void AddPair(std::string extraValue);
-	MatchingPair const & GetMatchingPair(size_t index)const;
-	size_t GetPairsCount()const;
+	void AddPair(std::string leftItem, std::string rightItem); // AddMatchedItems
+	void AddPair(std::string extraValue); // AddExtraItem
+
+	// std::vector<std::string> GetLeftMatchedItems()const;
+	// std::vector<std::string> GetRightMatchedItems()const;
+	// typedef std::pair<std::string, std::string> MatchedItems;
+	// size_t GetMatchedItemsCount()const;
+	// MatchedItems const& GetMatchedItems(size_t index)const;
+	
+
+	MatchingPair const & GetMatchingPair(size_t index)const; // GetMatch
+	size_t GetPairsCount()const; // GetMatchesCount
 
 private:
+	// std::vector<MatchedItems> m_matchedItems;
+	// std::vector<std::string> m_extraItems;
 	std::vector<MatchingPair> m_pairs;
 };
 
