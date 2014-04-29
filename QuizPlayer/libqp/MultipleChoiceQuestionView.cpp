@@ -17,4 +17,8 @@ CMultipleChoiceQuestionView::~CMultipleChoiceQuestionView()
 {
 }
 
+void CMultipleChoiceQuestionView::ShowDetails() const
+{
+}
+
 }

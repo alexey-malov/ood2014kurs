@@ -22,6 +22,7 @@ CQuestionView::~CQuestionView()
 void CQuestionView::Show()
 {
 	ShowDescription();
+	ShowDetails();
 }
 
 void CQuestionView::ShowDescription() const

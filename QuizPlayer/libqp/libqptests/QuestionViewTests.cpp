@@ -16,10 +16,27 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 	auto question = make_shared<CQuestion>(description, 10);
 	auto state = make_shared<CQuestionStateForTesting>(question);
 	
+	struct TestQuestionView : public CQuestionView
+	{
+		TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
+		:CQuestionView(questionState, outputStream)
+		,detailsWereShown(false)
+		{}
+
+		void ShowDetails() const override
+		{
+			detailsWereShown = true;
+		}
+
+		mutable bool detailsWereShown;
+	};
+
 	ostringstream ostrm;
-	CQuestionView view(state, ostrm);
+	TestQuestionView view(state, ostrm);
 	view.Show();
 	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
+	BOOST_CHECK(view.detailsWereShown);
+	
 }
 
 

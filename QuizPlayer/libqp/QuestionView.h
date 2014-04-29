@@ -15,6 +15,7 @@ public:
 
 	virtual void Show() override final;
 protected:
+	virtual void ShowDetails() const = 0;
 private:
 	void ShowDescription()const;
 	const CQuestion & GetQuestion()const;

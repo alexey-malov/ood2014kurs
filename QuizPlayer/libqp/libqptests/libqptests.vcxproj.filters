@@ -34,6 +34,9 @@
     <Filter Include="Mocks\Model\Session\Questions">
       <UniqueIdentifier>{2d22f54d-9740-487f-a31d-1e6263a9a41f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mocks\Views\Questions">
+      <UniqueIdentifier>{d74b8a70-21e3-4c09-8bed-cf0ed032d8e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
