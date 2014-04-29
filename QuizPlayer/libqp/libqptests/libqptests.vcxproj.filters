@@ -22,6 +22,18 @@
     <Filter Include="Mocks\Views">
       <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{3840525b-ef7a-4568-a068-f4b923d03edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model">
+      <UniqueIdentifier>{5487a945-2672-4f2c-817c-8679806bd3a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Session">
+      <UniqueIdentifier>{7c89a964-7a25-4b17-bf13-79d696dd5965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Session\Questions">
+      <UniqueIdentifier>{2d22f54d-9740-487f-a31d-1e6263a9a41f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -35,6 +47,9 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionStateForTesting.h">
+      <Filter>Mocks\Model\Session\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="MatchingQuestionTests.cpp">
       <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionViewTests.cpp">
+      <Filter>Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "QuestionState.h"
 #include "MultipleChoiceQuestion_fwd.h"
 #include "QuestionReview_fwd.h"
+#include "MultipleChoiceQuestion_fwd.h"
 
 namespace qp
 {

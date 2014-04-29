@@ -34,6 +34,9 @@
     <Filter Include="Model\Session\Questions">
       <UniqueIdentifier>{890f5ade-47fd-4410-ba48-6ff1781883e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Views\Questions">
+      <UniqueIdentifier>{dbe2052f-3f78-4f1f-afa2-595bbaf63d55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -117,6 +120,18 @@
     <ClInclude Include="QuizSession_fwd.h">
       <Filter>Model\Session</Filter>
     </ClInclude>
+    <ClInclude Include="IQuestionView.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionView.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionView.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionState_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -163,6 +178,12 @@
     </ClCompile>
     <ClCompile Include="QuestionReview.cpp">
       <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionView.cpp">
+      <Filter>Views\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionView.cpp">
+      <Filter>Views\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

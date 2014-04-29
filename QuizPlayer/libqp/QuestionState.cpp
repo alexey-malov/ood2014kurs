@@ -34,4 +34,9 @@ void CQuestionState::Submit()
 	}
 }
 
+qp::CConstQuestionPtr CQuestionState::GetQuestion() const
+{
+	return m_question;
+}
+
 }
