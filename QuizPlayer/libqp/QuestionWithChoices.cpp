@@ -6,6 +6,13 @@ namespace qp
 {
 using namespace std;
 
+
+CGradedChoices::CGradedChoices(const std::initializer_list<GradedChoice> & choices)
+:m_choices(choices)
+{
+
+}
+
 size_t CGradedChoices::GetChoiceCount() const
 {
 	return m_choices.size();
@@ -26,9 +33,9 @@ const GradedChoice CGradedChoices::GetChoice(size_t index) const
 }
 
 
-
-CQuestionWithChoices::CQuestionWithChoices(std::string const & description, double score)
+CQuestionWithChoices::CQuestionWithChoices(std::string const & description, double score, const CGradedChoices & choices)
 :CQuestion(description, score)
+,m_choices(choices)
 {
 }
 

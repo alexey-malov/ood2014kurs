@@ -9,7 +9,7 @@ namespace qp
 class CGradedChoices
 {
 public:
-	CGradedChoices(void) {};
+	CGradedChoices(const std::initializer_list<GradedChoice> & choices = {});
 	~CGradedChoices() {};
 	size_t GetChoiceCount()const;
 	void AddChoice(std::string const & text, bool isCorrect);
@@ -23,7 +23,7 @@ private:
 class CQuestionWithChoices : public CQuestion
 {
 public:
-	CQuestionWithChoices(std::string const &description, double score = 0.0);
+	CQuestionWithChoices(std::string const &description, double score = 0.0, const CGradedChoices & choices = CGradedChoices());
 	virtual ~CQuestionWithChoices();
 	CGradedChoices const& GetChoices()const;
 	void SetChoices(CGradedChoices const& choices);

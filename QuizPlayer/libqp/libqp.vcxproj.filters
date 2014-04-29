@@ -114,6 +114,9 @@
     <ClInclude Include="QuestionReview_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="QuizSession_fwd.h">
+      <Filter>Model\Session</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

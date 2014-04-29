@@ -5,7 +5,7 @@
 namespace qp
 {
 
-class CQuestionStates : public boost::noncopyable
+class CQuestionStates
 {
 public:
 	CQuestionStates();
@@ -13,7 +13,7 @@ public:
 
 	size_t GetCount()const;
 	void AddQuestionState(CQuestionStatePtr questionState);
-	CQuestionStatePtr GetQuestionStateAtIndex(size_t index);
+	CQuestionStatePtr GetQuestionStateAtIndex(size_t index)const;
 
 private:
 	std::vector<CQuestionStatePtr> m_questionStates;

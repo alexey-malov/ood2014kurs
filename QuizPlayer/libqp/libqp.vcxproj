@@ -95,6 +95,7 @@
     <ClInclude Include="QuestionState_fwd.h" />
     <ClInclude Include="Question_fwd.h" />
     <ClInclude Include="QuizSession.h" />
+    <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
     <ClInclude Include="types.h" />
