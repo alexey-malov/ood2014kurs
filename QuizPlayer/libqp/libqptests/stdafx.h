@@ -12,6 +12,7 @@
 
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
+#include <sstream>
 
 #define BOOST_TEST_MODULE LibQPTestModule
 #define BOOST_TEST_INCLUDED

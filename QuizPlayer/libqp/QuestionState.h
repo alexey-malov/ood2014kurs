@@ -11,6 +11,8 @@ class CQuestionState : boost::noncopyable
 public:
 	CQuestionState(CConstQuestionPtr const& question);
 
+	CConstQuestionPtr GetQuestion()const;
+
 	// Indicates whether the question has been submitted (user has givenan  answer to the question)
 	bool Submitted()const;
 

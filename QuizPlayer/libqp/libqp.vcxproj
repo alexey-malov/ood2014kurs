@@ -80,7 +80,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GradedChoice.h" />
+    <ClInclude Include="MultipleChoiceQuestionState_fwd.h" />
+    <ClInclude Include="IQuestionView.h" />
     <ClInclude Include="MatchingQuestion.h" />
+    <ClInclude Include="MultipleChoiceQuestionState.h" />
+    <ClInclude Include="MultipleChoiceQuestionView.h" />
+    <ClInclude Include="MultipleChoiceQuestion_fwd.h" />
+    <ClInclude Include="QuestionReview.h" />
+    <ClInclude Include="QuestionReview_fwd.h" />
+    <ClInclude Include="QuestionView.h" />
     <ClInclude Include="QuestionWithChoices.h" />
     <ClInclude Include="MultipleChoiceQuestion.h" />
     <ClInclude Include="IQuizView.h" />
@@ -91,6 +99,7 @@
     <ClInclude Include="QuestionState_fwd.h" />
     <ClInclude Include="Question_fwd.h" />
     <ClInclude Include="QuizSession.h" />
+    <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
     <ClInclude Include="types.h" />
@@ -104,11 +113,15 @@
   <ItemGroup>
     <ClCompile Include="MatchingQuestion.cpp" />
     <ClCompile Include="MultipleChoiceQuestion.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionState.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionView.cpp" />
     <ClCompile Include="MultipleResponseQuestion.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="QuestionReview.cpp" />
     <ClCompile Include="Questions.cpp" />
     <ClCompile Include="QuestionState.cpp" />
     <ClCompile Include="QuestionStates.cpp" />
+    <ClCompile Include="QuestionView.cpp" />
     <ClCompile Include="QuestionWithChoices.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />

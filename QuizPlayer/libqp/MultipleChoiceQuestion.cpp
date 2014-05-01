@@ -5,8 +5,8 @@ namespace qp
 {
 using namespace std;
 
-CMultipleChoiceQuestion::CMultipleChoiceQuestion(std::string const & description, double score)
-	:CQuestionWithChoices(description, score)
+CMultipleChoiceQuestion::CMultipleChoiceQuestion(std::string const & description, double score, const CGradedChoices & choices)
+	:CQuestionWithChoices(description, score, choices)
 {
 }
 

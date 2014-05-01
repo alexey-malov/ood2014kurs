@@ -3,20 +3,28 @@
 
 #include "stdafx.h"
 
-#include "libqp/Quiz.h"
-#include "libqp/QuizPlayer.h"
-#include "libqp/QuizView.h"
+#include "libqp/MultipleChoiceQuestion.h"
+#include "libqp/MultipleChoiceQuestionState.h"
+#include "libqp/MultipleChoiceQuestionView.h"
 
 using namespace qp;
 using namespace std;
 
+
 int _tmain()
 {
-	std::cout << "Welcome to QuizPlayer\n";
-	auto quiz = make_shared<CQuiz>();
-	CQuizView view;
-	CQuizPlayer qp(quiz, view);
-	qp.Start();
+	auto question = make_shared<CMultipleChoiceQuestion>("What is the name of our planet?", 10, CGradedChoices({
+		{ "Mercury", false },
+		{ "Venus", false },
+		{ "The Earth", true },
+		{ "Mars", false }
+	}));
+
+	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
+
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout);
+	questionView->Show();
+	
 	return 0;
 }
 

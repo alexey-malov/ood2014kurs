@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
-#include "QuestionState.h"
 #include "Question.h"
+#include "QuestionStateForTesting.h"
 
 using namespace qp;
 using namespace std;
@@ -18,25 +18,6 @@ struct QuestionStateTestsFixture
 
 
 BOOST_FIXTURE_TEST_SUITE(QuestionStateTests, QuestionStateTestsFixture)
-
-class CQuestionStateForTesting : public qp::CQuestionState
-{
-public:
-	CQuestionStateForTesting(CConstQuestionPtr const& question)
-		:CQuestionState(question)
-		,doSubmitCallCounter(0)
-	{
-	}
-
-	int doSubmitCallCounter;
-
-protected:
-	void DoSubmit()override
-	{
-		++doSubmitCallCounter;
-	}
-};
-
 
 BOOST_AUTO_TEST_CASE(InitialQuestionState)
 {
@@ -55,6 +36,12 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeSubmittedOnlyOnce)
 	//try to submit again
 	BOOST_CHECK_THROW(questionState.Submit(), logic_error);
 	BOOST_CHECK_EQUAL(questionState.doSubmitCallCounter, 1);
+}
+
+BOOST_AUTO_TEST_CASE(QuestionStateProvidesAccessToTheQuestion)
+{
+	CQuestionStateForTesting questionState(question);
+	BOOST_CHECK_EQUAL(questionState.GetQuestion(), question);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
