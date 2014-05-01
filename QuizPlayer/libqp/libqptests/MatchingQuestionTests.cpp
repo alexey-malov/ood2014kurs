@@ -13,33 +13,73 @@ BOOST_AUTO_TEST_CASE(Construction)
 	BOOST_REQUIRE_CLOSE(mq.GetScore(), 0.0, 0.0001);
 }
 
-BOOST_AUTO_TEST_CASE(MatchingPairsCollection)
+BOOST_AUTO_TEST_CASE(MatchingItemsConstruction)
 {
-	CMatchingPairs mp;
-	BOOST_REQUIRE_EQUAL(mp.GetPairsCount(), 0u);
-
-	mp.AddPair("1", "one");
-	BOOST_REQUIRE_EQUAL(mp.GetPairsCount(), 1u);
-
-	{
-		MatchingPair pair = mp.GetMatchingPair(0);
-		BOOST_REQUIRE(pair.leftItem);
-		BOOST_CHECK_EQUAL(*pair.leftItem, "1");
-		BOOST_REQUIRE(pair.rightItem);
-		BOOST_CHECK_EQUAL(*pair.rightItem, "one");
-	}
-
-	mp.AddPair("extra");
-	BOOST_CHECK_EQUAL(mp.GetPairsCount(), 2u);
-	BOOST_REQUIRE_THROW(mp.GetMatchingPair(2), out_of_range);
-
-	{
-		MatchingPair pair = mp.GetMatchingPair(1);
-		BOOST_REQUIRE(!pair.leftItem);
-		BOOST_REQUIRE(pair.rightItem);
-		BOOST_REQUIRE_EQUAL(*pair.rightItem, "extra");
-	}
+	CMatchingItems items;
+	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 0u);
+	BOOST_REQUIRE_EQUAL(items.GetExtraItemsCount(), 0u);
 }
+
+BOOST_AUTO_TEST_CASE(AddMatchedItemsToCollection)
+{
+	CMatchingItems items;
+	
+	BOOST_REQUIRE_NO_THROW(items.AddMatchedItems("1", "one"));
+	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 1u);
+	CMatchingItems::MatchedItems firstMatch = items.GetMatchedItems(0);
+	BOOST_REQUIRE_EQUAL(firstMatch.first, "1");
+	BOOST_REQUIRE_EQUAL(firstMatch.second, "one");
+	BOOST_REQUIRE_THROW(items.GetMatchedItems(1), out_of_range);
+
+	BOOST_REQUIRE_THROW(items.AddMatchedItems("1", "different"), invalid_argument);
+	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 1u);
+
+	BOOST_REQUIRE_THROW(items.AddMatchedItems("different", "one"), invalid_argument);
+	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 1u);
+}
+
+BOOST_AUTO_TEST_CASE(AddExtraItemToCollection)
+{
+	CMatchingItems items;
+	BOOST_REQUIRE_NO_THROW(items.AddExtraItem("extra"));
+	BOOST_REQUIRE_EQUAL(items.GetExtraItemsCount(), 1u);
+	BOOST_REQUIRE_EQUAL(items.GetExtraItem(0), "extra");
+	BOOST_REQUIRE_THROW(items.GetExtraItem(1), out_of_range);
+}
+
+BOOST_AUTO_TEST_CASE(GettingLeftMatchedItems)
+{
+	CMatchingItems items;
+	BOOST_CHECK(items.GetLeftMatchedItems().empty());
+
+	items.AddMatchedItems("1", "one");
+	auto leftItems = items.GetLeftMatchedItems();
+	BOOST_REQUIRE_EQUAL(leftItems.size(), 1u);
+	BOOST_REQUIRE_EQUAL(leftItems[0], "1");
+
+	items.AddExtraItem("extra");
+	leftItems = items.GetLeftMatchedItems();
+	BOOST_REQUIRE_EQUAL(leftItems.size(), 1u);
+	BOOST_REQUIRE_EQUAL(leftItems[0], "1");
+}
+
+BOOST_AUTO_TEST_CASE(GettingRightMatchedItems)
+{
+	CMatchingItems items;
+	BOOST_CHECK(items.GetRightMatchedItems().empty());
+
+	items.AddMatchedItems("1", "one");
+	auto rightItems = items.GetRightMatchedItems();
+	BOOST_REQUIRE_EQUAL(rightItems.size(), 1u);
+	BOOST_REQUIRE_EQUAL(rightItems[0], "one");
+
+	items.AddExtraItem("extra");
+	rightItems = items.GetRightMatchedItems();
+	BOOST_REQUIRE_EQUAL(rightItems.size(), 2u);
+	BOOST_REQUIRE_EQUAL(rightItems[0], "one");
+	BOOST_REQUIRE_EQUAL(rightItems[1], "extra");
+}
+
 
 BOOST_AUTO_TEST_CASE(QuestionConstruction)
 {
@@ -51,18 +91,19 @@ BOOST_AUTO_TEST_CASE(QuestionConstruction)
 BOOST_AUTO_TEST_CASE(PairChoicesAccessors)
 {
 	CMatchingQuestion question("description");
-	CMatchingPairs pairChoices;
-	pairChoices.AddPair("1", "one");
-	pairChoices.AddPair("extra");
-	question.SetPairChoices(pairChoices);
+	CMatchingItems items1;
+	items1.AddMatchedItems("1", "one");
+	items1.AddExtraItem("extra");
+	question.SetPairChoices(items1);
 
-	CMatchingPairs pairChoices2 = question.GetPairChoices();
-	BOOST_REQUIRE_EQUAL(pairChoices.GetPairsCount(), pairChoices2.GetPairsCount());
-
-	BOOST_REQUIRE_EQUAL(pairChoices.GetMatchingPair(0).leftItem, pairChoices2.GetMatchingPair(0).leftItem);
-	BOOST_REQUIRE_EQUAL(pairChoices.GetMatchingPair(0).rightItem, pairChoices2.GetMatchingPair(0).rightItem);
-	BOOST_REQUIRE_EQUAL(pairChoices.GetMatchingPair(1).leftItem, pairChoices2.GetMatchingPair(1).leftItem);
-	BOOST_REQUIRE_EQUAL(pairChoices.GetMatchingPair(1).rightItem, pairChoices2.GetMatchingPair(1).rightItem);
+	CMatchingItems items2 = question.GetPairChoices();
+	auto matchedItems = items2.GetMatchedItems(0);
+	BOOST_REQUIRE_EQUAL(items1.GetMatchedItemsCount(), items2.GetMatchedItemsCount());
+	BOOST_REQUIRE_EQUAL(items1.GetExtraItemsCount(), items2.GetExtraItemsCount());
+	
+	BOOST_REQUIRE_EQUAL(items1.GetMatchedItems(0).first, items2.GetMatchedItems(0).first);
+	BOOST_REQUIRE_EQUAL(items1.GetMatchedItems(0).second, items2.GetMatchedItems(0).second);
+	BOOST_REQUIRE_EQUAL(items1.GetExtraItem(0), items2.GetExtraItem(0));
 }
 
 BOOST_AUTO_TEST_SUITE_END()
