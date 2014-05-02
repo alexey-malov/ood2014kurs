@@ -11,7 +11,6 @@ CQuestionState::CQuestionState(CConstQuestionPtr const& question)
 {
 }
 
-
 CQuestionState::~CQuestionState()
 {
 }

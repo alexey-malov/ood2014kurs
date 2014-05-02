@@ -13,13 +13,22 @@ CMultipleChoiceQuestionState::CMultipleChoiceQuestionState(CConstMultipleChoiceQ
 {
 }
 
-
 CMultipleChoiceQuestionState::~CMultipleChoiceQuestionState()
 {
 }
 
 void CMultipleChoiceQuestionState::DoSubmit()
 {
+	if (m_answerIndex)
+	{
+		auto question = dynamic_pointer_cast<const CQuestionWithChoices>(GetQuestion());
+		CGradedChoices choices = question->GetChoices();
+		if (choices.GetChoice(*m_answerIndex).isCorrect)
+		{
+			m_review = make_unique<CQuestionReview>(question->GetScore(), true);
+			return;
+		}
+	}
 	m_review = make_unique<CQuestionReview>();
 }
 
@@ -34,7 +43,16 @@ CQuestionReview const CMultipleChoiceQuestionState::GetReview()const
 
 void CMultipleChoiceQuestionState::SetUserAnswerIndex(size_t answerIndex)
 {
-	answerIndex;
+	if (m_review)
+	{
+		throw logic_error("Answer cannot be changed after submitting");
+	}
+	m_answerIndex = answerIndex;
+}
+
+optional_size_t CMultipleChoiceQuestionState::GetUserAnswerIndex()const
+{
+	return m_answerIndex;
 }
 
 }

@@ -3,10 +3,11 @@
 
 namespace qp
 {
-CQuestionReview::CQuestionReview()
-{
+CQuestionReview::CQuestionReview(double awardedScore, bool isCorrect)
+:m_awardedScore(awardedScore)
+,m_isCorrect(isCorrect)
+{ 
 }
-
 
 CQuestionReview::~CQuestionReview()
 {
@@ -14,12 +15,12 @@ CQuestionReview::~CQuestionReview()
 
 bool CQuestionReview::AnswerIsCorrect()const
 {
-	return false;
+	return m_isCorrect;
 }
 
 double CQuestionReview::GetAwardedScore()const
 {
-	return 0;
+	return m_awardedScore;
 }
 
 }
