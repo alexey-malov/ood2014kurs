@@ -9,7 +9,7 @@ namespace qp
 class CMultipleResponseQuestion : public CQuestionWithChoices
 {
 public:
-	CMultipleResponseQuestion(std::string const &description, double score = 0.0);
+	CMultipleResponseQuestion(std::string const &description, double score = 0.0, const CGradedChoices & choices = CGradedChoices());
 	virtual ~CMultipleResponseQuestion();
 };
 
