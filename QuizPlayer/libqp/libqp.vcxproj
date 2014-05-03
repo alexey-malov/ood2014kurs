@@ -86,6 +86,10 @@
     <ClInclude Include="MultipleChoiceQuestionState.h" />
     <ClInclude Include="MultipleChoiceQuestionView.h" />
     <ClInclude Include="MultipleChoiceQuestion_fwd.h" />
+    <ClInclude Include="MultipleResponseQuestionState.h" />
+    <ClInclude Include="MultipleResponseQuestionState_fwd.h" />
+    <ClInclude Include="MultipleResponseQuestionView.h" />
+    <ClInclude Include="MultipleResponseQuestion_fwd.h" />
     <ClInclude Include="QuestionReview.h" />
     <ClInclude Include="QuestionReview_fwd.h" />
     <ClInclude Include="QuestionView.h" />
@@ -116,6 +120,8 @@
     <ClCompile Include="MultipleChoiceQuestionState.cpp" />
     <ClCompile Include="MultipleChoiceQuestionView.cpp" />
     <ClCompile Include="MultipleResponseQuestion.cpp" />
+    <ClCompile Include="MultipleResponseQuestionState.cpp" />
+    <ClCompile Include="MultipleResponseQuestionView.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuestionReview.cpp" />
     <ClCompile Include="Questions.cpp" />
