@@ -10,8 +10,7 @@
 using namespace qp;
 using namespace std;
 
-
-int _tmain()
+void TestMultipleChoiceQuestionVisualization()
 {
 	auto question = make_shared<CMultipleChoiceQuestion>("What is the name of our planet?", 10, CGradedChoices({
 		{ "Mercury", false },
@@ -24,6 +23,25 @@ int _tmain()
 
 	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout);
 	questionView->Show();
+}
+
+void TestMultipleResponseQuestionVisualization()
+{
+	// TODO: implement me
+}
+
+void TestQuestionVisualization()
+{
+	cout << "===========Multiple choice question============\n";
+	TestMultipleChoiceQuestionVisualization();
+
+	cout << "===========Multiple response question============\n";
+	TestMultipleResponseQuestionVisualization();
+}
+
+int main()
+{
+	TestQuestionVisualization();
 	
 	return 0;
 }
