@@ -4,6 +4,7 @@
 namespace qp
 {
 using namespace std;
+using namespace std::placeholders;
 
 CGradedChoices::CGradedChoices(const std::initializer_list<GradedChoice> & choices)
 :m_choices(choices)
@@ -18,7 +19,7 @@ size_t CGradedChoices::GetChoiceCount() const
 
 void CGradedChoices::AddChoice(std::string const & text, bool isCorrect)
 {
-	if (std::find_if(m_choices.begin(), m_choices.end(), std::bind(std::equal_to<string>(), std::bind(&GradedChoice::text, std::placeholders::_1), text)) != m_choices.end())
+	if (find_if(m_choices.begin(), m_choices.end(), bind(equal_to<string>(), bind(&GradedChoice::text, _1), text)) != m_choices.end())
 	{
 		throw(std::invalid_argument("Duplicate choice text"));
 	}
