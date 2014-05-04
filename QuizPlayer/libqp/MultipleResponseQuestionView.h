@@ -11,7 +11,7 @@ namespace qp
 		CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream);
 		~CMultipleResponseQuestionView();
 
-		virtual void ShowDetails();
+		void ShowDetails() override;
 
 	private:
 		CMultipleResponseQuestionStatePtr m_questionState;
