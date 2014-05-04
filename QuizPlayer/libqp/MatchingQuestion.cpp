@@ -9,21 +9,27 @@ CMatchingItems::~CMatchingItems(){}
 
 void CMatchingItems::AddMatchedItems(string const& leftItem, string const& rightItem)
 {
-	for (auto it = m_matchedItems.begin(); it < m_matchedItems.end(); ++it)
+	if (any_of(m_matchedItems.begin(), m_matchedItems.end(), 
+		[leftItem, rightItem](MatchedItems items){ return (items.first == leftItem || items.second == rightItem); }))
 	{
-		if (it->first == leftItem || it->second == rightItem)
-		{
-			throw invalid_argument("One or both items are already added");
-		}
+		throw invalid_argument("One or both items are already added");
+	}
+	if (any_of(m_extraItems.begin(), m_extraItems.end(), [rightItem](string const& item){ return item == rightItem; }))
+	{
+		throw invalid_argument("Right item already exists in extra items");
 	}
 	m_matchedItems.push_back({ leftItem, rightItem });
 }
 
 void CMatchingItems::AddExtraItem(string const& extraItem)
 {
-	if (find(m_extraItems.begin(), m_extraItems.end(), extraItem) != m_extraItems.end())
+	if (any_of(m_extraItems.begin(), m_extraItems.end(), [extraItem](string const& item){ return item == extraItem; }))
 	{
 		throw invalid_argument("Item is already added");
+	}
+	if (any_of(m_matchedItems.begin(), m_matchedItems.end(), [extraItem](MatchedItems items){ return items.second == extraItem; }))
+	{
+		throw invalid_argument("Item is already exists as right item in matched items");
 	}
 	m_extraItems.push_back(extraItem);
 }
@@ -43,7 +49,7 @@ CMatchingItems::MatchedItems const& CMatchingItems::GetMatchedItems(size_t index
 	return m_matchedItems.at(index);
 }
 
-string CMatchingItems::GetExtraItem(size_t index)const
+string const& CMatchingItems::GetExtraItem(size_t index)const
 {
 	return m_extraItems.at(index);
 }

@@ -12,6 +12,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <algorithm>
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
 

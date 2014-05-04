@@ -15,7 +15,7 @@ public:
 	size_t GetMatchedItemsCount()const;
 	size_t GetExtraItemsCount()const;
 	MatchedItems const& GetMatchedItems(size_t index)const;
-	std::string GetExtraItem(size_t index)const;
+	std::string const& GetExtraItem(size_t index)const;
 
 	void AddMatchedItems(std::string const& leftItem, std::string const& rightItem);
 	void AddExtraItem(std::string const& extraItem);

@@ -36,6 +36,10 @@ BOOST_AUTO_TEST_CASE(AddMatchedItemsToCollection)
 
 	BOOST_REQUIRE_THROW(items.AddMatchedItems("different", "one"), invalid_argument);
 	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 1u);
+
+	BOOST_REQUIRE_NO_THROW(items.AddExtraItem("extra"));
+	BOOST_REQUIRE_THROW(items.AddMatchedItems("different", "extra"), invalid_argument);
+	BOOST_REQUIRE_EQUAL(items.GetMatchedItemsCount(), 1u);
 }
 
 BOOST_AUTO_TEST_CASE(AddExtraItemToCollection)
@@ -45,6 +49,10 @@ BOOST_AUTO_TEST_CASE(AddExtraItemToCollection)
 	BOOST_REQUIRE_EQUAL(items.GetExtraItemsCount(), 1u);
 	BOOST_REQUIRE_EQUAL(items.GetExtraItem(0), "extra");
 	BOOST_REQUIRE_THROW(items.GetExtraItem(1), out_of_range);
+	BOOST_REQUIRE_THROW(items.AddExtraItem("extra"), invalid_argument);
+
+	BOOST_REQUIRE_NO_THROW(items.AddMatchedItems("1", "one"));
+	BOOST_REQUIRE_THROW(items.AddExtraItem("one"), invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(GettingLeftMatchedItems)
