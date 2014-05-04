@@ -77,15 +77,18 @@ BOOST_AUTO_TEST_CASE(GettingRightMatchedItems)
 	BOOST_CHECK(items.GetRightMatchedItems().empty());
 
 	items.AddMatchedItems("1", "one");
+	items.AddMatchedItems("2", "two");
 	auto rightItems = items.GetRightMatchedItems();
-	BOOST_REQUIRE_EQUAL(rightItems.size(), 1u);
+	BOOST_REQUIRE_EQUAL(rightItems.size(), 2u);
 	BOOST_REQUIRE_EQUAL(rightItems[0], "one");
+	BOOST_REQUIRE_EQUAL(rightItems[1], "two");
 
 	items.AddExtraItem("extra");
 	rightItems = items.GetRightMatchedItems();
-	BOOST_REQUIRE_EQUAL(rightItems.size(), 2u);
+	BOOST_REQUIRE_EQUAL(rightItems.size(), 3u);
 	BOOST_REQUIRE_EQUAL(rightItems[0], "one");
-	BOOST_REQUIRE_EQUAL(rightItems[1], "extra");
+	BOOST_REQUIRE_EQUAL(rightItems[1], "two");
+	BOOST_REQUIRE_EQUAL(rightItems[2], "extra");
 }
 
 

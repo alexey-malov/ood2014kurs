@@ -57,20 +57,16 @@ string const& CMatchingItems::GetExtraItem(size_t index)const
 vector<string> CMatchingItems::GetLeftMatchedItems()const
 {
 	vector<string> items;
-	for (auto it = m_matchedItems.begin(); it < m_matchedItems.end(); ++it)
-	{
-		items.push_back(it->first);
-	}
+	items.reserve(m_matchedItems.size());
+	transform(m_matchedItems.begin(), m_matchedItems.end(), back_inserter(items), [](MatchedItems pairItems){ return pairItems.first; });
 	return items;
 }
 
 vector<string> CMatchingItems::GetRightMatchedItems()const
 {
 	vector<string> items;
-	for (auto it = m_matchedItems.begin(); it < m_matchedItems.end(); ++it)
-	{
-		items.push_back(it->second);
-	}
+	items.reserve(m_matchedItems.size());
+	transform(m_matchedItems.begin(), m_matchedItems.end(), back_inserter(items), [](MatchedItems pairItems){ return pairItems.second; });
 	items.insert(items.end(), m_extraItems.begin(), m_extraItems.end());
 	return items;
 }
