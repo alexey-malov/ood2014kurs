@@ -10,7 +10,8 @@ using namespace std;
 
 CMultipleResponseQuestionState::CMultipleResponseQuestionState(CConstMultipleResponseQuestionPtr const& question)
 :CQuestionState(question)
-, m_responses(std::vector<bool>(dynamic_pointer_cast<const CQuestionWithChoices>(question)->GetChoices().GetChoiceCount(), false))
+, m_responses(std::vector<bool>(question->GetChoices().GetChoiceCount(), false))
+, m_question(question)
 {
 }
 
@@ -19,26 +20,25 @@ CMultipleResponseQuestionState::~CMultipleResponseQuestionState()
 }
 
 
-bool CMultipleResponseQuestionState::GetUserResponse(size_t answerIndex) const
+bool CMultipleResponseQuestionState::ChoiceIsSelected(size_t index) const
 {
-	return m_responses.at(answerIndex);
+	return m_responses.at(index);
 }
 
 
-void CMultipleResponseQuestionState::ChangeUserResponse(size_t answerIndex, bool state)
+void CMultipleResponseQuestionState::ChangeResponse(size_t index, bool selected)
 {
 	if (m_review)
 	{
 		throw logic_error("Answer cannot be changed after submitting");
 	}
-	m_responses[answerIndex] = state;
+	m_responses.at(index) = selected;
 }
 
 
 void CMultipleResponseQuestionState::DoSubmit()
 {
-	auto question = dynamic_pointer_cast<const CQuestionWithChoices>(GetQuestion());
-	CGradedChoices choices = question->GetChoices();
+	CGradedChoices const choices = m_question->GetChoices();
 
 	bool isCorrect = true;
 	for (size_t idx = 0; idx < choices.GetChoiceCount(); ++idx)
@@ -46,14 +46,7 @@ void CMultipleResponseQuestionState::DoSubmit()
 		isCorrect &= (choices.GetChoice(idx).isCorrect == m_responses.at(idx));
 	}
 
-	if (isCorrect)
-	{
-		m_review = make_unique<CQuestionReview>(question->GetScore(), true);
-	}
-	else
-	{
-		m_review = make_unique<CQuestionReview>();
-	}
+	m_review = make_unique<CQuestionReview>(isCorrect ? m_question->GetScore() : 0, isCorrect);
 }
 
 CQuestionReview const CMultipleResponseQuestionState::GetReview()const
