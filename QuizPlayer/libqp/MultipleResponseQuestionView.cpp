@@ -17,7 +17,7 @@ CMultipleResponseQuestionView::~CMultipleResponseQuestionView()
 {
 }
 
-void CMultipleResponseQuestionView::ShowDetails() const
+void CMultipleResponseQuestionView::ShowDetails()
 {
 }
 

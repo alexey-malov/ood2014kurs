@@ -23,12 +23,12 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 		,detailsWereShown(false)
 		{}
 
-		void ShowDetails() const override
+		void ShowDetails() override
 		{
 			detailsWereShown = true;
 		}
 
-		mutable bool detailsWereShown;
+		bool detailsWereShown;
 	};
 
 	ostringstream ostrm;

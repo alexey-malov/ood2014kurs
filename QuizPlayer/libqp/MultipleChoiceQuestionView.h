@@ -11,7 +11,7 @@ public:
 	CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream);
 	~CMultipleChoiceQuestionView();
 
-	virtual void ShowDetails() const;
+	virtual void ShowDetails() override;
 
 private:
 	CMultipleChoiceQuestionStatePtr m_questionState;
