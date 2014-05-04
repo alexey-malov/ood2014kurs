@@ -13,7 +13,7 @@ public:
 	CMultipleResponseQuestionState(CConstMultipleResponseQuestionPtr const& question);
 	~CMultipleResponseQuestionState();
 
-	bool ChoiceIsSelected(size_t index) const;
+	bool ResponseIsSelected(size_t index) const;
 	void ChangeResponse(size_t index, bool selected);
 	void SelectResponse(size_t index) { ChangeResponse(index, true); };
 	void UnselectResponse(size_t index) { ChangeResponse(index, false); };

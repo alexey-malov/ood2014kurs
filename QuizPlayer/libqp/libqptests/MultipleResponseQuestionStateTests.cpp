@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(ForbidChangingAnswerAfterSubmit)
 	state.SelectResponse(3);
 	state.Submit();
 	BOOST_REQUIRE_THROW(state.UnselectResponse(3), logic_error);
-	BOOST_CHECK_EQUAL(state.ChoiceIsSelected(3), true);
+	BOOST_CHECK_EQUAL(state.ResponseIsSelected(3), true);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

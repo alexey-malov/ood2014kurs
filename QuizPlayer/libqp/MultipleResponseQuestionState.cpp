@@ -20,7 +20,7 @@ CMultipleResponseQuestionState::~CMultipleResponseQuestionState()
 }
 
 
-bool CMultipleResponseQuestionState::ChoiceIsSelected(size_t index) const
+bool CMultipleResponseQuestionState::ResponseIsSelected(size_t index) const
 {
 	return m_responses.at(index);
 }
