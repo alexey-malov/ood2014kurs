@@ -7,6 +7,10 @@
 #include "libqp/MultipleChoiceQuestionState.h"
 #include "libqp/MultipleChoiceQuestionView.h"
 
+#include "libqp/MultipleResponseQuestion.h"
+#include "libqp/MultipleResponseQuestionState.h"
+#include "libqp/MultipleResponseQuestionView.h"
+
 using namespace qp;
 using namespace std;
 
@@ -27,7 +31,17 @@ void TestMultipleChoiceQuestionVisualization()
 
 void TestMultipleResponseQuestionVisualization()
 {
-	// TODO: implement me
+	auto question = make_shared<CMultipleResponseQuestion>("Prime numbers:", 10, CGradedChoices({
+		{ "2", true },
+		{ "3", true },
+		{ "4", false },
+		{ "5", true }
+	}));
+
+	auto questionState = make_shared<CMultipleResponseQuestionState>(question);
+
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout);
+	questionView->Show();
 }
 
 void TestMatchingQuestionVisualization()
