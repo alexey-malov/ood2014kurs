@@ -16,11 +16,12 @@ public:
 	virtual void Show() override final;
 protected:
 	virtual void ShowDetails() const = 0;
-	std::ostream & m_outputStream;
+	virtual std::ostream const & GetOutputStream() const { return m_outputStream; };
 private:
 	void ShowDescription()const;
 	const CQuestion & GetQuestion()const;
 private:
+	std::ostream & m_outputStream;
 	CQuestionStatePtr m_questionState;
 };
 
