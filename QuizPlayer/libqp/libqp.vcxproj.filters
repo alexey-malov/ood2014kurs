@@ -204,4 +204,8 @@
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
 </Project>
