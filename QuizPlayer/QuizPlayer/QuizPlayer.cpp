@@ -30,6 +30,11 @@ void TestMultipleResponseQuestionVisualization()
 	// TODO: implement me
 }
 
+void TestMatchingQuestionVisualization()
+{
+	// TODO: implement me
+}
+
 void TestQuestionVisualization()
 {
 	cout << "===========Multiple choice question============\n";
@@ -37,6 +42,9 @@ void TestQuestionVisualization()
 
 	cout << "===========Multiple response question============\n";
 	TestMultipleResponseQuestionVisualization();
+
+	cout << "===========Matching question============\n";
+	TestMatchingQuestionVisualization();
 }
 
 int main()
