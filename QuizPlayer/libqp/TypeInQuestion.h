@@ -10,6 +10,7 @@ class CTypeInQuestion :
 	public CQuestion
 {
 public:
+	LOKI_DEFINE_CONST_VISITABLE()
 	CTypeInQuestion(std::string const& description, std::set<std::string> const& answers, double score = 0.0);
 	~CTypeInQuestion();
 	std::set<std::string> const& GetAnswers() const;
