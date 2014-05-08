@@ -6,7 +6,9 @@
 namespace qp
 {
 
-class CQuestion : boost::noncopyable
+class CQuestion 
+	: boost::noncopyable
+	, public Loki::BaseVisitable<void, Loki::DefaultCatchAll, true>
 {
 public:
 	CQuestion(std::string const& description, double score = 0.0);

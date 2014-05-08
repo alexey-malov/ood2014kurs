@@ -32,6 +32,8 @@ private:
 class CMatchingQuestion : public CQuestion
 {
 public:
+	LOKI_DEFINE_CONST_VISITABLE()
+
 	CMatchingQuestion(std::string const& description, double score = 0.0);
 	~CMatchingQuestion();
 
