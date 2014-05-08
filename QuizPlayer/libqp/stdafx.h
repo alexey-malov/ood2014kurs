@@ -12,6 +12,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <set>
 #include <algorithm>
 #include <iterator>
 #include <boost/optional.hpp>

@@ -1,4 +1,6 @@
 #pragma once
+
+#include "stdafx.h"
 #include "Question.h"
 
 namespace qp
@@ -8,12 +10,11 @@ class CTypeInQuestion :
 	public CQuestion
 {
 public:
-	CTypeInQuestion(std::string const& description, double score = 0.0);
+	CTypeInQuestion(std::string const& description, std::set<std::string> const& answers, double score = 0.0);
 	~CTypeInQuestion();
-	void SetAnswers(std::vector<std::string> const& answers);
-	std::vector<std::string> const& GetAnswers() const;
+	std::set<std::string> const& GetAnswers() const;
 private:
-	std::vector<std::string> m_answers;
+	std::set<std::string> m_answers;
 };
 
 }

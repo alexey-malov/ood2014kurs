@@ -4,9 +4,14 @@
 namespace qp
 {
 
-CTypeInQuestion::CTypeInQuestion(std::string const& description, double score)
+CTypeInQuestion::CTypeInQuestion(std::string const& description, std::set<std::string> const& answers, double score)
 :CQuestion(description, score)
 {
+	if (answers.empty())
+	{
+		throw std::invalid_argument("Answer cannot be empty");
+	}
+	m_answers = answers;
 }
 
 
@@ -14,12 +19,7 @@ CTypeInQuestion::~CTypeInQuestion()
 {
 }
 
-void CTypeInQuestion::SetAnswers(std::vector<std::string> const& answers) 
-{
-	m_answers = answers;
-}
-
-std::vector<std::string> const& CTypeInQuestion::GetAnswers() const
+std::set<std::string> const& CTypeInQuestion::GetAnswers() const
 {
 	return m_answers;
 }
