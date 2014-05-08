@@ -2,6 +2,7 @@
 
 #include "Quiz.h"
 #include "Question.h"
+#include "QuestionForTest.h"
 
 BOOST_AUTO_TEST_SUITE(QuizTestSuite)
 
@@ -31,8 +32,8 @@ BOOST_AUTO_TEST_CASE(CanAssignQuestionsToQuiz)
 	BOOST_CHECK_EQUAL(questions.GetCount(), quisQuestions.GetCount());
 	
 	//add not empty question collection
-	auto question1 = make_shared<CQuestion>("First question");
-	auto question2 = make_shared<CQuestion>("Second question");
+	auto question1 = make_shared<CQuestionForTest>("First question");
+	auto question2 = make_shared<CQuestionForTest>("Second question");
 	questions.AddQuestion(question1);
 	questions.AddQuestion(question2);
 	quiz.SetQuestions(questions);

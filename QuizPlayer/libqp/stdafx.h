@@ -17,5 +17,7 @@
 #include <iterator>
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
+#include <loki/Visitor.h> // Unzip loki-0.1.7.zip to SDK and setup include files of Visual studio to {sdk}/{lokidir}/include
+
 
 // TODO: reference additional headers your program requires here
