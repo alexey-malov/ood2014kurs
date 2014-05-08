@@ -144,6 +144,9 @@
     <ClInclude Include="MultipleResponseQuestionState.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="TypeInQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -202,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="MultipleResponseQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
