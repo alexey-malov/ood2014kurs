@@ -5,41 +5,27 @@
 namespace qp
 {
 
-class CMatchingItems
-{
-public:
-	CMatchingItems();
-	~CMatchingItems();
-	
-	typedef std::pair<std::string, std::string> MatchedItems;
-	size_t GetMatchedItemsCount()const;
-	size_t GetExtraItemsCount()const;
-	MatchedItems const& GetMatchedItems(size_t index)const;
-	std::string const& GetExtraItem(size_t index)const;
-
-	void AddMatchedItems(std::string const& leftItem, std::string const& rightItem);
-	void AddExtraItem(std::string const& extraItem);
-
-	std::vector<std::string> GetLeftMatchedItems()const;
-	std::vector<std::string> GetRightMatchedItems()const;
-	
-private:
-	std::vector<MatchedItems> m_matchedItems;
-	std::vector<std::string> m_extraItems;
-};
-
-
 class CMatchingQuestion : public CQuestion
 {
 public:
-	CMatchingQuestion(std::string const& description, double score = 0.0);
-	~CMatchingQuestion();
+	typedef std::pair<std::string, std::string> MatchedItems;
+    typedef std::vector<MatchedItems> MatchedItemsCollection;
+	typedef std::vector<std::string> StandaloneItems;
 
-	CMatchingItems const& GetPairChoices()const;
-	void SetPairChoices(CMatchingItems const& pairs);
+	CMatchingQuestion(const std::string & description, double score = 0.0, const MatchedItemsCollection & matchedItems = MatchedItemsCollection(), const StandaloneItems & extraItems = StandaloneItems());
+	
+	const MatchedItemsCollection & GetMatchedItems()const;
+	const StandaloneItems & GetExtraItems()const;
+	
+	size_t GetMatchedItemsCount()const;
+	size_t GetExtraItemsCount()const;
+
+	StandaloneItems GetLeftMatchingItems()const;
+	StandaloneItems GetRightMatchingItems()const;
 
 private:
-	CMatchingItems m_pairChoices;
+    MatchedItemsCollection m_matchedItems;
+    StandaloneItems m_extraItems;
 };
 
 }

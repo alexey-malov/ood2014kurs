@@ -1,92 +1,62 @@
 #include "stdafx.h"
 #include "MatchingQuestion.h"
+#include <set>
 
 using namespace qp;
 using namespace std;
+using MatchedItems = CMatchingQuestion::MatchedItems;
+using StandaloneItems = CMatchingQuestion::StandaloneItems;
 
-CMatchingItems::CMatchingItems(){}
-CMatchingItems::~CMatchingItems(){}
-
-void CMatchingItems::AddMatchedItems(string const& leftItem, string const& rightItem)
+CMatchingQuestion::CMatchingQuestion(const string& description, double score, const MatchedItemsCollection & matchedItems, const StandaloneItems & extraItems)
+:CQuestion(description, score)
 {
-	if (any_of(m_matchedItems.begin(), m_matchedItems.end(), 
-		[leftItem, rightItem](MatchedItems items){ return (items.first == leftItem || items.second == rightItem); }))
+	
+	set<string> leftItems, rightItems;
+	transform(matchedItems.begin(), matchedItems.end(), inserter(leftItems, leftItems.begin()), [](MatchedItems pairItems){ return pairItems.first; });
+	transform(matchedItems.begin(), matchedItems.end(), inserter(rightItems, rightItems.begin()), [](MatchedItems pairItems){ return pairItems.second; });
+	rightItems.insert(extraItems.begin(), extraItems.end());
+	if (leftItems.size() != matchedItems.size() || rightItems.size() != matchedItems.size() + extraItems.size())
 	{
-		throw invalid_argument("One or both items are already added");
+		throw invalid_argument("Duplicates in matching question are not allowed");
 	}
-	if (any_of(m_extraItems.begin(), m_extraItems.end(), [rightItem](string const& item){ return item == rightItem; }))
-	{
-		throw invalid_argument("Right item already exists in extra items");
-	}
-	m_matchedItems.push_back({ leftItem, rightItem });
+	
+	m_matchedItems = matchedItems;
+	m_extraItems = extraItems;
 }
 
-void CMatchingItems::AddExtraItem(string const& extraItem)
+const CMatchingQuestion::MatchedItemsCollection & CMatchingQuestion::GetMatchedItems()const
 {
-	if (any_of(m_extraItems.begin(), m_extraItems.end(), [extraItem](string const& item){ return item == extraItem; }))
-	{
-		throw invalid_argument("Item is already added");
-	}
-	if (any_of(m_matchedItems.begin(), m_matchedItems.end(), [extraItem](MatchedItems items){ return items.second == extraItem; }))
-	{
-		throw invalid_argument("Item is already exists as right item in matched items");
-	}
-	m_extraItems.push_back(extraItem);
+	return m_matchedItems;
 }
 
-size_t CMatchingItems::GetMatchedItemsCount()const
+const StandaloneItems & CMatchingQuestion::GetExtraItems()const
 {
-	return m_matchedItems.size();
+	return m_extraItems;
 }
 
-size_t CMatchingItems::GetExtraItemsCount()const
+StandaloneItems CMatchingQuestion::GetLeftMatchingItems()const
 {
-	return m_extraItems.size();
-}
-
-CMatchingItems::MatchedItems const& CMatchingItems::GetMatchedItems(size_t index)const
-{
-	return m_matchedItems.at(index);
-}
-
-string const& CMatchingItems::GetExtraItem(size_t index)const
-{
-	return m_extraItems.at(index);
-}
-
-vector<string> CMatchingItems::GetLeftMatchedItems()const
-{
-	vector<string> items;
+	StandaloneItems items;
 	items.reserve(m_matchedItems.size());
 	transform(m_matchedItems.begin(), m_matchedItems.end(), back_inserter(items), [](MatchedItems pairItems){ return pairItems.first; });
 	return items;
 }
 
-vector<string> CMatchingItems::GetRightMatchedItems()const
+StandaloneItems CMatchingQuestion::GetRightMatchingItems()const
 {
-	vector<string> items;
-	items.reserve(m_matchedItems.size());
+	StandaloneItems items;
+	items.reserve(m_matchedItems.size() + m_extraItems.size());
 	transform(m_matchedItems.begin(), m_matchedItems.end(), back_inserter(items), [](MatchedItems pairItems){ return pairItems.second; });
 	items.insert(items.end(), m_extraItems.begin(), m_extraItems.end());
 	return items;
 }
 
-
-CMatchingQuestion::CMatchingQuestion(string const& description, double score)
-:CQuestion(description, score)
+size_t CMatchingQuestion::GetMatchedItemsCount()const
 {
+	return m_matchedItems.size();
 }
 
-CMatchingQuestion::~CMatchingQuestion()
+size_t CMatchingQuestion::GetExtraItemsCount()const
 {
-}
-
-CMatchingItems const& CMatchingQuestion::GetPairChoices()const
-{
-	return m_pairChoices;
-}
-
-void CMatchingQuestion::SetPairChoices(CMatchingItems const& pairs)
-{
-	m_pairChoices = pairs;
+	return m_extraItems.size();
 }
