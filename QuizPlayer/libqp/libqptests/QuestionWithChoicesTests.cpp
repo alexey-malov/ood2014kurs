@@ -7,6 +7,16 @@ BOOST_AUTO_TEST_SUITE(QuestionWithChoicesTests)
 using namespace qp;
 using namespace std;
 
+class CQuestionWithChoicesForTest : public CQuestionWithChoices
+{
+public:
+	LOKI_DEFINE_CONST_VISITABLE()
+	CQuestionWithChoicesForTest(std::string const &description, double score = 0.0, const CGradedChoices & choices = CGradedChoices())
+		:CQuestionWithChoices(description, score, choices)
+	{
+	}
+};
+
 BOOST_AUTO_TEST_CASE(GradedChoicesCollection)
 {
 	CGradedChoices choices;
@@ -61,7 +71,7 @@ BOOST_AUTO_TEST_CASE(DuplicateChoice)
 
 BOOST_AUTO_TEST_CASE(QuestionConstruction)
 {
-	CQuestionWithChoices question("Question description", 666.5);
+	CQuestionWithChoicesForTest question("Question description", 666.5);
 	BOOST_REQUIRE_EQUAL(question.GetDescription(), "Question description");
 	BOOST_REQUIRE_CLOSE(question.GetScore(), 666.5, 0.0001);
 	BOOST_REQUIRE_EQUAL(question.GetChoices().GetChoiceCount(), 0u);
@@ -71,7 +81,7 @@ BOOST_AUTO_TEST_CASE(QuestionConstructionWithChoices)
 {
 	CGradedChoices choices;
 	choices.AddChoice("Text", true);
-	CQuestionWithChoices q("Desc", 7, choices);
+	CQuestionWithChoicesForTest q("Desc", 7, choices);
 	auto & questionChoices = q.GetChoices();
 	BOOST_REQUIRE_EQUAL(questionChoices.GetChoiceCount(), 1u);
 	auto & choice0 = questionChoices.GetChoice(0);
@@ -83,7 +93,7 @@ BOOST_AUTO_TEST_CASE(QuestionConstructionWithChoices)
 
 BOOST_AUTO_TEST_CASE(ChoicesAccessors)
 {
-	CQuestionWithChoices question("Question description");
+	CQuestionWithChoicesForTest question("Question description");
 	CGradedChoices choices;
 	choices.AddChoice("3", false);
 	choices.AddChoice("4", true);

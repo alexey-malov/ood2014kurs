@@ -2,6 +2,7 @@
 
 #include "Question.h"
 #include "QuestionStateForTesting.h"
+#include "QuestionForTest.h"
 
 using namespace qp;
 using namespace std;
@@ -9,7 +10,7 @@ using namespace std;
 struct QuestionStateTestsFixture
 {
 	QuestionStateTestsFixture()
-	:question(make_shared<CQuestion>("Question", 10))
+	:question(make_shared<CQuestionForTest>("Question", 10))
 	{
 	}
 

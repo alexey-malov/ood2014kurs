@@ -37,6 +37,12 @@
     <Filter Include="Mocks\Views\Questions">
       <UniqueIdentifier>{d74b8a70-21e3-4c09-8bed-cf0ed032d8e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mocks\Model\Quiz">
+      <UniqueIdentifier>{5e2b6034-8c83-448b-82ad-382ca25c8ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Quiz\Questions">
+      <UniqueIdentifier>{8a746cd5-9168-4994-9417-0a41d6512830}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -53,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="QuestionStateForTesting.h">
       <Filter>Mocks\Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionForTest.h">
+      <Filter>Mocks\Model\Quiz\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +114,12 @@
       <Filter>Views</Filter>
     </ClCompile>
     <ClCompile Include="MultipleResponseQuestionStateTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleResponseQuestionViewTests.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestionTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
   </ItemGroup>

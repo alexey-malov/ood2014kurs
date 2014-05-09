@@ -1,27 +1,28 @@
 #include "stdafx.h"
 
 #include "Question.h"
+#include "MultipleResponseQuestion.h"
 #include "QuestionState.h"
 #include "QuestionView.h"
+#include "MultipleResponseQuestionView.h"
 #include "QuestionStateForTesting.h"
-#include "QuestionForTest.h"
 
 using namespace qp;
 using namespace std;
 
-BOOST_AUTO_TEST_SUITE(QuestionViewTests)
+BOOST_AUTO_TEST_SUITE(MultipleResponseQuestionViewTests)
 
-BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
+BOOST_AUTO_TEST_CASE(MultipleResponseQuestionViewShowsDescriptionAndDetails)
 {
 	string description = "Description";
-	auto question = make_shared<CQuestionForTest>(description, 10);
+	auto question = make_shared<CMultipleResponseQuestion>(description, 10);
 	auto state = make_shared<CQuestionStateForTesting>(question);
 	
-	struct TestQuestionView : public CQuestionView
+	struct TestQuestionView : public CMultipleResponseQuestionView
 	{
 		TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
-		:CQuestionView(questionState, outputStream)
-		,detailsWereShown(false)
+		:CMultipleResponseQuestionView(questionState, outputStream)
+		, detailsWereShown(false)
 		{}
 
 		void ShowDetails() override
@@ -31,7 +32,7 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 
 		bool detailsWereShown;
 	};
-
+	
 	ostringstream ostrm;
 	TestQuestionView view(state, ostrm);
 	view.Show();

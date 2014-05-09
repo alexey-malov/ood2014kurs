@@ -15,8 +15,8 @@ public:
 
 	virtual void Show() override final;
 protected:
-	virtual void ShowDetails() const = 0;
-	virtual std::ostream const & GetOutputStream() const { return m_outputStream; };
+	virtual void ShowDetails() = 0;
+	std::ostream & GetOutputStream() { return m_outputStream; };
 private:
 	void ShowDescription()const;
 	const CQuestion & GetQuestion()const;
