@@ -10,6 +10,7 @@ using namespace std;
 
 CMultipleChoiceQuestionState::CMultipleChoiceQuestionState(CConstMultipleChoiceQuestionPtr const& question)
 :CQuestionState(question)
+,m_question(question)
 {
 }
 
@@ -21,11 +22,10 @@ void CMultipleChoiceQuestionState::DoSubmit()
 {
 	if (m_answerIndex)
 	{
-		auto question = dynamic_pointer_cast<const CQuestionWithChoices>(GetQuestion());
-		CGradedChoices choices = question->GetChoices();
+		CGradedChoices const& choices = m_question->GetChoices();
 		if (choices.GetChoice(*m_answerIndex).isCorrect)
 		{
-			m_review = make_unique<CQuestionReview>(question->GetScore(), true);
+			m_review = make_unique<CQuestionReview>(m_question->GetScore(), true);
 			return;
 		}
 	}
