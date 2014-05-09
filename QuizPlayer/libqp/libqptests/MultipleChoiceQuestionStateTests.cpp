@@ -24,37 +24,35 @@ struct MultipleChoiceQuestionStateTestFixture
 
 BOOST_FIXTURE_TEST_SUITE(MultipleChoiceQuestionStateTests, MultipleChoiceQuestionStateTestFixture)
 
+void VerifyReview(CMultipleChoiceQuestionState & questionState, double expectedScore, bool isCorrect)
+{
+	BOOST_REQUIRE_NO_THROW(questionState.Submit());
+	BOOST_REQUIRE_NO_THROW(questionState.GetReview());
+	auto review = questionState.GetReview();
+	BOOST_CHECK(review.AnswerIsCorrect() == isCorrect);
+	BOOST_CHECK_EQUAL(review.GetAwardedScore(), expectedScore);
+}
 
 BOOST_AUTO_TEST_CASE(SubmittingOfQuestionWithoutAnswer)
 {
 	CMultipleChoiceQuestionState state(question);
 	BOOST_REQUIRE_THROW(state.GetReview(), logic_error);
-	BOOST_REQUIRE_NO_THROW(state.Submit());
 	BOOST_REQUIRE(!state.GetUserAnswerIndex());
-	BOOST_REQUIRE_NO_THROW(state.GetReview());
-	auto review = state.GetReview();
-	BOOST_CHECK(!review.AnswerIsCorrect());
-	BOOST_CHECK_EQUAL(review.GetAwardedScore(), 0.0);
+	VerifyReview(state, 0.0, false);
 }
 
 BOOST_AUTO_TEST_CASE(SubmittingCorrectAnswer)
 {
 	CMultipleChoiceQuestionState state(question);
 	state.SetUserAnswerIndex(1);
-	state.Submit();
-	auto review = state.GetReview();
-	BOOST_CHECK(review.AnswerIsCorrect());
-	BOOST_CHECK_EQUAL(review.GetAwardedScore(), 10.0);
+	VerifyReview(state, 10.0, true);
 }
 
 BOOST_AUTO_TEST_CASE(SubmittingIncorrectAnswer)
 {
 	CMultipleChoiceQuestionState state(question);
 	state.SetUserAnswerIndex(0);
-	state.Submit();
-	auto review = state.GetReview();
-	BOOST_CHECK(!review.AnswerIsCorrect());
-	BOOST_CHECK_EQUAL(review.GetAwardedScore(), 0.0);
+	VerifyReview(state, 0.0, false);
 }
 
 BOOST_AUTO_TEST_CASE(ForbidChangingAnswerAfterSubmit)
