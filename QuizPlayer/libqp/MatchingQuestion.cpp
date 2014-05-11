@@ -60,3 +60,13 @@ size_t CMatchingQuestion::GetExtraItemsCount()const
 {
 	return m_extraItems.size();
 }
+
+size_t CMatchingQuestion::GetLeftMatchingItemsCount()const
+{
+	return GetLeftMatchingItems().size();
+}
+
+size_t CMatchingQuestion::GetRightMatchingItemsCount()const
+{
+	return GetRightMatchingItems().size();
+}

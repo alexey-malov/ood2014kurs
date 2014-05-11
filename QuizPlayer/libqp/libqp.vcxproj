@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GradedChoice.h" />
+    <ClInclude Include="MatchingQuestionState.h" />
+    <ClInclude Include="MatchingQuestionState_fwd.h" />
+    <ClInclude Include="MatchingQuestion_fwd.h" />
     <ClInclude Include="MultipleChoiceQuestionState_fwd.h" />
     <ClInclude Include="IQuestionView.h" />
     <ClInclude Include="MatchingQuestion.h" />
@@ -117,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MatchingQuestion.cpp" />
+    <ClCompile Include="MatchingQuestionState.cpp" />
     <ClCompile Include="MultipleChoiceQuestion.cpp" />
     <ClCompile Include="MultipleChoiceQuestionState.cpp" />
     <ClCompile Include="MultipleChoiceQuestionView.cpp" />

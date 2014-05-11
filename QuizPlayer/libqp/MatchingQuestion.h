@@ -25,6 +25,9 @@ public:
 
 	StandaloneItems GetLeftMatchingItems()const;
 	StandaloneItems GetRightMatchingItems()const;
+	
+	size_t GetLeftMatchingItemsCount()const;
+	size_t GetRightMatchingItemsCount()const;
 
 private:
 	MatchedItemsCollection m_matchedItems;
