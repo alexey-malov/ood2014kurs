@@ -18,15 +18,10 @@ void GenerateIndexes(vector<size_t> & arr, size_t size)
 CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & question)
 :CQuestionState(question)
 ,m_question(question)
+,m_responses(question->GetLeftMatchingItemsCount())
 {
 	GenerateIndexes(m_leftItemIndexes, question->GetLeftMatchingItemsCount());
 	GenerateIndexes(m_rightItemIndexes, question->GetRightMatchingItemsCount());
-	//fill m_responses with uninitialized values
-	for (size_t i = 0; i < question->GetLeftMatchingItemsCount(); ++i)
-	{
-		m_responses.push_back(1);
-		m_responses.at(i).reset();
-	}
 }
 
 CMatchingQuestionState::~CMatchingQuestionState()
