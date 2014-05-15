@@ -7,6 +7,16 @@ BOOST_AUTO_TEST_SUITE(QuestionWithChoicesTests)
 using namespace qp;
 using namespace std;
 
+class CQuestionWithChoicesForTest : public CQuestionWithChoices
+{
+public:
+	LOKI_DEFINE_CONST_VISITABLE()
+	CQuestionWithChoicesForTest(std::string const &description, double score = 0.0, const CGradedChoices & choices = CGradedChoices())
+		:CQuestionWithChoices(description, score, choices)
+	{
+	}
+};
+
 BOOST_AUTO_TEST_CASE(GradedChoicesCollection)
 {
 	CGradedChoices choices;
@@ -33,16 +43,57 @@ BOOST_AUTO_TEST_CASE(GradedChoicesCollection)
 	}
 }
 
+BOOST_AUTO_TEST_CASE(GradedChoicesCollectionConstructionWithInitializerList)
+{
+	CGradedChoices choices({ 
+		{ "Correct", true }, 
+		{ "Incorrect", false } 
+	});
+
+	BOOST_REQUIRE_EQUAL(choices.GetChoiceCount(), 2u);
+
+	BOOST_CHECK_EQUAL(choices.GetChoice(0).text, "Correct");
+	BOOST_CHECK(choices.GetChoice(0).isCorrect);
+
+	BOOST_CHECK_EQUAL(choices.GetChoice(1).text, "Incorrect");
+	BOOST_CHECK(!choices.GetChoice(1).isCorrect);
+
+}
+
+BOOST_AUTO_TEST_CASE(DuplicateChoice)
+{
+	CGradedChoices choices;
+	choices.AddChoice("text 1", false);
+	BOOST_REQUIRE_NO_THROW(choices.AddChoice("text 2", false));
+	BOOST_REQUIRE_THROW(choices.AddChoice("text 2", false), invalid_argument);
+	BOOST_REQUIRE_THROW(choices.AddChoice("text 2", true), invalid_argument);
+}
+
 BOOST_AUTO_TEST_CASE(QuestionConstruction)
 {
-	CQuestionWithChoices question("Question description");
+	CQuestionWithChoicesForTest question("Question description", 666.5);
 	BOOST_REQUIRE_EQUAL(question.GetDescription(), "Question description");
-	BOOST_REQUIRE_CLOSE(question.GetScore(), 0.0, 0.0001);
+	BOOST_REQUIRE_CLOSE(question.GetScore(), 666.5, 0.0001);
+	BOOST_REQUIRE_EQUAL(question.GetChoices().GetChoiceCount(), 0u);
 }
+
+BOOST_AUTO_TEST_CASE(QuestionConstructionWithChoices)
+{
+	CGradedChoices choices;
+	choices.AddChoice("Text", true);
+	CQuestionWithChoicesForTest q("Desc", 7, choices);
+	auto & questionChoices = q.GetChoices();
+	BOOST_REQUIRE_EQUAL(questionChoices.GetChoiceCount(), 1u);
+	auto & choice0 = questionChoices.GetChoice(0);
+	BOOST_CHECK_EQUAL(choice0.text, "Text");
+	BOOST_CHECK(choice0.isCorrect);
+}
+
+
 
 BOOST_AUTO_TEST_CASE(ChoicesAccessors)
 {
-	CQuestionWithChoices question("Question description");
+	CQuestionWithChoicesForTest question("Question description");
 	CGradedChoices choices;
 	choices.AddChoice("3", false);
 	choices.AddChoice("4", true);

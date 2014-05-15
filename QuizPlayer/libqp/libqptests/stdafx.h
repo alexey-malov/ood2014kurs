@@ -12,6 +12,11 @@
 
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
+#include <sstream>
+#include <vector>
+
+#include <loki/Visitor.h> // Unzip loki-0.1.7.zip to SDK and setup include files of Visual studio to {sdk}/{lokidir}/include
+
 
 #define BOOST_TEST_MODULE LibQPTestModule
 #define BOOST_TEST_INCLUDED

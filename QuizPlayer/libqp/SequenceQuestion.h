@@ -16,6 +16,7 @@ struct SequenceChoice
 class CSequenceQuestion : public CQuestion
 {
 public:
+	LOKI_DEFINE_CONST_VISITABLE()
 	CSequenceQuestion(std::string const &description, double score = 0.0);
 	virtual ~CSequenceQuestion();
 	void AddChoice(std::string const & text, size_t id);

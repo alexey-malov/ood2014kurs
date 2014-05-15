@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Questions.h"
 #include "Question.h"
+#include "QuestionForTest.h"
 
 BOOST_AUTO_TEST_SUITE(QuestionsTestSuite)
 
@@ -16,7 +17,7 @@ BOOST_AUTO_TEST_CASE(QuestionsCollectionIsInitiallyEmpty)
 BOOST_AUTO_TEST_CASE(QuestionCanBeAddedToCollectionAndAccessed)
 {
 	CQuestions questions;
-	auto question = make_shared<CQuestion>("Some question");
+	auto question = make_shared<CQuestionForTest>("Some question");
 	questions.AddQuestion(question);
 	BOOST_CHECK_EQUAL(questions.GetCount(), 1u);
 	BOOST_CHECK_EQUAL(questions.GetQuestionAtIndex(0), question);
@@ -28,7 +29,7 @@ BOOST_AUTO_TEST_CASE(QuestionCanBeAddedToCollectionAndAccessed)
 BOOST_AUTO_TEST_CASE(SameQuestionsAreNotAdded)
 {
 	CQuestions questions;
-	auto question = make_shared<CQuestion>("Some question");
+	auto question = make_shared<CQuestionForTest>("Some question");
 	questions.AddQuestion(question);
 	BOOST_CHECK_THROW(questions.AddQuestion(question), runtime_error);
 	BOOST_CHECK_EQUAL(questions.GetCount(), 1u);
@@ -38,8 +39,8 @@ BOOST_AUTO_TEST_CASE(SameQuestionsAreNotAdded)
 BOOST_AUTO_TEST_CASE(DifferentQuestionsCanBeAdded)
 {
 	CQuestions questions;
-	auto question = make_shared<CQuestion>("Some question");
-	auto question1 = make_shared<CQuestion>("Another question");
+	auto question = make_shared<CQuestionForTest>("Some question");
+	auto question1 = make_shared<CQuestionForTest>("Another question");
 	questions.AddQuestion(question);
 	questions.AddQuestion(question1);
 	BOOST_CHECK_EQUAL(questions.GetCount(), 2u);

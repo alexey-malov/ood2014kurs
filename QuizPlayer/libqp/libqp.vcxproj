@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\tools\boost;$(IncludePath)</IncludePath>
+    <IncludePath>C:\tools\boost;d:\loki-0.1.7\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -80,7 +80,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GradedChoice.h" />
+    <ClInclude Include="MatchingQuestionState.h" />
+    <ClInclude Include="MatchingQuestionState_fwd.h" />
+    <ClInclude Include="MatchingQuestion_fwd.h" />
+    <ClInclude Include="MultipleChoiceQuestionState_fwd.h" />
+    <ClInclude Include="IQuestionView.h" />
     <ClInclude Include="MatchingQuestion.h" />
+    <ClInclude Include="MultipleChoiceQuestionState.h" />
+    <ClInclude Include="MultipleChoiceQuestionView.h" />
+    <ClInclude Include="MultipleChoiceQuestion_fwd.h" />
+    <ClInclude Include="MultipleResponseQuestionState.h" />
+    <ClInclude Include="MultipleResponseQuestionState_fwd.h" />
+    <ClInclude Include="MultipleResponseQuestionView.h" />
+    <ClInclude Include="MultipleResponseQuestion_fwd.h" />
+    <ClInclude Include="QuestionReview.h" />
+    <ClInclude Include="QuestionReview_fwd.h" />
+    <ClInclude Include="QuestionView.h" />
     <ClInclude Include="QuestionWithChoices.h" />
     <ClInclude Include="MultipleChoiceQuestion.h" />
     <ClInclude Include="IQuizView.h" />
@@ -91,9 +106,11 @@
     <ClInclude Include="QuestionState_fwd.h" />
     <ClInclude Include="Question_fwd.h" />
     <ClInclude Include="QuizSession.h" />
+    <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
     <ClInclude Include="SequenceQuestion.h" />
+    <ClInclude Include="TypeInQuestion.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
@@ -104,12 +121,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MatchingQuestion.cpp" />
+    <ClCompile Include="MatchingQuestionState.cpp" />
     <ClCompile Include="MultipleChoiceQuestion.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionState.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionView.cpp" />
     <ClCompile Include="MultipleResponseQuestion.cpp" />
+    <ClCompile Include="MultipleResponseQuestionState.cpp" />
+    <ClCompile Include="MultipleResponseQuestionView.cpp" />
     <ClCompile Include="Question.cpp" />
+    <ClCompile Include="QuestionReview.cpp" />
     <ClCompile Include="Questions.cpp" />
     <ClCompile Include="QuestionState.cpp" />
     <ClCompile Include="QuestionStates.cpp" />
+    <ClCompile Include="QuestionView.cpp" />
     <ClCompile Include="QuestionWithChoices.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />
@@ -120,6 +144,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TypeInQuestion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

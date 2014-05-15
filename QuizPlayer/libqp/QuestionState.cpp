@@ -11,7 +11,6 @@ CQuestionState::CQuestionState(CConstQuestionPtr const& question)
 {
 }
 
-
 CQuestionState::~CQuestionState()
 {
 }
@@ -32,6 +31,11 @@ void CQuestionState::Submit()
 		DoSubmit();
 		m_submitted = true;
 	}
+}
+
+qp::CConstQuestionPtr CQuestionState::GetQuestion() const
+{
+	return m_question;
 }
 
 }

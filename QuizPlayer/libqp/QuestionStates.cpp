@@ -30,7 +30,7 @@ void CQuestionStates::AddQuestionState(CQuestionStatePtr questionState)
 	}
 }
 
-CQuestionStatePtr CQuestionStates::GetQuestionStateAtIndex(size_t index)
+CQuestionStatePtr CQuestionStates::GetQuestionStateAtIndex(size_t index)const
 {
 	if (index >= GetCount())
 	{

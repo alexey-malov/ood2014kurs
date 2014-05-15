@@ -5,22 +5,43 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\Mocks">
-      <UniqueIdentifier>{c5fe1ef7-8d78-4c41-adb0-0c9e566d9c1f}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files\Model">
-      <UniqueIdentifier>{3996d282-358f-4c3c-a0c3-0fe93796dd65}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Views">
-      <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Resource Files">
+    <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Model">
+      <UniqueIdentifier>{3996d282-358f-4c3c-a0c3-0fe93796dd65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks">
+      <UniqueIdentifier>{c5fe1ef7-8d78-4c41-adb0-0c9e566d9c1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Views">
+      <UniqueIdentifier>{2003c48c-e628-40f6-84da-28c7731a0915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{3840525b-ef7a-4568-a068-f4b923d03edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model">
+      <UniqueIdentifier>{5487a945-2672-4f2c-817c-8679806bd3a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Session">
+      <UniqueIdentifier>{7c89a964-7a25-4b17-bf13-79d696dd5965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Session\Questions">
+      <UniqueIdentifier>{2d22f54d-9740-487f-a31d-1e6263a9a41f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Views\Questions">
+      <UniqueIdentifier>{d74b8a70-21e3-4c09-8bed-cf0ed032d8e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Quiz">
+      <UniqueIdentifier>{5e2b6034-8c83-448b-82ad-382ca25c8ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks\Model\Quiz\Questions">
+      <UniqueIdentifier>{8a746cd5-9168-4994-9417-0a41d6512830}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MockQuizView.h">
-      <Filter>Header Files\Views</Filter>
+      <Filter>Mocks\Views</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
@@ -36,54 +57,72 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="QuestionStateForTesting.h">
+      <Filter>Mocks\Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionForTest.h">
+      <Filter>Mocks\Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Header Files\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MockQuizView.cpp">
-      <Filter>Header Files\Views</Filter>
-    </ClCompile>
-    <ClCompile Include="libqptests.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Mocks\Views</Filter>
     </ClCompile>
     <ClCompile Include="QuestionStateTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuestionsTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuestionTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuizPlayerTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuizSessionTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuizTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="MultipleResponseQuestionTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuestionStatesTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="QuestionWithChoicesTests.cpp">
-      <Filter>Header Files\Model</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
-    <ClCompile Include="SequenceQuestionTests.cpp">
-      <Filter>Header Files\Model</Filter>
+    <ClCompile Include="libqptests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MatchingQuestionTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionViewTests.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleResponseQuestionStateTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleResponseQuestionViewTests.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestionTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchingQuestionStateTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
   </ItemGroup>
