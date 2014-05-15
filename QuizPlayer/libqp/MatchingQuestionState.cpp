@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "MatchingQuestionState.h"
 #include "MatchingQuestion.h"
-#include <ctime>
+#include <random>
 
 using namespace qp;
 using namespace std;
@@ -11,8 +11,9 @@ void GenerateIndexes(vector<size_t> & arr, size_t size)
 	arr.resize(size);
 	int index(0);
 	generate(arr.begin(), arr.end(), [&]{ return ++index; });
-	srand(unsigned(time(0)));
-	random_shuffle(arr.begin(), arr.end());
+	random_device rd;
+	mt19937 mt(rd());
+	shuffle(arr.begin(), arr.end(), mt);
 }
 
 CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & question)
