@@ -160,10 +160,10 @@
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
     <ClInclude Include="TypeInQuestionState.h">
-      <Filter>Model\Quiz\Questions</Filter>
+      <Filter>Model\Session\Questions</Filter>
     </ClInclude>
     <ClInclude Include="TypeInQuestionState_fwd.h">
-      <Filter>Model\Quiz\Questions</Filter>
+      <Filter>Model\Session\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +234,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TypeInQuestionState.cpp">
-      <Filter>Model\Quiz\Questions</Filter>
+      <Filter>Model\Session\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
