@@ -221,6 +221,9 @@
     <ClCompile Include="MatchingQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
