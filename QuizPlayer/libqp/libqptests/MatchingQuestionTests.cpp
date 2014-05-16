@@ -100,4 +100,15 @@ BOOST_AUTO_TEST_CASE(GetRightItems)
 	BOOST_CHECK_EQUAL(rightItems[2], "extra");
 }
 
+BOOST_AUTO_TEST_CASE(CheckCountingMethods)
+{	
+	MatchedItemsCollection matchedItems = { MatchedItems("1", "one"), MatchedItems("2", "two") };
+	StandaloneItems extraItems = { "extra" };
+	CMatchingQuestion mq("Question description", 10, matchedItems, extraItems);
+	BOOST_CHECK_EQUAL(mq.GetMatchedItemsCount(), 2u);
+	BOOST_CHECK_EQUAL(mq.GetExtraItemsCount(), 1u);
+	BOOST_CHECK_EQUAL(mq.GetLeftMatchingItemsCount(), 2u);
+	BOOST_CHECK_EQUAL(mq.GetRightMatchingItemsCount(), 3u);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
