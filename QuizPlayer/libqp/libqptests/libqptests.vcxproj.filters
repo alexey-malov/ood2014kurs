@@ -128,5 +128,8 @@
     <ClCompile Include="MultipleChoiceQuestionViewTests.cpp">
       <Filter>Views</Filter>
     </ClCompile>
+    <ClCompile Include="UtilsTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

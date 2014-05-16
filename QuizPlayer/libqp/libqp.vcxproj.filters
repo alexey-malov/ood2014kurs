@@ -156,6 +156,15 @@
     <ClInclude Include="MatchingQuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="TypeInQuestion_fwd.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeInQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeInQuestionState_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -221,9 +230,11 @@
     <ClCompile Include="MatchingQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestionState.cpp">
+      <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

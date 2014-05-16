@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 
 	ostringstream ostrm;
 	TestQuestionView view(state, ostrm);
-	view.Show();
+	BOOST_REQUIRE_NO_THROW(view.Show());
 	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
 	BOOST_CHECK(view.detailsWereShown);
 	
