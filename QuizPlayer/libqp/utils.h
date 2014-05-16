@@ -1,5 +1,7 @@
 #pragma once
 
+#include "stdafx.h"
+
 namespace qp
 {
 
@@ -32,5 +34,7 @@ inline T const& Verify(T const& value, std::string const& errorMessage = std::st
 	}
 	return value;
 }
+
+std::string RemoveExtraSpaces(std::string const& arg);
 
 }
