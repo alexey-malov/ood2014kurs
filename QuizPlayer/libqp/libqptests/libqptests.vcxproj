@@ -112,6 +112,7 @@
     <ClCompile Include="MockQuizView.cpp" />
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionViewTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionStateTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionViewTests.cpp" />

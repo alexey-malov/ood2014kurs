@@ -1,10 +1,10 @@
 #include "stdafx.h"
+#include "MultipleChoiceQuestion.h"
 #include "MultipleChoiceQuestionView.h"
 #include "MultipleChoiceQuestionState.h"
 
-
-namespace qp
-{
+using namespace qp;
+using namespace std;
 
 CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream)
 :CQuestionView(questionState, outputStream)
@@ -12,13 +12,23 @@ CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQu
 {
 }
 
-
 CMultipleChoiceQuestionView::~CMultipleChoiceQuestionView()
 {
 }
 
-void CMultipleChoiceQuestionView::ShowDetails()
+std::string GetResponseBullet(unsigned char offset)
 {
+	return string(1, 'A' + offset);
 }
 
+void CMultipleChoiceQuestionView::ShowDetails()
+{
+	CConstMultipleChoiceQuestionPtr question = m_questionState->GetQuestion();
+	auto & outputStream = GetOutputStream();
+	CGradedChoices const& choices = question->GetChoices();
+	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)
+	{
+		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
+	}
 }
+

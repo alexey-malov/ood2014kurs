@@ -8,13 +8,13 @@ namespace qp
 	class CMultipleResponseQuestionView : public CQuestionView
 	{
 	public:
-		CMultipleResponseQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream);
+		CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream);
 		~CMultipleResponseQuestionView();
 
 		void ShowDetails() override;
 
 	private:
-		CQuestionStatePtr m_questionState;
+		const CMultipleResponseQuestionStatePtr m_questionState;
 	};
 
 }

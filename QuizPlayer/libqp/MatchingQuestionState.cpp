@@ -95,12 +95,13 @@ vector<size_t> const& CMatchingQuestionState::GetLeftIndexes()const
 {
 	return m_leftItemIndexes;
 }
+
 vector<size_t> const& CMatchingQuestionState::GetRightIndexes()const
 {
 	return m_rightItemIndexes;
 }
 
-std::vector<optional_size_t> const& CMatchingQuestionState::GetResponses()const
+vector<optional_size_t> const& CMatchingQuestionState::GetResponses()const
 {
 	return m_responses;
 }
