@@ -14,7 +14,7 @@ public:
 	virtual void ShowDetails() override;
 
 private:
-	CMultipleChoiceQuestionStatePtr m_questionState;
+	const CMultipleChoiceQuestionStatePtr m_questionState;
 };
 
 }

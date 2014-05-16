@@ -55,4 +55,9 @@ optional_size_t CMultipleChoiceQuestionState::GetUserAnswerIndex()const
 	return m_answerIndex;
 }
 
+CConstMultipleChoiceQuestionPtr CMultipleChoiceQuestionState::GetQuestion()const
+{
+	return m_question;
+}
+
 }

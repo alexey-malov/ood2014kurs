@@ -16,6 +16,7 @@ public:
 	void SetUserAnswerIndex(size_t answerIndex);
 	optional_size_t GetUserAnswerIndex()const;
 	CQuestionReview const GetReview()const;
+	CConstMultipleChoiceQuestionPtr GetQuestion()const;
 
 protected:
 	void DoSubmit() override;

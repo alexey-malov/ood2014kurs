@@ -125,5 +125,8 @@
     <ClCompile Include="MatchingQuestionStateTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionViewTests.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
