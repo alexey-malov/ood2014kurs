@@ -131,4 +131,11 @@ BOOST_AUTO_TEST_CASE(ForbidChangingAnswerAfterSubmit)
 	BOOST_REQUIRE_THROW(state.UnselectResponse(0), logic_error);
 }
 
+BOOST_AUTO_TEST_CASE(GetQuestionReturnsMatchingQuestion)
+{
+	CMatchingQuestionState qs(question);
+	CConstMatchingQuestionPtr receivedQuestion = qs.GetQuestion();
+	BOOST_REQUIRE_EQUAL(receivedQuestion, question);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
