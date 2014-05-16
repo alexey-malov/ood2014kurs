@@ -17,8 +17,7 @@ void GenerateIndexes(vector<size_t> & arr, size_t size)
 }
 
 CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & question)
-:CQuestionState(question)
-,m_question(question)
+:CQuestionStateWithCustomQuestion(question)
 ,m_responses(question->GetLeftMatchingItemsCount())
 {
 	GenerateIndexes(m_leftItemIndexes, question->GetLeftMatchingItemsCount());
@@ -60,7 +59,7 @@ void CMatchingQuestionState::DoSubmit()
 			return;
 		}
 	}
-	m_review = make_unique<CQuestionReview>(m_question->GetScore(), true);
+	m_review = make_unique<CQuestionReview>(GetQuestion()->GetScore(), true);
 }
 
 void CMatchingQuestionState::SelectResponse(size_t leftItem, size_t rightItem)
@@ -70,7 +69,7 @@ void CMatchingQuestionState::SelectResponse(size_t leftItem, size_t rightItem)
 		throw logic_error("Answer cannot be changed after submitting");
 	}
 
-	if (rightItem >= m_question->GetRightMatchingItemsCount())
+	if (rightItem >= GetQuestion()->GetRightMatchingItemsCount())
 	{
 		throw out_of_range("Index of right item is out of range");
 	}

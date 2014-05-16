@@ -1,5 +1,5 @@
 #pragma once
-#include "QuestionState.h"
+#include "QuestionStateWithCustomQuestion.h"
 #include "MatchingQuestion_fwd.h"
 #include "QuestionReview.h"
 #include "types.h"
@@ -7,7 +7,7 @@
 namespace qp
 {
 
-class CMatchingQuestionState : public CQuestionState
+class CMatchingQuestionState : public CQuestionStateWithCustomQuestion<CMatchingQuestion>
 {
 public:
 	CMatchingQuestionState(CConstMatchingQuestionPtr & question);
@@ -25,7 +25,6 @@ protected:
 
 private:
 	std::unique_ptr<CQuestionReview> m_review;
-	CConstMatchingQuestionPtr m_question;
 	std::vector<optional_size_t> m_responses;
 
 	std::vector<size_t> m_leftItemIndexes;
