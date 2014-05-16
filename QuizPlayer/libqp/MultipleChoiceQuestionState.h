@@ -7,7 +7,26 @@
 namespace qp
 {
 
-class CMultipleChoiceQuestionState : public qp::CQuestionState
+template <typename QuestionType>
+class CQuestionStateWithCustomQuestion : public CQuestionState
+{
+public:
+	typedef std::shared_ptr<QuestionType const> ConstQuestionTypePtr;
+	CQuestionStateWithCustomQuestion(ConstQuestionTypePtr const& question)
+		:CQuestionState(question)
+		, m_question(question)
+	{
+	}
+
+	ConstQuestionTypePtr GetQuestion()const
+	{
+		return m_question;
+	}
+private:
+	const ConstQuestionTypePtr m_question;
+};
+
+class CMultipleChoiceQuestionState : public CQuestionStateWithCustomQuestion<CMultipleChoiceQuestion>
 {
 public:
 	CMultipleChoiceQuestionState(CConstMultipleChoiceQuestionPtr const& question);
@@ -16,7 +35,6 @@ public:
 	void SetUserAnswerIndex(size_t answerIndex);
 	optional_size_t GetUserAnswerIndex()const;
 	CQuestionReview const GetReview()const;
-	CConstMultipleChoiceQuestionPtr GetQuestion()const;
 
 protected:
 	void DoSubmit() override;
@@ -24,7 +42,6 @@ protected:
 private:
 	std::unique_ptr<CQuestionReview> m_review;
 	optional_size_t m_answerIndex;
-	CConstMultipleChoiceQuestionPtr m_question;
 };
 
 }

@@ -39,5 +39,31 @@ BOOST_AUTO_TEST_CASE(CheckSettingUserAnswer)
 	BOOST_REQUIRE_EQUAL(state.GetUserAnswer(), answer);
 }
 
+BOOST_AUTO_TEST_CASE(RemoveExtraSpacesInUserAnswer)
+{
+	CTypeInQuestionState state(question);
+
+	std::string answer = "  First    answer   ";
+	state.SetUserAnswer(answer);
+
+	BOOST_REQUIRE_EQUAL(state.GetUserAnswer(), "First answer");
+}
+
+void VerifyReview(CTypeInQuestionState &questionState, double expectedScore, bool isCorrect)
+{
+	BOOST_REQUIRE_NO_THROW(questionState.Submit());
+	BOOST_REQUIRE_NO_THROW(questionState.GetReview());
+	auto review = questionState.GetReview();
+	BOOST_CHECK(review.AnswerIsCorrect() == isCorrect);
+	BOOST_CHECK_EQUAL(review.GetAwardedScore(), expectedScore);
+}
+
+BOOST_AUTO_TEST_CASE(SubmittingCorrectAnswer)
+{
+	CTypeInQuestionState state(question);
+	state.SetUserAnswer("First answer");
+	BOOST_REQUIRE_NO_THROW(VerifyReview(state, 10.0, true));
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()

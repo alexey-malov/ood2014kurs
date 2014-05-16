@@ -13,8 +13,8 @@ namespace qp
 		CTypeInQuestionState(CTypeInQuestionPtr const& question);
 		~CTypeInQuestionState();
 
-		void SetUserAnswer(std::string answer);
-		std::string GetUserAnswer()const;
+		void SetUserAnswer(std::string const& answer);
+		std::string const& GetUserAnswer()const;
 		CQuestionReview const GetReview()const;
 
 	protected:
