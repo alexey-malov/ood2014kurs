@@ -1,5 +1,6 @@
 #pragma once
 #include "Question.h"
+#include "MatchingQuestion_fwd.h"
 #include "types.h"
 #include <loki/Visitor.h>
 

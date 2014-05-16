@@ -165,6 +165,9 @@
     <ClInclude Include="TypeInQuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MatchingQuestionView.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -235,6 +238,9 @@
     </ClCompile>
     <ClCompile Include="TypeInQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchingQuestionView.cpp">
+      <Filter>Views\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
