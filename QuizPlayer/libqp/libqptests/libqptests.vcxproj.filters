@@ -125,8 +125,8 @@
     <ClCompile Include="MatchingQuestionStateTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
-    <ClCompile Include="TypeInQuestionStateTests.cpp">
-      <Filter>Model</Filter>
+    <ClCompile Include="UtilsTests.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

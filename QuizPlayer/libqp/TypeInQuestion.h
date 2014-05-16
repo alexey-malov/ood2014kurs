@@ -18,5 +18,4 @@ private:
 	std::set<std::string> m_answers;
 };
 
-std::string RemoveExtraSpaces(std::string const& arg);
 }

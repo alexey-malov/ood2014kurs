@@ -109,10 +109,7 @@
     <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
-    <ClInclude Include="TypeInQuestionState_fwd.h" />
     <ClInclude Include="TypeInQuestion.h" />
-    <ClInclude Include="TypeInQuestionState.h" />
-    <ClInclude Include="TypeInQuestion_fwd.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Question.h" />
     <ClInclude Include="Quiz.h" />
@@ -146,7 +143,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TypeInQuestion.cpp" />
-    <ClCompile Include="TypeInQuestionState.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
