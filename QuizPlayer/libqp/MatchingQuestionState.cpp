@@ -10,7 +10,7 @@ void GenerateIndexes(vector<size_t> & arr, size_t size)
 {
 	arr.resize(size);
 	int index(0);
-	generate(arr.begin(), arr.end(), [&]{ return ++index; });
+	generate(arr.begin(), arr.end(), [&]{ return index++; });
 	random_device rd;
 	mt19937 mt(rd());
 	shuffle(arr.begin(), arr.end(), mt);
@@ -20,6 +20,16 @@ CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & quest
 :CQuestionStateWithCustomQuestion(question)
 ,m_responses(question->GetLeftMatchingItemsCount())
 {
+	size_t leftItemsSize = question->GetLeftMatchingItemsCount();
+	size_t rightItemsSize = question->GetRightMatchingItemsCount();
+	if (leftItemsSize == 0 || rightItemsSize == 0)
+	{
+		throw invalid_argument("Question is empty");
+	}
+	if (rightItemsSize >= maxItemsCount)
+	{
+		throw invalid_argument("Count of items in question more than max value");
+	}
 	GenerateIndexes(m_leftItemIndexes, question->GetLeftMatchingItemsCount());
 	GenerateIndexes(m_rightItemIndexes, question->GetRightMatchingItemsCount());
 }

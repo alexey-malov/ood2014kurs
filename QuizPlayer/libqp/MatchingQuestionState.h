@@ -29,6 +29,7 @@ private:
 
 	std::vector<size_t> m_leftItemIndexes;
 	std::vector<size_t> m_rightItemIndexes;
+	const size_t maxItemsCount = 26;
 };
 
 }

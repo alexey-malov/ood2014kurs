@@ -47,6 +47,28 @@ BOOST_AUTO_TEST_CASE(Construction)
 	BOOST_REQUIRE_EQUAL(state.GetResponses().size(), 3u);
 }
 
+BOOST_AUTO_TEST_CASE(CheckInputQuestionInConstructor)
+{
+	{
+		CConstMatchingQuestionPtr mq = make_shared<CMatchingQuestion>("Question description", 10);
+		BOOST_REQUIRE_THROW(CMatchingQuestionState state(mq), invalid_argument);
+	}
+	{
+	MatchedItemsCollection matchedItems;
+	StandaloneItems extraItems = { "extra" };
+	CConstMatchingQuestionPtr mq;
+	BOOST_REQUIRE_NO_THROW(mq = make_shared<CMatchingQuestion>("Question description", 10, matchedItems, extraItems));
+	BOOST_REQUIRE_THROW(CMatchingQuestionState state(mq), invalid_argument);
+}
+	{
+		MatchedItemsCollection matchedItems = { MatchedItems("1", "zero") };
+		StandaloneItems extraItems = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
+		CConstMatchingQuestionPtr mq;
+		BOOST_REQUIRE_NO_THROW(mq = make_shared<CMatchingQuestion>("Question description", 10, matchedItems, extraItems));
+		BOOST_REQUIRE_THROW(CMatchingQuestionState state(mq), invalid_argument);
+	}
+}
+
 BOOST_AUTO_TEST_CASE(SelectResponse)
 {
 	CMatchingQuestionState state(question);
