@@ -11,6 +11,10 @@
 #include "libqp/MultipleResponseQuestionState.h"
 #include "libqp/MultipleResponseQuestionView.h"
 
+#include "libqp/MatchingQuestion.h"
+#include "libqp/MatchingQuestionState.h"
+#include "libqp/MatchingQuestionView.h"
+
 using namespace qp;
 using namespace std;
 
@@ -46,7 +50,18 @@ void TestMultipleResponseQuestionVisualization()
 
 void TestMatchingQuestionVisualization()
 {
-	// TODO: implement me
+	CMatchingQuestion::MatchedItemsCollection matchedItems = {
+		CMatchingQuestion::MatchedItems("Germany", "Berlin"),
+		CMatchingQuestion::MatchedItems("Spain", "Madrid"),
+		CMatchingQuestion::MatchedItems("France", "Paris")
+	};
+	CMatchingQuestion::StandaloneItems extraItems = { "Moscow", "Peking" };
+	CConstMatchingQuestionPtr question = make_shared<CMatchingQuestion>("Match countries with its capitols:", 20, matchedItems, extraItems);
+
+	auto questionState = make_shared<CMatchingQuestionState>(question);
+
+	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, cout);
+	questionView->Show();
 }
 
 void TestQuestionVisualization()

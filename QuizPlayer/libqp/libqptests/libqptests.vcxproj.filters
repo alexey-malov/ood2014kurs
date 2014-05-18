@@ -132,7 +132,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TypeInQuestionStateTests.cpp">
-      <Filter>Model</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MatchingQuestionViewTests.cpp">
+      <Filter>Views</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

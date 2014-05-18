@@ -4,8 +4,6 @@
 #include "MatchingQuestionState.h"
 #include "QuestionReview.h"
 
-#include <ctime>
-
 using namespace qp;
 using namespace std;
 using MatchedItems = CMatchingQuestion::MatchedItems;
