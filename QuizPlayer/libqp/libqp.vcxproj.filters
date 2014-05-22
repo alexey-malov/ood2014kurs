@@ -156,6 +156,9 @@
     <ClInclude Include="MatchingQuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="SequenceQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -220,6 +223,9 @@
     </ClCompile>
     <ClCompile Include="MatchingQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
