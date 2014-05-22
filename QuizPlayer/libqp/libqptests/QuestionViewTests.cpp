@@ -19,8 +19,8 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 	
 	struct TestQuestionView : public CQuestionView
 	{
-		TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
-		:CQuestionView(questionState, outputStream)
+		TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+		:CQuestionView(questionState, outputStream, inputStream)
 		,detailsWereShown(false)
 		{}
 
@@ -33,7 +33,8 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 	};
 
 	ostringstream ostrm;
-	TestQuestionView view(state, ostrm);
+	istringstream istrm;
+	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.Show());
 	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
 	BOOST_CHECK(view.detailsWereShown);

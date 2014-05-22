@@ -8,8 +8,8 @@ using namespace std;
 namespace qp
 {
 
-CMultipleResponseQuestionView::CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream)
-:CQuestionView(questionState, outputStream)
+CMultipleResponseQuestionView::CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+:CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
 }

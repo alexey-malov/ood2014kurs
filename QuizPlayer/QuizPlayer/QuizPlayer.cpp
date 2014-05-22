@@ -29,7 +29,7 @@ void TestMultipleChoiceQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout);
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
 	questionView->Show();
 }
 
@@ -44,7 +44,7 @@ void TestMultipleResponseQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleResponseQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout);
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
 	questionView->Show();
 }
 
@@ -60,7 +60,7 @@ void TestMatchingQuestionVisualization()
 
 	auto questionState = make_shared<CMatchingQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, cout);
+	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, cout, cin);
 	questionView->Show();
 }
 

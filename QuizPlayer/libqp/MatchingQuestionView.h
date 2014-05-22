@@ -8,7 +8,7 @@ namespace qp
 class CMatchingQuestionView : public CQuestionView
 {
 public:
-	CMatchingQuestionView(const CMatchingQuestionStatePtr & questionState, std::ostream & outputStream);
+	CMatchingQuestionView(const CMatchingQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CMatchingQuestionView();
 
 	virtual void ShowDetails() override;

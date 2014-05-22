@@ -8,7 +8,7 @@ namespace qp
 class CTypeInQuestionView :	public CQuestionView
 {
 public:
-	CTypeInQuestionView(CTypeInQuestionStatePtr const& questionState, std::ostream & outputStream);
+	CTypeInQuestionView(CTypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CTypeInQuestionView();
 
 	void ShowDetails() override;
