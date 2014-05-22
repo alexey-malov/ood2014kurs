@@ -34,10 +34,8 @@ void CTypeInQuestionState::DoSubmit()
 {
 	if (!m_answer.empty())
 	{
-		std::set<std::string> const& answers = m_question->GetAnswers();
-		std::set<std::string>::iterator it;
-		it = answers.find(m_answer);
-		if (it != answers.end())
+		auto const& answers = m_question->GetAnswers();
+		if (answers.find(m_answer) != answers.end())
 		{
 			m_review = make_unique<CQuestionReview>(m_question->GetScore(), true);
 			return;
