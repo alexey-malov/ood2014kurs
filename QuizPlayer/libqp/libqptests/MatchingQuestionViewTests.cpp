@@ -23,7 +23,8 @@ BOOST_AUTO_TEST_CASE(MatchingQuestionViewShowsDescriptionAndDetails)
 	auto questionState = make_shared<CMatchingQuestionState>(question);
 	
 	ostringstream ostrm;
-	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, ostrm);
+	istringstream istrm;
+	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, ostrm, istrm);
 	questionView->Show();
 }
 

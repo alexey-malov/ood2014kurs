@@ -16,7 +16,8 @@ BOOST_AUTO_TEST_CASE(MultipleResponseQuestionViewShowsDescriptionAndDetails)
 	auto state = make_shared<CMultipleResponseQuestionState>(question);
 	
 	ostringstream ostrm;
-	CMultipleResponseQuestionView view(state, ostrm);
+	istringstream istrm;
+	CMultipleResponseQuestionView view(state, ostrm, istrm);
 	view.Show();
 	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
 	/*

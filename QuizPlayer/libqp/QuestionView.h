@@ -10,7 +10,7 @@ namespace qp
 class CQuestionView : public IQuestionView
 {
 public:
-	CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream);
+	CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CQuestionView();
 
 	virtual void Show() override final;
@@ -22,6 +22,7 @@ private:
 	const CQuestion & GetQuestion()const;
 private:
 	std::ostream & m_outputStream;
+	std::istream & m_inputStream;
 	CQuestionStatePtr m_questionState;
 };
 
