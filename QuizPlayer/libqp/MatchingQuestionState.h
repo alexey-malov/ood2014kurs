@@ -10,7 +10,7 @@ namespace qp
 class CMatchingQuestionState : public CQuestionStateWithCustomQuestion<CMatchingQuestion>
 {
 public:
-	CMatchingQuestionState(CConstMatchingQuestionPtr & question);
+	CMatchingQuestionState(CConstMatchingQuestionPtr & question, bool shuffleAnswers = true);
 	~CMatchingQuestionState();
 	void SelectResponse(size_t leftItem, size_t rightItem);
 	void UnselectResponse(size_t leftItem);
