@@ -8,7 +8,7 @@ namespace qp
 class CMultipleChoiceQuestionView : public CQuestionView
 {
 public:
-	CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream);
+	CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CMultipleChoiceQuestionView();
 
 	virtual void ShowDetails() override;

@@ -6,8 +6,8 @@
 using namespace qp;
 using namespace std;
 
-CMatchingQuestionView::CMatchingQuestionView(const CMatchingQuestionStatePtr & questionState, std::ostream & outputStream)
-:CQuestionView(questionState, outputStream)
+CMatchingQuestionView::CMatchingQuestionView(const CMatchingQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+:CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
 }

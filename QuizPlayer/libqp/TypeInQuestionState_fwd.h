@@ -2,7 +2,7 @@
 
 namespace qp
 {
-	class CTypeInQuestion;
-	typedef std::shared_ptr<CTypeInQuestion> CTypeInQuestionPtr;
-	typedef std::shared_ptr<const CTypeInQuestion> CConstTypeInQuestion;
+	class CTypeInQuestionState;
+	typedef std::shared_ptr<CTypeInQuestionState> CTypeInQuestionStatePtr;
+	typedef std::shared_ptr<const CTypeInQuestionState> CConstTypeInQuestionState;
 }

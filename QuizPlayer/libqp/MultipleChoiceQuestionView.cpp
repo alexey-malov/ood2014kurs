@@ -6,8 +6,8 @@
 using namespace qp;
 using namespace std;
 
-CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream)
-:CQuestionView(questionState, outputStream)
+CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+:CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
 }
