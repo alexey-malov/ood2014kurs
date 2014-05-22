@@ -8,15 +8,24 @@
 
 using namespace qp;
 using namespace std;
-//#pragma warning (push)
 
-BOOST_AUTO_TEST_SUITE(QuestionViewTests)
+struct QuestionViewTestsFixture
+{
+	QuestionViewTestsFixture()
+	:state(make_shared<CQuestionStateForTesting>(make_shared<CQuestionForTest>("description", 10)))
+	{
+	}
+
+	CQuestionStatePtr state;
+};
+
+BOOST_FIXTURE_TEST_SUITE(QuestionViewTests, QuestionViewTestsFixture)
 
 struct TestQuestionView : public CQuestionView
 {
 	TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 	:CQuestionView(questionState, outputStream, inputStream)
-	, detailsWereShown(false)
+	,detailsWereShown(false)
 	{}
 
 	void ShowDetails() override
@@ -36,22 +45,16 @@ struct TestQuestionView : public CQuestionView
 
 BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 {
-	string description = "Description";
-	auto question = make_shared<CQuestionForTest>(description, 10);
-	auto state = make_shared<CQuestionStateForTesting>(question);
-
 	ostringstream ostrm;
 	istringstream istrm;
 	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.Show());
-	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
+	BOOST_CHECK_EQUAL(ostrm.str(), "description\n");
 	BOOST_CHECK(view.detailsWereShown);
 }
 
 BOOST_AUTO_TEST_CASE(HandleUseInput)
 {
-	auto question = make_shared<CQuestionForTest>("descr", 10);
-	auto state = make_shared<CQuestionStateForTesting>(question);
 	ostringstream ostrm;
 	istringstream istrm("DoSomething\n");
 	TestQuestionView view(state, ostrm, istrm);
@@ -62,8 +65,6 @@ BOOST_AUTO_TEST_CASE(HandleUseInput)
 
 BOOST_AUTO_TEST_CASE(SubmitRequest)
 {
-	auto question = make_shared<CQuestionForTest>("descr", 10);
-	auto state = make_shared<CQuestionStateForTesting>(question);
 	ostringstream ostrm;
 	istringstream istrm("submit\n");
 	TestQuestionView view(state, ostrm, istrm);
@@ -75,7 +76,4 @@ BOOST_AUTO_TEST_CASE(SubmitRequest)
 	BOOST_CHECK(submitRequested);
 }
 
-
 BOOST_AUTO_TEST_SUITE_END()
-
-//#pragma warning (pop)
