@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(SubmitRequest)
 	istringstream istrm("submit\n");
 	TestQuestionView view(state, ostrm, istrm);
 	bool submitRequested = false;
-	view.SubmitRequested().connect([&submitRequested](){
+	view.DoOnSubmit([&submitRequested](){
 		submitRequested = true;
 	});
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(SkipRequest)
 	istringstream istrm("skip\n");
 	TestQuestionView view(state, ostrm, istrm);
 	bool skipRequested = false;
-	view.SkipRequested().connect([&skipRequested](){
+	view.DoOnSkip([&skipRequested](){
 		skipRequested = true;
 	});
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());

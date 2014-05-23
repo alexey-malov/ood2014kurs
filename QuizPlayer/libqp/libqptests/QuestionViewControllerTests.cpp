@@ -5,6 +5,8 @@
 #include "QuestionForTest.h"
 #include "QuestionView.h"
 
+#include "MockQuestionView.h"
+
 using namespace qp;
 using namespace std;
 
@@ -31,9 +33,9 @@ BOOST_AUTO_TEST_CASE(SubmitRequestHandling)
 	auto qs = make_shared<CQuestionStateForTesting>(q);
 	istringstream istrm;
 	ostringstream ostrm;
-	auto qv = make_shared<TestQuestionView>(qs, ostrm, istrm);
+	auto qv = make_shared<CMockQuestionView>();
 	CQuestionViewController qvc(qs, qv);
-	BOOST_REQUIRE_NO_THROW(qv->SubmitRequested()());
+	BOOST_REQUIRE_NO_THROW(qv->onSubmit());
 	BOOST_REQUIRE(qs->Submitted());
 }
 

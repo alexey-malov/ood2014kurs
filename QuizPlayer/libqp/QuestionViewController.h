@@ -2,6 +2,7 @@
 
 #include "IQuestionView_fwd.h"
 #include "IQuestionState_fwd.h"
+#include "types.h"
 
 namespace qp
 {
@@ -17,6 +18,6 @@ private:
 	IQuestionStatePtr const m_questionState;
 	IQuestionViewPtr const m_view;
 
-	boost::signals2::scoped_connection m_submitRequestConnection;
+	ScopedConnection m_submitRequestConnection;
 };
 }

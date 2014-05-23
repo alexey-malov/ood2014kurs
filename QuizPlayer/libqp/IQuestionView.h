@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IQuestionView_fwd.h"
+#include "types.h"
 
 namespace qp
 {
@@ -8,11 +9,15 @@ namespace qp
 class IQuestionView : public boost::noncopyable
 {
 public:
-	typedef boost::signals2::signal<void()> SubmitRequestedSignal;
-	typedef boost::signals2::signal<void()> SkipRequestedSignal;
 
-	virtual SubmitRequestedSignal & SubmitRequested() = 0;
-	virtual SkipRequestedSignal & SkipRequested() = 0;
+	typedef boost::signals2::signal<void()> OnSubmit;
+	typedef OnSubmit::slot_type OnSubmitSlotType;
+
+	typedef boost::signals2::signal<void()> OnSkip;
+	typedef OnSkip::slot_type OnSkipSlotType;
+
+	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) = 0;
+	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) = 0;
 	virtual void HandleUserInput() = 0;
 	virtual void Show() = 0;
 	virtual ~IQuestionView(){}

@@ -11,7 +11,7 @@ using namespace std;
 CQuestionViewController::CQuestionViewController(IQuestionStatePtr const& questionState, IQuestionViewPtr const& view)
 	: m_questionState(questionState)
 	, m_view(view)
-	, m_submitRequestConnection(view->SubmitRequested().connect(bind(&CQuestionViewController::OnSubmitRequest, this)))
+	, m_submitRequestConnection(view->DoOnSubmit(bind(&CQuestionViewController::OnSubmitRequest, this)))
 {
 }
 

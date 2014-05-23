@@ -111,7 +111,6 @@
     <ClCompile Include="MatchingQuestionStateTests.cpp" />
     <ClCompile Include="MatchingQuestionTests.cpp" />
     <ClCompile Include="MatchingQuestionViewTests.cpp" />
-    <ClCompile Include="MockQuestionView.cpp" />
     <ClCompile Include="MockQuizView.cpp" />
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />

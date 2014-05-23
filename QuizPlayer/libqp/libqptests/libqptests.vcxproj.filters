@@ -67,7 +67,7 @@
       <Filter>Mocks\Model\Quiz\Questions</Filter>
     </ClInclude>
     <ClInclude Include="MockQuestionView.h">
-      <Filter>Header Files</Filter>
+      <Filter>Mocks\Views\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,9 +148,6 @@
     </ClCompile>
     <ClCompile Include="QuestionViewControllerTests.cpp">
       <Filter>Controllers</Filter>
-    </ClCompile>
-    <ClCompile Include="MockQuestionView.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
