@@ -66,13 +66,13 @@ void TestMatchingQuestionVisualization()
 
 void TestQuestionVisualization()
 {
-	cout << "===========Multiple choice question============\n";
+	cout << "\n===========Multiple choice question============\n";
 	TestMultipleChoiceQuestionVisualization();
 
-	cout << "===========Multiple response question============\n";
+	cout << "\n===========Multiple response question============\n";
 	TestMultipleResponseQuestionVisualization();
 
-	cout << "===========Matching question============\n";
+	cout << "\n===========Matching question============\n";
 	TestMatchingQuestionVisualization();
 }
 

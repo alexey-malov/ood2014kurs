@@ -158,4 +158,20 @@ BOOST_AUTO_TEST_CASE(GetQuestionReturnsMatchingQuestion)
 	BOOST_REQUIRE_EQUAL(receivedQuestion, question);
 }
 
+BOOST_AUTO_TEST_CASE(MatchingQuestionWithoutShufflingAnswers)
+{
+	CMatchingQuestionState qs(question, false);
+	auto const& leftIndexes = qs.GetLeftIndexes();
+	for (size_t i = 0; i < leftIndexes.size(); ++i)
+	{
+		BOOST_REQUIRE_EQUAL(i, leftIndexes[i]);
+	}
+
+	auto const& rightIndexes = qs.GetRightIndexes();
+	for (size_t i = 0; i < rightIndexes.size(); ++i)
+	{
+		BOOST_REQUIRE_EQUAL(i, rightIndexes[i]);
+	}
+}
+
 BOOST_AUTO_TEST_SUITE_END()

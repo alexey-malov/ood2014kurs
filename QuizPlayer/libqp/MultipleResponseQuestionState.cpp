@@ -9,7 +9,7 @@ namespace qp
 using namespace std;
 
 CMultipleResponseQuestionState::CMultipleResponseQuestionState(CConstMultipleResponseQuestionPtr const& question)
-:CQuestionState(question)
+:CQuestionStateWithCustomQuestion(question)
 , m_responses(std::vector<bool>(question->GetChoices().GetChoiceCount(), false))
 , m_question(question)
 {
