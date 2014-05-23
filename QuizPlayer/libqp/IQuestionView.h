@@ -1,5 +1,7 @@
 #pragma once
 
+#include "IQuestionView_fwd.h"
+
 namespace qp
 {
 

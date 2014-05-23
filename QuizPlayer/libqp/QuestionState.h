@@ -3,10 +3,12 @@
 #include "QuestionState_fwd.h"
 #include "Question_fwd.h"
 
+#include "IQuestionState.h"
+
 namespace qp
 {
 
-class CQuestionState : boost::noncopyable
+class CQuestionState : public IQuestionState
 {
 public:
 	CQuestionState(CConstQuestionPtr const& question);
@@ -16,7 +18,7 @@ public:
 	// Indicates whether the question has been submitted (user has given an  answer to the question)
 	bool Submitted()const;
 
-	void Submit();
+	void Submit() override final;
 
 	virtual ~CQuestionState();
 protected:
