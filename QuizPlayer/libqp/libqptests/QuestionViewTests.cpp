@@ -17,6 +17,7 @@ struct QuestionViewTestsFixture
 	}
 
 	CQuestionStatePtr state;
+	ostringstream ostrm;
 };
 
 BOOST_FIXTURE_TEST_SUITE(QuestionViewTests, QuestionViewTestsFixture)
@@ -45,7 +46,6 @@ struct TestQuestionView : public CQuestionView
 
 BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 {
-	ostringstream ostrm;
 	istringstream istrm;
 	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.Show());
@@ -55,7 +55,6 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 
 BOOST_AUTO_TEST_CASE(HandleUseInput)
 {
-	ostringstream ostrm;
 	istringstream istrm("DoSomething\n");
 	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
@@ -65,7 +64,6 @@ BOOST_AUTO_TEST_CASE(HandleUseInput)
 
 BOOST_AUTO_TEST_CASE(SubmitRequest)
 {
-	ostringstream ostrm;
 	istringstream istrm("submit\n");
 	TestQuestionView view(state, ostrm, istrm);
 	bool submitRequested = false;
