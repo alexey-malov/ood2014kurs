@@ -16,6 +16,7 @@ public:
 	virtual void HandleUserInput() override final;
 	virtual void Show() override final;
 	virtual SubmitRequestedSignal & SubmitRequested() override final;
+	virtual SkipRequestedSignal & SkipRequested() override final;
 protected:
 	virtual void ProcessString(std::string const& inputString);
 	virtual void ShowDetails() = 0;
@@ -28,6 +29,7 @@ private:
 	std::istream & m_inputStream;
 	CQuestionStatePtr m_questionState;
 	SubmitRequestedSignal m_submitRequestedSignal;
+	SkipRequestedSignal m_skipRequestedSignal;
 
 };
 

@@ -39,6 +39,10 @@ void CQuestionView::ProcessString(std::string const& inputString)
 	{
 		m_submitRequestedSignal();
 	}
+	else if (inputString == "skip")
+	{
+		m_skipRequestedSignal();
+	}
 }
 
 void CQuestionView::ShowDescription() const
@@ -54,6 +58,11 @@ const CQuestion & CQuestionView::GetQuestion() const
 CQuestionView::SubmitRequestedSignal & CQuestionView::SubmitRequested()
 {
 	return m_submitRequestedSignal;
+}
+
+CQuestionView::SkipRequestedSignal & CQuestionView::SkipRequested()
+{
+	return m_skipRequestedSignal;
 }
 
 }
