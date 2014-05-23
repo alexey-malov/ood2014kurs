@@ -65,5 +65,21 @@ BOOST_AUTO_TEST_CASE(SubmittingCorrectAnswer)
 	BOOST_REQUIRE_NO_THROW(VerifyReview(state, 10.0, true));
 }
 
+BOOST_AUTO_TEST_CASE(SubmittingIncorrectAnswer)
+{
+	CTypeInQuestionState state(question);
+	state.SetUserAnswer("Some other");
+	BOOST_REQUIRE_NO_THROW(VerifyReview(state, 0.0, false));
+}
+
+BOOST_AUTO_TEST_CASE(DoNotAllowChangeAnswerAfterSubmit)
+{
+	CTypeInQuestionState state(question);
+	state.SetUserAnswer("First answer");
+	state.Submit();
+	BOOST_REQUIRE_THROW(state.SetUserAnswer("Second answer"); , logic_error);
+	BOOST_REQUIRE_EQUAL(state.GetUserAnswer(), "First answer");
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()

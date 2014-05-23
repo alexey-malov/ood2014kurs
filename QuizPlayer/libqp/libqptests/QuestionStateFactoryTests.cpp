@@ -21,29 +21,29 @@ BOOST_AUTO_TEST_CASE(MatchingQuestionStateCreationTest)
 	CMatchingQuestion::MatchedItemsCollection matchedItems = { CMatchingQuestion::MatchedItems("1", "one"), CMatchingQuestion::MatchedItems("2", "two") };
 	CMatchingQuestion::StandaloneItems extraItems = { "extra" };
 
-	CConstMatchingQuestionPtr mqPtr(new CMatchingQuestion("MatchingQuestion description", 0.0, matchedItems, extraItems));
-	auto mqStatePtr = f.CreateStateForQuestion(mqPtr);
+	CConstMatchingQuestionPtr matchingQuestionPtr(new CMatchingQuestion("MatchingQuestion description", 0.0, matchedItems, extraItems));
+	auto mqStatePtr = f.CreateStateForQuestion(matchingQuestionPtr);
 	BOOST_CHECK(nullptr != dynamic_cast<CMatchingQuestionState*> (mqStatePtr.get()));
 }
 
 BOOST_AUTO_TEST_CASE(MultipleChoiceQuestionStateCreationTest)
 {
-	CConstMultipleChoiceQuestionPtr mcqPtr(new CMultipleChoiceQuestion("MultipleChoiceQuestion description", 0.0, CGradedChoices{ { "raz", "dwa" } }));
-	auto mcqStatePtr = f.CreateStateForQuestion(mcqPtr);
+	CConstMultipleChoiceQuestionPtr multipleChoiceQuestionPtr(new CMultipleChoiceQuestion("MultipleChoiceQuestion description", 0.0, CGradedChoices{ { "one", "two" } }));
+	auto mcqStatePtr = f.CreateStateForQuestion(multipleChoiceQuestionPtr);
 	BOOST_CHECK(nullptr != dynamic_cast<CMultipleChoiceQuestionState*> (mcqStatePtr.get()));
 }
 
 BOOST_AUTO_TEST_CASE(MultipleResponseQuestionStateCreationTest)
 {
-	CConstMultipleResponseQuestionPtr mrqPtr(new CMultipleResponseQuestion("MultipleResponseQuestion description", 0.0, CGradedChoices{ { "raz", "dwa" } }));
-	auto mrqStatePtr = f.CreateStateForQuestion(mrqPtr);
+	CConstMultipleResponseQuestionPtr multipleResponseQuestionPtr(new CMultipleResponseQuestion("MultipleResponseQuestion description", 0.0, CGradedChoices{ { "one", "two" } }));
+	auto mrqStatePtr = f.CreateStateForQuestion(multipleResponseQuestionPtr);
 	BOOST_CHECK(nullptr != dynamic_cast<CMultipleResponseQuestionState*> (mrqStatePtr.get()));
 }
 
 BOOST_AUTO_TEST_CASE(TypeInQuestionStateCreationTest)
 {
-	CConstTypeInQuestionPtr tiqPtr(new CTypeInQuestion("TypeInQuestion description", set<string>{"raz", "dwa"}, 0.0));
-	auto tiqStatePtr = f.CreateStateForQuestion(tiqPtr);
+	CConstTypeInQuestionPtr typeInQuestionPtr(new CTypeInQuestion("TypeInQuestion description", set<string>{"one", "two"}, 0.0));
+	auto tiqStatePtr = f.CreateStateForQuestion(typeInQuestionPtr);
 	BOOST_CHECK(nullptr != dynamic_cast<CTypeInQuestionState*> (tiqStatePtr.get()));
 }
 

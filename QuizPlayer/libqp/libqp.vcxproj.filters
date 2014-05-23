@@ -177,6 +177,9 @@
     <ClInclude Include="QuestionStateFactory.h">
       <Filter>Model\Session</Filter>
     </ClInclude>
+    <ClInclude Include="TypeInQuestionView.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -253,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="QuestionStateFactory.cpp">
       <Filter>Model\Session</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestionView.cpp">
+      <Filter>Views\Questions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

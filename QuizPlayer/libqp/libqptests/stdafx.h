@@ -12,6 +12,10 @@
 
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
+#pragma warning (push)
+#pragma warning (disable:4512 4913)
+#include <boost/signals2.hpp>
+#pragma warning (pop)
 #include <sstream>
 #include <vector>
 
@@ -20,5 +24,5 @@
 
 #define BOOST_TEST_MODULE LibQPTestModule
 #define BOOST_TEST_INCLUDED
-#pragma warning (disable:4702)	// отключаем предупреждение компилятора Visual Studio об unreachable code
+#pragma warning (disable:4702 4913)	// отключаем предупреждение компилятора Visual Studio об unreachable code
 #include <boost/test/unit_test.hpp>

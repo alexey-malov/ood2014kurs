@@ -6,17 +6,20 @@
 using namespace qp;
 using namespace std;
 
-void GenerateIndexes(vector<size_t> & arr, size_t size)
+void GenerateIndexes(vector<size_t> & arr, size_t size, bool shuffleAnswers)
 {
 	arr.resize(size);
 	int index(0);
 	generate(arr.begin(), arr.end(), [&]{ return index++; });
-	random_device rd;
-	mt19937 mt(rd());
-	shuffle(arr.begin(), arr.end(), mt);
+	if (shuffleAnswers)
+	{
+		random_device rd;
+		mt19937 mt(rd());
+		shuffle(arr.begin(), arr.end(), mt);
+	}
 }
 
-CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr const & question)
+CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr const& question, bool shuffleAnswers)
 :CQuestionStateWithCustomQuestion(question)
 ,m_responses(question->GetLeftMatchingItemsCount())
 {
@@ -30,8 +33,8 @@ CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr const &
 	{
 		throw invalid_argument("Count of items in question more than max value");
 	}
-	GenerateIndexes(m_leftItemIndexes, question->GetLeftMatchingItemsCount());
-	GenerateIndexes(m_rightItemIndexes, question->GetRightMatchingItemsCount());
+	GenerateIndexes(m_leftItemIndexes, question->GetLeftMatchingItemsCount(), shuffleAnswers);
+	GenerateIndexes(m_rightItemIndexes, question->GetRightMatchingItemsCount(), shuffleAnswers);
 }
 
 CMatchingQuestionState::~CMatchingQuestionState()

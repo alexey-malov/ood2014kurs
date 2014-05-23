@@ -8,9 +8,10 @@ namespace qp
 
 using namespace std;
 
-CQuestionView::CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
+CQuestionView::CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :m_questionState(questionState)
 ,m_outputStream(outputStream)
+,m_inputStream(inputStream)
 {
 }
 
@@ -25,6 +26,21 @@ void CQuestionView::Show()
 	ShowDetails();
 }
 
+void CQuestionView::HandleUserInput()
+{
+	string inputString;
+	getline(m_inputStream, inputString);
+	ProcessString(inputString);
+}
+
+void CQuestionView::ProcessString(std::string const& inputString)
+{
+	if (inputString == "submit")
+	{
+		m_submitRequestedSignal();
+	}
+}
+
 void CQuestionView::ShowDescription() const
 {
 	m_outputStream << GetQuestion().GetDescription() << endl;
@@ -33,6 +49,11 @@ void CQuestionView::ShowDescription() const
 const CQuestion & CQuestionView::GetQuestion() const
 {
 	return *m_questionState->GetQuestion();
+}
+
+CQuestionView::SubmitRequestedSignal & CQuestionView::SubmitRequested()
+{
+	return m_submitRequestedSignal;
 }
 
 }
