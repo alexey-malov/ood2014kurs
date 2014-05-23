@@ -14,15 +14,18 @@
 #include "TypeInQuestionState.h"
 
 using namespace std;
-using namespace qp;
+namespace qp
+{
 
+namespace
+{
 struct BasicQuesionVisitor
 {
 	std::unique_ptr<CQuestionState> questionState;
 };
 
 template <typename Q, typename S>
-struct QuesionVisitor: public virtual BasicQuesionVisitor, public Loki::Visitor<Q, void, true>
+struct QuesionVisitor : public virtual BasicQuesionVisitor, public Loki::Visitor < Q, void, true >
 {
 	void Visit(Q const& question)
 	{
@@ -30,6 +33,7 @@ struct QuesionVisitor: public virtual BasicQuesionVisitor, public Loki::Visitor<
 		questionState = std::move(std::make_unique<S>(static_pointer_cast<Q const>(question.shared_from_this())));
 	}
 };
+}
 
 struct CQuestionStateFactory::QuestionStateCreationVisitor
 : public Loki::BaseVisitor
@@ -46,4 +50,6 @@ unique_ptr<CQuestionState> CQuestionStateFactory::CreateStateForQuestion(CConstQ
 	question->Accept(visitor);
 
 	return move(visitor.questionState);
+}
+
 }
