@@ -13,7 +13,7 @@ public:
 
 	CConstQuestionPtr GetQuestion()const;
 
-	// Indicates whether the question has been submitted (user has givenan  answer to the question)
+	// Indicates whether the question has been submitted (user has given an  answer to the question)
 	bool Submitted()const;
 
 	void Submit();

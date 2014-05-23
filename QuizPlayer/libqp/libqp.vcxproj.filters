@@ -171,6 +171,12 @@
     <ClInclude Include="QuestionStateWithCustomQuestion.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="IQuestionStateFactory.h">
+      <Filter>Model\Session</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionStateFactory.h">
+      <Filter>Model\Session</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -244,6 +250,9 @@
     </ClCompile>
     <ClCompile Include="MatchingQuestionView.cpp">
       <Filter>Views\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionStateFactory.cpp">
+      <Filter>Model\Session</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ void GenerateIndexes(vector<size_t> & arr, size_t size)
 	shuffle(arr.begin(), arr.end(), mt);
 }
 
-CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & question)
+CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr const & question)
 :CQuestionStateWithCustomQuestion(question)
 ,m_responses(question->GetLeftMatchingItemsCount())
 {

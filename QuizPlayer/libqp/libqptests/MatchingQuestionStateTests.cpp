@@ -16,14 +16,14 @@ MatchedItemsCollection matchedItems = {
 	MatchedItems("3", "three") 
 };
 StandaloneItems extraItems = { "extra" };
-struct MatchingQuestionStateTestFixture
+struct MatchingQuestionStateTestFixture : boost::noncopyable
 {
 	MatchingQuestionStateTestFixture()
 	:question(make_shared<CMatchingQuestion>("Question description", 10, matchedItems, extraItems))
 	{
 	}
 
-	CConstMatchingQuestionPtr question;
+	CConstMatchingQuestionPtr const question;
 };
 
 BOOST_FIXTURE_TEST_SUITE(MatchingQuestionStateTests, MatchingQuestionStateTestFixture)
