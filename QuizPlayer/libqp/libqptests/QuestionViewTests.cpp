@@ -74,4 +74,16 @@ BOOST_AUTO_TEST_CASE(SubmitRequest)
 	BOOST_CHECK(submitRequested);
 }
 
+BOOST_AUTO_TEST_CASE(SkipRequest)
+{
+	istringstream istrm("skip\n");
+	TestQuestionView view(state, ostrm, istrm);
+	bool skipRequested = false;
+	view.SkipRequested().connect([&skipRequested](){
+		skipRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+	BOOST_CHECK(skipRequested);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
