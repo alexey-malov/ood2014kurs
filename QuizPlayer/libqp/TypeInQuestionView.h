@@ -11,7 +11,7 @@ public:
 	CTypeInQuestionView(CTypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CTypeInQuestionView();
 
-	void ShowDetails() override;
+	virtual void ShowDetails() override;
 
 private:
 	const CTypeInQuestionStatePtr m_questionState;
