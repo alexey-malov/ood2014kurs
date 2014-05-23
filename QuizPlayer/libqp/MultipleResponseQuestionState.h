@@ -1,13 +1,12 @@
 #pragma once
-#include "QuestionState.h"
+#include "QuestionStateWithCustomQuestion.h"
 #include "MultipleResponseQuestion_fwd.h"
 #include "QuestionReview_fwd.h"
 
 namespace qp
 {
 
-class CMultipleResponseQuestionState :
-	public qp::CQuestionState
+class CMultipleResponseQuestionState : public CQuestionStateWithCustomQuestion<CMultipleResponseQuestion>
 {
 public:
 	CMultipleResponseQuestionState(CConstMultipleResponseQuestionPtr const& question);

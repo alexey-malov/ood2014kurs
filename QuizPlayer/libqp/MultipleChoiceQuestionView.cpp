@@ -5,9 +5,10 @@
 
 using namespace qp;
 using namespace std;
+using boost::format;
 
-CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream)
-:CQuestionView(questionState, outputStream)
+CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+:CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
 }
@@ -26,9 +27,12 @@ void CMultipleChoiceQuestionView::ShowDetails()
 	CConstMultipleChoiceQuestionPtr question = m_questionState->GetQuestion();
 	auto & outputStream = GetOutputStream();
 	CGradedChoices const& choices = question->GetChoices();
-	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)
+	const auto numChoices = choices.GetChoiceCount();
+	for (unsigned char idx = 0; idx < numChoices; ++idx)
 	{
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
 	}
+
+	outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
 }
 

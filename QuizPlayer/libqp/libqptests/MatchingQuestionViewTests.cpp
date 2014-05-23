@@ -20,11 +20,18 @@ BOOST_AUTO_TEST_CASE(MatchingQuestionViewShowsDescriptionAndDetails)
 	CMatchingQuestion::StandaloneItems extraItems = { "Moscow", "Peking" };
 	CConstMatchingQuestionPtr question = make_shared<CMatchingQuestion>(description, 20, matchedItems, extraItems);
 
-	auto questionState = make_shared<CMatchingQuestionState>(question);
+	auto questionState = make_shared<CMatchingQuestionState>(question, false);
 	
 	ostringstream ostrm;
-	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, ostrm);
+	istringstream istrm;
+	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, ostrm, istrm);
 	questionView->Show();
+	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n"
+		"1. Germany     A. Berlin\n"
+		"2. Spain       B. Madrid\n"
+		"3. France      C. Paris\n"
+		"               D. Moscow\n"
+		"               E. Peking\n");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

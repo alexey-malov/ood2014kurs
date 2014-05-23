@@ -21,9 +21,17 @@ BOOST_AUTO_TEST_CASE(MultipleChoiceQuestionViewShowsDescriptionAndDetails)
 
 	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
 	ostringstream ostrm;
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, ostrm);
+	istringstream istrm;
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, ostrm, istrm);
 	questionView->Show();
-	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n" + "A. Mercury\nB. Venus\nC. The Earth\nD. Mars\n");
+	BOOST_CHECK_EQUAL(ostrm.str(), 
+		description + "\n"
+		"A. Mercury\n"
+		"B. Venus\n"
+		"C. The Earth\n"
+		"D. Mars\n"
+		"Choose an answer (A-D) or type 'submit': "
+		);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

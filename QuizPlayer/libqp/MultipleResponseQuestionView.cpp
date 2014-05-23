@@ -8,8 +8,8 @@ using namespace std;
 namespace qp
 {
 
-CMultipleResponseQuestionView::CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream)
-:CQuestionView(questionState, outputStream)
+CMultipleResponseQuestionView::CMultipleResponseQuestionView(const CMultipleResponseQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+:CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
 }
@@ -26,11 +26,9 @@ std::string GetResponseBullet(unsigned char offset)
 
 void CMultipleResponseQuestionView::ShowDetails()
 {
-	// TODO: fix me
-	CMultipleResponseQuestion const *question = static_cast<CMultipleResponseQuestion const *>(m_questionState->GetQuestion().get());
+	auto const question = m_questionState->GetQuestion();
 	auto & outputStream = GetOutputStream();
 	auto const & choices = question->GetChoices();
-	//outputStream << question->GetDescription() << endl;
 	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)
 	{
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
