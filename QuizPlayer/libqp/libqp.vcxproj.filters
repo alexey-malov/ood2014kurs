@@ -180,6 +180,12 @@
     <ClInclude Include="TypeInQuestionView.h">
       <Filter>Views\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="QuestionViewController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionViewController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -259,6 +265,12 @@
     </ClCompile>
     <ClCompile Include="TypeInQuestionView.cpp">
       <Filter>Views\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionViewController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -94,6 +94,7 @@
     <ClInclude Include="MatchingQuestion.h" />
     <ClInclude Include="MultipleChoiceQuestionState.h" />
     <ClInclude Include="MultipleChoiceQuestionView.h" />
+    <ClInclude Include="MultipleChoiceQuestionViewController.h" />
     <ClInclude Include="MultipleChoiceQuestion_fwd.h" />
     <ClInclude Include="MultipleResponseQuestionState.h" />
     <ClInclude Include="MultipleResponseQuestionState_fwd.h" />
@@ -104,6 +105,7 @@
     <ClInclude Include="QuestionStateFactory.h" />
     <ClInclude Include="QuestionStateWithCustomQuestion.h" />
     <ClInclude Include="QuestionView.h" />
+    <ClInclude Include="QuestionViewController.h" />
     <ClInclude Include="QuestionWithChoices.h" />
     <ClInclude Include="MultipleChoiceQuestion.h" />
     <ClInclude Include="IQuizView.h" />
@@ -137,6 +139,7 @@
     <ClCompile Include="MultipleChoiceQuestion.cpp" />
     <ClCompile Include="MultipleChoiceQuestionState.cpp" />
     <ClCompile Include="MultipleChoiceQuestionView.cpp" />
+    <ClCompile Include="MultipleChoiceQuestionViewController.cpp" />
     <ClCompile Include="MultipleResponseQuestion.cpp" />
     <ClCompile Include="MultipleResponseQuestionState.cpp" />
     <ClCompile Include="MultipleResponseQuestionView.cpp" />
@@ -147,6 +150,7 @@
     <ClCompile Include="QuestionStateFactory.cpp" />
     <ClCompile Include="QuestionStates.cpp" />
     <ClCompile Include="QuestionView.cpp" />
+    <ClCompile Include="QuestionViewController.cpp" />
     <ClCompile Include="QuestionWithChoices.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />
