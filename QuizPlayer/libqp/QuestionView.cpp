@@ -8,7 +8,7 @@ namespace qp
 
 using namespace std;
 
-CQuestionView::CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+CQuestionView::CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :m_questionState(questionState)
 ,m_outputStream(outputStream)
 ,m_inputStream(inputStream)

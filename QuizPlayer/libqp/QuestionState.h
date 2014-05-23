@@ -13,7 +13,7 @@ class CQuestionState : public IQuestionState
 public:
 	CQuestionState(CConstQuestionPtr const& question);
 
-	CConstQuestionPtr GetQuestion()const;
+	CConstQuestionPtr GetQuestion()const override;
 
 	// Indicates whether the question has been submitted (user has given an  answer to the question)
 	bool Submitted()const;

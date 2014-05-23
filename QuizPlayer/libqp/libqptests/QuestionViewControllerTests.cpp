@@ -3,6 +3,8 @@
 #include "MockQuestionView.h"
 #include "MockQuestionState.h"
 #include "QuestionViewController.h"
+#include "QuestionForTest.h"
+
 
 using namespace qp;
 using namespace std;
@@ -12,7 +14,7 @@ BOOST_AUTO_TEST_SUITE(QuestionViewControllerTests)
 
 BOOST_AUTO_TEST_CASE(ControllerCallsSubmitOnQuestionStateOnViewSubmit)
 {
-	auto qs = make_shared<CMockQuestionState>();
+	auto qs = make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("descr", 10));
 	auto qv = make_shared<CMockQuestionView>();
 
 	CQuestionViewController qvc(qs, qv);

@@ -3,8 +3,8 @@
 #include "Question.h"
 #include "QuestionState.h"
 #include "QuestionView.h"
-#include "QuestionStateForTesting.h"
 #include "QuestionForTest.h"
+#include "MockQuestionState.h"
 
 using namespace qp;
 using namespace std;
@@ -12,11 +12,11 @@ using namespace std;
 struct QuestionViewTestsFixture
 {
 	QuestionViewTestsFixture()
-	:state(make_shared<CQuestionStateForTesting>(make_shared<CQuestionForTest>("description", 10)))
+		:state(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("description", 10)))
 	{
 	}
 
-	CQuestionStatePtr state;
+	shared_ptr<CMockQuestionState> state;
 	ostringstream ostrm;
 };
 
@@ -24,7 +24,7 @@ BOOST_FIXTURE_TEST_SUITE(QuestionViewTests, QuestionViewTestsFixture)
 
 struct TestQuestionView : public CQuestionView
 {
-	TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+	TestQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 	:CQuestionView(questionState, outputStream, inputStream)
 	,detailsWereShown(false)
 	{}

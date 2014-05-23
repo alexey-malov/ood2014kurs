@@ -14,8 +14,8 @@ public:
 		, m_question(question)
 	{
 	}
-
-	ConstQuestionTypePtr GetQuestion()const
+	
+	ConstQuestionTypePtr GetConcreteQuestion()const
 	{
 		return m_question;
 	}

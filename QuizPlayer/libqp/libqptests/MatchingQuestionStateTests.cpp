@@ -154,7 +154,7 @@ BOOST_AUTO_TEST_CASE(ForbidChangingAnswerAfterSubmit)
 BOOST_AUTO_TEST_CASE(GetQuestionReturnsMatchingQuestion)
 {
 	CMatchingQuestionState qs(question);
-	CConstMatchingQuestionPtr receivedQuestion = qs.GetQuestion();
+	CConstMatchingQuestionPtr receivedQuestion = qs.GetConcreteQuestion();
 	BOOST_REQUIRE_EQUAL(receivedQuestion, question);
 }
 

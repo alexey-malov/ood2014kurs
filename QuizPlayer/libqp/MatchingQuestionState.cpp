@@ -82,7 +82,7 @@ void CMatchingQuestionState::SelectResponse(size_t leftItem, size_t rightItem)
 		throw logic_error("Answer cannot be changed after submitting");
 	}
 
-	if (rightItem >= GetQuestion()->GetRightMatchingItemsCount())
+	if (rightItem >= GetConcreteQuestion()->GetRightMatchingItemsCount())
 	{
 		throw out_of_range("Index of right item is out of range");
 	}

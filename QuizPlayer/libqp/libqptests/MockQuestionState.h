@@ -1,19 +1,29 @@
 #pragma once
 
+#include "Question_fwd.h"
 #include "IQuestionState.h"
 
 struct CMockQuestionState : public qp::IQuestionState
 {
-	bool submitted;
+	typedef qp::CConstQuestionPtr QuestionPtrType;
 
-	CMockQuestionState()
-		:submitted(false)
+	bool submitted;
+	QuestionPtrType question;
+
+	CMockQuestionState(QuestionPtrType const& question)
+		:question(question)
+		, submitted(false)
 	{
 	}
 
-	virtual void Submit()
+	virtual void Submit() override
 	{
 		submitted = true;
+	}
+
+	virtual qp::CConstQuestionPtr GetQuestion() const override
+	{
+		return question;
 	}
 
 };

@@ -26,7 +26,7 @@ std::string GetResponseBullet(unsigned char offset)
 
 void CMultipleResponseQuestionView::ShowDetails()
 {
-	auto const question = m_questionState->GetQuestion();
+	auto const question = m_questionState->GetConcreteQuestion();
 	auto & outputStream = GetOutputStream();
 	auto const & choices = question->GetChoices();
 	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)

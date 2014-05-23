@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(ForbidChangingAnswerAfterSubmit)
 BOOST_AUTO_TEST_CASE(GetQuestionReturnsMultipleChoiceQuestion)
 {
 	CMultipleChoiceQuestionState qs(question);
-	CConstMultipleChoiceQuestionPtr receivedQuestion = qs.GetQuestion();
+	CConstMultipleChoiceQuestionPtr receivedQuestion = qs.GetConcreteQuestion();
 	BOOST_REQUIRE_EQUAL(receivedQuestion, question);
 }
 
