@@ -18,6 +18,8 @@ public:
 
 	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;
 	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) override final;
+	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override final;
+
 protected:
 	virtual void ProcessString(std::string const& inputString);
 	virtual void ShowDetails() = 0;
@@ -33,7 +35,7 @@ private:
 	// Signals
 	OnSubmit m_onSubmit;
 	OnSkip m_onSkip;
-
+	OnNextQuestion m_onNextQuestion;
 };
 
 }

@@ -20,8 +20,12 @@ public:
 
 	virtual qp::Connection DoOnSkip(const OnSkipSlotType & skipHandler) override
 	{
-		skipHandler;
-		throw std::logic_error("The method or operation is not implemented.");
+		return onSkip.connect(skipHandler);
+	}
+
+	virtual qp::Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override
+	{
+		return onNextQuestion.connect(nextQuestionHandler);
 	}
 
 	virtual void HandleUserInput()
@@ -35,5 +39,7 @@ public:
 	}
 
 	OnSubmit onSubmit;
+	OnSkip onSkip;
+	OnNextQuestion onNextQuestion;
 };
 
