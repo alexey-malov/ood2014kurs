@@ -1,5 +1,6 @@
 #pragma once
-#include "QuestionState.h"
+#include "QuestionState_fwd.h"
+#include "QuestionStateImpl.h"
 
 namespace qp
 {

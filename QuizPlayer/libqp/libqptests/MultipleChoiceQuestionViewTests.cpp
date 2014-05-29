@@ -34,4 +34,11 @@ BOOST_AUTO_TEST_CASE(MultipleChoiceQuestionViewShowsDescriptionAndDetails)
 		);
 }
 
+BOOST_AUTO_TEST_CASE(LettersAreConsideredToBeUserChoices)
+{
+	ostringstream ostrm;
+	istringstream istrm;
+	//shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, ostrm, istrm);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

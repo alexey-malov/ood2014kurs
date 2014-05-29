@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "QuestionStates.h"
-#include "QuestionState.h"
+#include "QuestionStateImpl.h"
 #include "Question.h"
 #include "QuestionForTest.h"
 
