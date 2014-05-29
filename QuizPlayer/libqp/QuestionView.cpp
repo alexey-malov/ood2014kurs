@@ -8,7 +8,7 @@ namespace qp
 
 using namespace std;
 
-CQuestionView::CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+CQuestionView::CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :m_questionState(questionState)
 ,m_outputStream(outputStream)
 ,m_inputStream(inputStream)
@@ -37,7 +37,15 @@ void CQuestionView::ProcessString(std::string const& inputString)
 {
 	if (inputString == "submit")
 	{
-		m_submitRequestedSignal();
+		m_onSubmit();
+	}
+	else if (inputString == "skip")
+	{
+		m_onSkip();
+	}
+	else if (static_pointer_cast<CQuestionState>(m_questionState)->Submitted() && inputString == "")
+	{
+		m_onNextQuestion();
 	}
 }
 
@@ -51,9 +59,19 @@ const CQuestion & CQuestionView::GetQuestion() const
 	return *m_questionState->GetQuestion();
 }
 
-CQuestionView::SubmitRequestedSignal & CQuestionView::SubmitRequested()
+Connection CQuestionView::DoOnSubmit(const OnSubmitSlotType & submitHandler)
 {
-	return m_submitRequestedSignal;
+	return m_onSubmit.connect(submitHandler);
+}
+
+Connection CQuestionView::DoOnSkip(const OnSkipSlotType & skipHandler)
+{
+	return m_onSkip.connect(skipHandler);
+}
+
+Connection CQuestionView::DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler)
+{
+	return m_onNextQuestion.connect(nextQuestionHandler);
 }
 
 }

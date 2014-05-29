@@ -3,8 +3,8 @@
 #include "Question.h"
 #include "QuestionState.h"
 #include "QuestionView.h"
-#include "QuestionStateForTesting.h"
 #include "QuestionForTest.h"
+#include "MockQuestionState.h"
 
 using namespace qp;
 using namespace std;
@@ -12,18 +12,19 @@ using namespace std;
 struct QuestionViewTestsFixture
 {
 	QuestionViewTestsFixture()
-	:state(make_shared<CQuestionStateForTesting>(make_shared<CQuestionForTest>("description", 10)))
+		:state(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("description", 10)))
 	{
 	}
 
-	CQuestionStatePtr state;
+	shared_ptr<CMockQuestionState> state;
+	ostringstream ostrm;
 };
 
 BOOST_FIXTURE_TEST_SUITE(QuestionViewTests, QuestionViewTestsFixture)
 
 struct TestQuestionView : public CQuestionView
 {
-	TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+	TestQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 	:CQuestionView(questionState, outputStream, inputStream)
 	,detailsWereShown(false)
 	{}
@@ -45,7 +46,6 @@ struct TestQuestionView : public CQuestionView
 
 BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 {
-	ostringstream ostrm;
 	istringstream istrm;
 	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.Show());
@@ -55,7 +55,6 @@ BOOST_AUTO_TEST_CASE(QuestionViewShowsDescriptionAndDetails)
 
 BOOST_AUTO_TEST_CASE(HandleUseInput)
 {
-	ostringstream ostrm;
 	istringstream istrm("DoSomething\n");
 	TestQuestionView view(state, ostrm, istrm);
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
@@ -65,15 +64,39 @@ BOOST_AUTO_TEST_CASE(HandleUseInput)
 
 BOOST_AUTO_TEST_CASE(SubmitRequest)
 {
-	ostringstream ostrm;
 	istringstream istrm("submit\n");
 	TestQuestionView view(state, ostrm, istrm);
 	bool submitRequested = false;
-	view.SubmitRequested().connect([&submitRequested](){
+	view.DoOnSubmit([&submitRequested](){
 		submitRequested = true;
 	});
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
 	BOOST_CHECK(submitRequested);
+}
+
+BOOST_AUTO_TEST_CASE(SkipRequest)
+{
+	istringstream istrm("skip\n");
+	TestQuestionView view(state, ostrm, istrm);
+	bool skipRequested = false;
+	view.DoOnSkip([&skipRequested](){
+		skipRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+	BOOST_CHECK(skipRequested);
+}
+
+BOOST_AUTO_TEST_CASE(NextQuestionRequest)
+{
+	istringstream istrm("\n");
+	state->Submit();
+	TestQuestionView view(state, ostrm, istrm);
+	bool nextQuestionRequested = false;
+	view.DoOnNextQuestion([&nextQuestionRequested](){
+		nextQuestionRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+	BOOST_CHECK(nextQuestionRequested);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -1,7 +1,7 @@
 #pragma once
 #include "IQuestionView.h"
 
-#include "QuestionState_fwd.h"
+#include "IQuestionState_fwd.h"
 #include "Question_fwd.h"
 
 namespace qp
@@ -10,12 +10,16 @@ namespace qp
 class CQuestionView : public IQuestionView
 {
 public:
-	CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
+	CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CQuestionView();
 
 	virtual void HandleUserInput() override final;
 	virtual void Show() override final;
-	virtual SubmitRequestedSignal & SubmitRequested() override final;
+
+	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;
+	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) override final;
+	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override final;
+
 protected:
 	virtual void ProcessString(std::string const& inputString);
 	virtual void ShowDetails() = 0;
@@ -26,9 +30,12 @@ private:
 private:
 	std::ostream & m_outputStream;
 	std::istream & m_inputStream;
-	CQuestionStatePtr m_questionState;
-	SubmitRequestedSignal m_submitRequestedSignal;
+	IQuestionStatePtr m_questionState;
 
+	// Signals
+	OnSubmit m_onSubmit;
+	OnSkip m_onSkip;
+	OnNextQuestion m_onNextQuestion;
 };
 
 }

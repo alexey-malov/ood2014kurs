@@ -16,6 +16,7 @@
 #include <set>
 #include <algorithm>
 #include <iterator>
+#include <functional>
 #include <boost/optional.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/format.hpp>

@@ -24,7 +24,7 @@ std::string GetResponseBullet(unsigned char offset)
 
 void CMultipleChoiceQuestionView::ShowDetails()
 {
-	CConstMultipleChoiceQuestionPtr question = m_questionState->GetQuestion();
+	CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
 	auto & outputStream = GetOutputStream();
 	CGradedChoices const& choices = question->GetChoices();
 	const auto numChoices = choices.GetChoiceCount();

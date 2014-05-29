@@ -43,6 +43,9 @@
     <Filter Include="Mocks\Model\Quiz\Questions">
       <UniqueIdentifier>{8a746cd5-9168-4994-9417-0a41d6512830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{45aa1c5e-be90-4770-a756-7d04857a0410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -61,6 +64,12 @@
       <Filter>Mocks\Model\Session\Questions</Filter>
     </ClInclude>
     <ClInclude Include="QuestionForTest.h">
+      <Filter>Mocks\Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MockQuestionView.h">
+      <Filter>Mocks\Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MockQuestionState.h">
       <Filter>Mocks\Model\Quiz\Questions</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,11 +143,19 @@
     <ClCompile Include="MatchingQuestionViewTests.cpp">
       <Filter>Views</Filter>
     </ClCompile>
+    <ClCompile Include="QuestionStateFactoryTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
     <ClCompile Include="TypeInQuestionStateTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="TypeInQuestionViewTests.cpp">
       <Filter>Views</Filter>
+=======
+    <ClCompile Include="QuestionViewControllerTests.cpp">
+      <Filter>Controllers</Filter>
+>>>>>>> 1a4322284375a75fd5b8ee8bea4f3167f1bd1bb7
     </ClCompile>
   </ItemGroup>
 </Project>

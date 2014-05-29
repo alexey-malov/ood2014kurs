@@ -10,7 +10,7 @@ namespace qp
 using namespace std;
 
 
-CTypeInQuestionState::CTypeInQuestionState(CTypeInQuestionPtr const& question)
+CTypeInQuestionState::CTypeInQuestionState(CConstTypeInQuestionPtr const& question)
 	:CQuestionState(question)
 	,m_question(question)
 {

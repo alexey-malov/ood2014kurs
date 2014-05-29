@@ -13,12 +13,12 @@ struct TypeInQuestionStateTestFixture
 {
 
 	TypeInQuestionStateTestFixture()
-	:question(make_shared<CTypeInQuestion>("Question description", TypeInAnswersCollection, 10))
+	:question(make_shared<CTypeInQuestion const>("Question description", TypeInAnswersCollection, 10))
 	{
 		
 	}
 
-	CTypeInQuestionPtr question;
+	CConstTypeInQuestionPtr question;
 };
 
 BOOST_FIXTURE_TEST_SUITE(TypeInQuestionStateTests, TypeInQuestionStateTestFixture)

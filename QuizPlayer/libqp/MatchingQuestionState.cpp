@@ -19,7 +19,7 @@ void GenerateIndexes(vector<size_t> & arr, size_t size, bool shuffleAnswers)
 	}
 }
 
-CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr & question, bool shuffleAnswers)
+CMatchingQuestionState::CMatchingQuestionState(CConstMatchingQuestionPtr const& question, bool shuffleAnswers)
 :CQuestionStateWithCustomQuestion(question)
 ,m_responses(question->GetLeftMatchingItemsCount())
 {
@@ -82,7 +82,7 @@ void CMatchingQuestionState::SelectResponse(size_t leftItem, size_t rightItem)
 		throw logic_error("Answer cannot be changed after submitting");
 	}
 
-	if (rightItem >= GetQuestion()->GetRightMatchingItemsCount())
+	if (rightItem >= GetConcreteQuestion()->GetRightMatchingItemsCount())
 	{
 		throw out_of_range("Index of right item is out of range");
 	}

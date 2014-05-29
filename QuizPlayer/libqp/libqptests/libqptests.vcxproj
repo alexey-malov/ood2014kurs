@@ -99,6 +99,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MockQuestionState.h" />
+    <ClInclude Include="MockQuestionView.h" />
     <ClInclude Include="MockQuizView.h" />
     <ClInclude Include="QuestionForTest.h" />
     <ClInclude Include="QuestionStateForTesting.h" />
@@ -113,10 +115,12 @@
     <ClCompile Include="MockQuizView.cpp" />
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />
+    <ClCompile Include="QuestionViewControllerTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionViewTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionStateTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionViewTests.cpp" />
+    <ClCompile Include="QuestionStateFactoryTests.cpp" />
     <ClCompile Include="QuestionStatesTests.cpp" />
     <ClCompile Include="QuestionStateTests.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />

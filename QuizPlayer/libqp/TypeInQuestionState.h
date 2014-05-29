@@ -10,7 +10,7 @@ namespace qp
 	class CTypeInQuestionState : public CQuestionState
 	{
 	public:
-		CTypeInQuestionState(CTypeInQuestionPtr const& question);
+		CTypeInQuestionState(CConstTypeInQuestionPtr const& question);
 		~CTypeInQuestionState();
 
 		void SetUserAnswer(std::string const& answer);

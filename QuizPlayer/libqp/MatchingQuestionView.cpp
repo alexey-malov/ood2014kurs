@@ -20,7 +20,7 @@ void CMatchingQuestionView::ShowDetails()
 {
 	auto & outputStream = GetOutputStream();
 	
-	CConstMatchingQuestionPtr question = m_questionState->GetQuestion();
+	CConstMatchingQuestionPtr question = m_questionState->GetConcreteQuestion();
 	auto const& leftItems = question->GetLeftMatchingItems();
 	auto const& rightItems = question->GetRightMatchingItems();
 	

@@ -21,7 +21,7 @@ void CMultipleChoiceQuestionState::DoSubmit()
 {
 	if (m_answerIndex)
 	{
-		auto const& question = GetQuestion();
+		auto const& question = GetConcreteQuestion();
 		auto const& choices = question->GetChoices();
 		if (choices.GetChoice(*m_answerIndex).isCorrect)
 		{
