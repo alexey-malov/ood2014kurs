@@ -14,7 +14,3 @@ CTypeInQuestionView::CTypeInQuestionView(CTypeInQuestionStatePtr const& question
 CTypeInQuestionView::~CTypeInQuestionView()
 {
 }
-
-void CTypeInQuestionView::ShowDetails()
-{
-}

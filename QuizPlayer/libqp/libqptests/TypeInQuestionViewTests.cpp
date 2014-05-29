@@ -20,6 +20,7 @@ BOOST_AUTO_TEST_CASE(TypeInQuestionViewShowsDescription)
 	istringstream istrm;
 	CTypeInQuestionView view(state, ostrm, istrm);
 	view.Show();
+	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
