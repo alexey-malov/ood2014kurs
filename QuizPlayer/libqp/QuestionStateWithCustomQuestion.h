@@ -11,7 +11,7 @@ class CQuestionStateWithCustomQuestion : public Base
 public:
 	typedef std::shared_ptr<QuestionType const> ConstQuestionTypePtr;
 	CQuestionStateWithCustomQuestion(ConstQuestionTypePtr const& question)
-		:CQuestionState(question)
+		:Base(question)
 		, m_question(question)
 	{
 	}

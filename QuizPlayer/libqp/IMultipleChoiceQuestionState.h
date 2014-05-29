@@ -1,7 +1,8 @@
 #pragma once
 
+#include "QuestionState_fwd.h"
 #include "IQuestionState.h"
-#include "IMultipleChoiceQuestionState_fwd.h"
+
 
 namespace qp
 {

@@ -12,11 +12,11 @@ public:
 	virtual ~CQuestionStates();
 
 	size_t GetCount()const;
-	void AddQuestionState(CQuestionStatePtr questionState);
-	CQuestionStatePtr GetQuestionStateAtIndex(size_t index)const;
+	void AddQuestionState(IQuestionStatePtr questionState);
+	IQuestionStatePtr GetQuestionStateAtIndex(size_t index)const;
 
 private:
-	std::vector<CQuestionStatePtr> m_questionStates;
+	std::vector<IQuestionStatePtr> m_questionStates;
 };
 
 }

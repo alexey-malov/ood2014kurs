@@ -195,9 +195,6 @@
     <ClInclude Include="IMultipleChoiceQuestionState.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
-    <ClInclude Include="IMultipleChoiceQuestionState_fwd.h">
-      <Filter>Model\Session\Questions</Filter>
-    </ClInclude>
     <ClInclude Include="QuestionStateImpl.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
