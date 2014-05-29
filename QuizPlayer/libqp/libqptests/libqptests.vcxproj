@@ -99,6 +99,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MockMultipleChoiceQuestionState.h" />
     <ClInclude Include="MockQuestionState.h" />
     <ClInclude Include="MockQuestionView.h" />
     <ClInclude Include="MockQuizView.h" />

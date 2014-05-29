@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "QuestionView.h"
-#include "QuestionState.h"
 #include "Question.h"
+#include "IQuestionState.h"
 
 namespace qp
 {
@@ -43,7 +43,7 @@ void CQuestionView::ProcessString(std::string const& inputString)
 	{
 		m_onSkip();
 	}
-	else if (static_pointer_cast<CQuestionState>(m_questionState)->Submitted() && inputString == "")
+	else if (m_questionState->Submitted() && inputString == "")
 	{
 		m_onNextQuestion();
 	}

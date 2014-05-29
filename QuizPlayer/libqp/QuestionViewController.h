@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IQuestionView_fwd.h"
-#include "IQuestionState_fwd.h"
+#include "QuestionState_fwd.h"
 #include "types.h"
 
 namespace qp

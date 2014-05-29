@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "Question.h"
-#include "QuestionState.h"
+#include "QuestionStateImpl.h"
 #include "QuestionView.h"
 #include "QuestionForTest.h"
 #include "MockQuestionState.h"

@@ -84,9 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GradedChoice.h" />
+    <ClInclude Include="IMultipleChoiceQuestionState.h" />
+    <ClInclude Include="IMultipleChoiceQuestionState_fwd.h" />
     <ClInclude Include="IQuestionState.h" />
     <ClInclude Include="IQuestionStateFactory.h" />
-    <ClInclude Include="IQuestionState_fwd.h" />
     <ClInclude Include="IQuestionView_fwd.h" />
     <ClInclude Include="MatchingQuestionState.h" />
     <ClInclude Include="MatchingQuestionState_fwd.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="QuestionReview.h" />
     <ClInclude Include="QuestionReview_fwd.h" />
     <ClInclude Include="QuestionStateFactory.h" />
+    <ClInclude Include="QuestionStateImpl.h" />
     <ClInclude Include="QuestionStateWithCustomQuestion.h" />
     <ClInclude Include="QuestionView.h" />
     <ClInclude Include="QuestionViewController.h" />
@@ -115,7 +117,6 @@
     <ClInclude Include="IQuizView.h" />
     <ClInclude Include="MultipleResponseQuestion.h" />
     <ClInclude Include="Questions.h" />
-    <ClInclude Include="QuestionState.h" />
     <ClInclude Include="QuestionStates.h" />
     <ClInclude Include="QuestionState_fwd.h" />
     <ClInclude Include="Question_fwd.h" />
@@ -150,7 +151,6 @@
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="QuestionReview.cpp" />
     <ClCompile Include="Questions.cpp" />
-    <ClCompile Include="QuestionState.cpp" />
     <ClCompile Include="QuestionStateFactory.cpp" />
     <ClCompile Include="QuestionStates.cpp" />
     <ClCompile Include="QuestionView.cpp" />

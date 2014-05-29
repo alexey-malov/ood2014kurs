@@ -12,8 +12,13 @@ struct CMockQuestionState : public qp::IQuestionState
 
 	CMockQuestionState(QuestionPtrType const& question)
 		:question(question)
-		, submitted(false)
+		,submitted(false)
 	{
+	}
+
+	virtual bool Submitted()const final
+	{
+		return submitted;
 	}
 
 	virtual void Submit() override

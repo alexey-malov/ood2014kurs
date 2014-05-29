@@ -81,9 +81,6 @@
     <ClInclude Include="QuizSession.h">
       <Filter>Model\Session</Filter>
     </ClInclude>
-    <ClInclude Include="QuestionState.h">
-      <Filter>Model\Session\Questions</Filter>
-    </ClInclude>
     <ClInclude Include="QuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
@@ -192,11 +189,17 @@
     <ClInclude Include="IQuestionState.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
-    <ClInclude Include="IQuestionState_fwd.h">
-      <Filter>Model\Session\Questions</Filter>
-    </ClInclude>
     <ClInclude Include="MultipleChoiceQuestionView_fwd.h">
       <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultipleChoiceQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultipleChoiceQuestionState_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionStateImpl.h">
+      <Filter>Model\Session\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -220,9 +223,6 @@
     </ClCompile>
     <ClCompile Include="QuizSession.cpp">
       <Filter>Model\Session</Filter>
-    </ClCompile>
-    <ClCompile Include="QuestionState.cpp">
-      <Filter>Model\Session\Questions</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestion.cpp">
       <Filter>Model\Quiz\Questions</Filter>

@@ -1,5 +1,5 @@
 #pragma once
-#include "QuestionState.h"
+#include "QuestionStateImpl.h"
 #include "TypeInQuestion_fwd.h"
 #include "QuestionReview.h"
 #include "types.h"

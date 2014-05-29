@@ -70,7 +70,10 @@
       <Filter>Mocks\Views\Questions</Filter>
     </ClInclude>
     <ClInclude Include="MockQuestionState.h">
-      <Filter>Mocks\Model\Quiz\Questions</Filter>
+      <Filter>Mocks\Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="MockMultipleChoiceQuestionState.h">
+      <Filter>Mocks\Model\Session\Questions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
