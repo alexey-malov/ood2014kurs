@@ -16,7 +16,7 @@ public:
 	CConstQuestionPtr GetQuestion()const override;
 
 	// Indicates whether the question has been submitted (user has given an  answer to the question)
-	bool Submitted()const;
+	bool Submitted()const override final;
 
 	void Submit() override final;
 

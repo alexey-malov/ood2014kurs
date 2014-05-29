@@ -12,6 +12,8 @@ public:
 
 	virtual void Submit() = 0;
 
+	virtual bool Submitted()const = 0;
+
 	virtual ~IQuestionState(){}
 };
 }
