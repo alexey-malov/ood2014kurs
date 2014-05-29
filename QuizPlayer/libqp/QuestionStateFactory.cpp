@@ -21,7 +21,7 @@ namespace
 {
 struct BasicQuesionVisitor
 {
-	std::unique_ptr<CQuestionState> questionState;
+	std::unique_ptr<IQuestionState> questionState;
 };
 
 template <typename Q, typename S>
@@ -43,7 +43,7 @@ struct CQuestionStateFactory::QuestionStateCreationVisitor
 {
 };
 
-unique_ptr<CQuestionState> CQuestionStateFactory::CreateStateForQuestion(CConstQuestionPtr const& question)const
+unique_ptr<IQuestionState> CQuestionStateFactory::CreateStateForQuestion(CConstQuestionPtr const& question)const
 {
 	QuestionStateCreationVisitor visitor;
 	question->Accept(visitor);

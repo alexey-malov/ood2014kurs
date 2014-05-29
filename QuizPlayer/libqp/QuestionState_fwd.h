@@ -13,7 +13,6 @@ template <typename Base>
 class CQuestionStateImpl;
 
 typedef CQuestionStateImpl<IQuestionState> CQuestionState;
-
 typedef std::shared_ptr<CQuestionState> CQuestionStatePtr;
 
 }

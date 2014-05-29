@@ -10,7 +10,7 @@ namespace qp
 class CQuestionStateFactory : public IQuestionStateFactory
 {
 public:
-	std::unique_ptr<CQuestionState> CreateStateForQuestion(CConstQuestionPtr const& question)const override;
+	std::unique_ptr<IQuestionState> CreateStateForQuestion(CConstQuestionPtr const& question)const override;
 
 private:
 	struct QuestionStateCreationVisitor;
