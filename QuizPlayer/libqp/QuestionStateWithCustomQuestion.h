@@ -5,8 +5,8 @@
 namespace qp
 {
 
-template <typename QuestionType>
-class CQuestionStateWithCustomQuestion : public CQuestionState
+template <typename QuestionType, typename Base = CQuestionState>
+class CQuestionStateWithCustomQuestion : public Base
 {
 public:
 	typedef std::shared_ptr<QuestionType const> ConstQuestionTypePtr;
