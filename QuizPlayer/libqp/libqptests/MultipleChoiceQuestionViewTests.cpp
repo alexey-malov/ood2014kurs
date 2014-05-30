@@ -84,12 +84,14 @@ BOOST_AUTO_TEST_CASE(AnswerRequestedByProcessingCorrectLetter)
 	view.Show();
 
 	bool answerSelectedRequested = false;
-	view.DoOnAnswerSelected([&answerSelectedRequested](size_t answerIndex){
-		answerIndex;
+	bool answerIndexIsCorrect = false;
+	view.DoOnAnswerSelected([&answerSelectedRequested, &answerIndexIsCorrect](size_t answerIndex){
+		answerIndexIsCorrect = (answerIndex == 0);
 		answerSelectedRequested = true;
 	});
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
 	BOOST_CHECK(answerSelectedRequested);
+	BOOST_CHECK(answerIndexIsCorrect);
 	BOOST_CHECK_EQUAL(ostrm.str(),
 		"What is the name of our planet?\n"
 		"A. Mercury\n"

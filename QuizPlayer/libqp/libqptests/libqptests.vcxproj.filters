@@ -155,5 +155,8 @@
     <ClCompile Include="QuestionViewControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionViewControllerTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
