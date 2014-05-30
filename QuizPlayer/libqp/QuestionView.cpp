@@ -24,6 +24,7 @@ void CQuestionView::Show()
 {
 	ShowDescription();
 	ShowDetails();
+	ShowPrompt();
 }
 
 void CQuestionView::HandleUserInput()

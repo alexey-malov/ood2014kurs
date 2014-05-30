@@ -32,7 +32,30 @@ void CMultipleChoiceQuestionView::ShowDetails()
 	{
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
 	}
+}
 
+void CMultipleChoiceQuestionView::ShowPrompt()
+{
+	CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
+	auto & outputStream = GetOutputStream();
+	const auto numChoices = question->GetChoices().GetChoiceCount();
 	outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
 }
 
+bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
+{
+	if (!CQuestionView::ProcessString(inputString))
+	{
+		CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
+		const auto numChoices = question->GetChoices().GetChoiceCount();
+		if (inputString.size() == 1 && inputString >= GetResponseBullet(0) && inputString <= GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1)))
+		{
+			//send signal to check answer
+		}
+		else
+		{
+			ShowPrompt();
+		}
+	}
+	return true;
+}
