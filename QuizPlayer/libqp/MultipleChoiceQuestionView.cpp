@@ -24,9 +24,8 @@ std::string GetResponseBullet(unsigned char offset)
 
 void CMultipleChoiceQuestionView::ShowDetails()
 {
-	CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
 	auto & outputStream = GetOutputStream();
-	CGradedChoices const& choices = question->GetChoices();
+	CGradedChoices const& choices = m_questionState->GetConcreteQuestion()->GetChoices();
 	const auto numChoices = choices.GetChoiceCount();
 	for (unsigned char idx = 0; idx < numChoices; ++idx)
 	{
@@ -36,9 +35,8 @@ void CMultipleChoiceQuestionView::ShowDetails()
 
 void CMultipleChoiceQuestionView::ShowPrompt()
 {
-	CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
 	auto & outputStream = GetOutputStream();
-	const auto numChoices = question->GetChoices().GetChoiceCount();
+	const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
 	outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
 }
 
@@ -46,11 +44,10 @@ bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
 {
 	if (!CQuestionView::ProcessString(inputString))
 	{
-		CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
-		const auto numChoices = question->GetChoices().GetChoiceCount();
+		const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
 		if (inputString.size() == 1 && inputString >= GetResponseBullet(0) && inputString <= GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1)))
 		{
-			//send signal to check answer
+			m_onAnswerSelected((size_t)(inputString[0] - GetResponseBullet(0)[0]));
 		}
 		else
 		{
@@ -58,4 +55,9 @@ bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
 		}
 	}
 	return true;
+}
+
+Connection CMultipleChoiceQuestionView::DoOnAnswerSelected(const OnAnswerSelectedSlotType & answerSelectedHandler)
+{
+	return m_onAnswerSelected.connect(answerSelectedHandler);
 }
