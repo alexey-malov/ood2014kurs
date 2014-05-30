@@ -32,10 +32,10 @@ BOOST_AUTO_TEST_CASE(MultipleChoiceQuestionViewShowsDescriptionAndDetails)
 	questionView->Show();
 	BOOST_CHECK_EQUAL(ostrm.str(), 
 		"What is the name of our planet?\n"
-		"A. Mercury\n"
-		"B. Venus\n"
-		"C. The Earth\n"
-		"D. Mars\n"
+		"( ) A. Mercury\n"
+		"( ) B. Venus\n"
+		"( ) C. The Earth\n"
+		"( ) D. Mars\n"
 		"Choose an answer (A-D) or type 'submit': "
 		);
 }
@@ -94,10 +94,10 @@ BOOST_AUTO_TEST_CASE(AnswerRequestedByProcessingCorrectLetter)
 	BOOST_CHECK(answerIndexIsCorrect);
 	BOOST_CHECK_EQUAL(ostrm.str(),
 		"What is the name of our planet?\n"
-		"A. Mercury\n"
-		"B. Venus\n"
-		"C. The Earth\n"
-		"D. Mars\n"
+		"( ) A. Mercury\n"
+		"( ) B. Venus\n"
+		"( ) C. The Earth\n"
+		"( ) D. Mars\n"
 		"Choose an answer (A-D) or type 'submit': "
 		);
 }

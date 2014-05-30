@@ -29,6 +29,8 @@ void CMultipleChoiceQuestionView::ShowDetails()
 	const auto numChoices = choices.GetChoiceCount();
 	for (unsigned char idx = 0; idx < numChoices; ++idx)
 	{
+		string radioVal = (m_questionState->GetUserAnswerIndex() == (size_t)idx) ? "o" : " ";
+		outputStream << "(" << radioVal << ") ";
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
 	}
 }
