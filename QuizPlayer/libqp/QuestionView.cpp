@@ -33,8 +33,9 @@ void CQuestionView::HandleUserInput()
 	ProcessString(inputString);
 }
 
-void CQuestionView::ProcessString(std::string const& inputString)
+bool CQuestionView::ProcessString(std::string const& inputString)
 {
+	bool stringProcessed = true;
 	if (inputString == "submit")
 	{
 		m_onSubmit();
@@ -47,6 +48,11 @@ void CQuestionView::ProcessString(std::string const& inputString)
 	{
 		m_onNextQuestion();
 	}
+	else
+	{
+		stringProcessed = false;
+	}
+	return stringProcessed;
 }
 
 void CQuestionView::ShowDescription() const

@@ -34,10 +34,11 @@ struct TestQuestionView : public CQuestionView
 		detailsWereShown = true;
 	}
 
-	void ProcessString(std::string const& inputString) override
+	bool ProcessString(std::string const& inputString) override
 	{
 		inputStrings.push_back(inputString);
 		CQuestionView::ProcessString(inputString);
+		return true;
 	}
 
 	bool detailsWereShown;
