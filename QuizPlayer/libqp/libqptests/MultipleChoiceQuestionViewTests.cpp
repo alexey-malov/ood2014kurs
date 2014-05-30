@@ -130,4 +130,6 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
 	BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': ");
 }
 
+
+
 BOOST_AUTO_TEST_SUITE_END()

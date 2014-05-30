@@ -26,10 +26,27 @@ void CMultipleChoiceQuestionView::ShowDetails()
 {
 	auto & outputStream = GetOutputStream();
 	CGradedChoices const& choices = m_questionState->GetConcreteQuestion()->GetChoices();
-	const auto numChoices = choices.GetChoiceCount();
-	for (unsigned char idx = 0; idx < numChoices; ++idx)
+	optional_size_t const& userAnswer = m_questionState->GetUserAnswerIndex();
+
+	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)
 	{
-		string radioVal = (m_questionState->GetUserAnswerIndex() == (size_t)idx) ? "o" : " ";
+		if (m_questionState->Submitted())
+		{
+			if (choices.GetChoice(idx).isCorrect)
+			{
+				outputStream << "+ ";
+			}
+			else if (userAnswer == (size_t)idx)
+			{
+				outputStream << "- ";
+			}
+			else
+			{
+				outputStream << "  ";
+			}
+		}
+
+		string radioVal = (userAnswer == (size_t)idx) ? "o" : " ";
 		outputStream << "(" << radioVal << ") ";
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
 	}
@@ -39,7 +56,14 @@ void CMultipleChoiceQuestionView::ShowPrompt()
 {
 	auto & outputStream = GetOutputStream();
 	const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
-	outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
+	if (m_questionState->Submitted())
+	{
+		outputStream << "Press Enter to go to the next question";
+	}
+	else
+	{
+		outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
+	}
 }
 
 bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
