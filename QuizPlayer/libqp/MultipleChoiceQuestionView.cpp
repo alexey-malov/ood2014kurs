@@ -24,15 +24,66 @@ std::string GetResponseBullet(unsigned char offset)
 
 void CMultipleChoiceQuestionView::ShowDetails()
 {
-	CConstMultipleChoiceQuestionPtr question = m_questionState->GetConcreteQuestion();
 	auto & outputStream = GetOutputStream();
-	CGradedChoices const& choices = question->GetChoices();
-	const auto numChoices = choices.GetChoiceCount();
-	for (unsigned char idx = 0; idx < numChoices; ++idx)
+	CGradedChoices const& choices = m_questionState->GetConcreteQuestion()->GetChoices();
+	optional_size_t const& userAnswer = m_questionState->GetUserAnswerIndex();
+
+	for (unsigned char idx = 0; idx < choices.GetChoiceCount(); ++idx)
 	{
+		if (m_questionState->Submitted())
+		{
+			if (choices.GetChoice(idx).isCorrect)
+			{
+				outputStream << "+ ";
+			}
+			else if (userAnswer == (size_t)idx)
+			{
+				outputStream << "- ";
+			}
+			else
+			{
+				outputStream << "  ";
+			}
+		}
+
+		string radioVal = (userAnswer == (size_t)idx) ? "o" : " ";
+		outputStream << "(" << radioVal << ") ";
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
 	}
-
-	outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
 }
 
+void CMultipleChoiceQuestionView::ShowPrompt()
+{
+	auto & outputStream = GetOutputStream();
+	const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
+	if (m_questionState->Submitted())
+	{
+		outputStream << "Press Enter to go to the next question";
+	}
+	else
+	{
+		outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
+	}
+}
+
+bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
+{
+	if (!CQuestionView::ProcessString(inputString))
+	{
+		const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
+		if (inputString.size() == 1 && inputString >= GetResponseBullet(0) && inputString <= GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1)))
+		{
+			m_onAnswerSelected((size_t)(inputString[0] - GetResponseBullet(0)[0]));
+		}
+		else
+		{
+			ShowPrompt();
+		}
+	}
+	return true;
+}
+
+Connection CMultipleChoiceQuestionView::DoOnAnswerSelected(const OnAnswerSelectedSlotType & answerSelectedHandler)
+{
+	return m_onAnswerSelected.connect(answerSelectedHandler);
+}

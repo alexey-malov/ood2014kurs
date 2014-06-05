@@ -160,5 +160,8 @@
       <Filter>Controllers</Filter>
 >>>>>>> 1a4322284375a75fd5b8ee8bea4f3167f1bd1bb7
     </ClCompile>
+    <ClCompile Include="MultipleChoiceQuestionViewControllerTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,13 +5,14 @@ namespace qp
 
 class IQuestionState;
 typedef std::shared_ptr<IQuestionState> IQuestionStatePtr;
-typedef std::shared_ptr<const IQuestionState> IConstQuestionStatePtr;
+
+class IMultipleChoiceQuestionState;
+typedef std::shared_ptr<IMultipleChoiceQuestionState> IMultipleChoiceQuestionStatePtr;
 
 template <typename Base>
 class CQuestionStateImpl;
 
 typedef CQuestionStateImpl<IQuestionState> CQuestionState;
-
 typedef std::shared_ptr<CQuestionState> CQuestionStatePtr;
 
 }

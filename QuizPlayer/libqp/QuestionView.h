@@ -21,8 +21,9 @@ public:
 	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override final;
 
 protected:
-	virtual void ProcessString(std::string const& inputString);
+	virtual bool ProcessString(std::string const& inputString);
 	virtual void ShowDetails() = 0;
+	virtual void ShowPrompt(){};
 	std::ostream & GetOutputStream() { return m_outputStream; };
 private:
 	void ShowDescription()const;

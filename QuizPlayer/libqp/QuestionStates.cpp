@@ -18,7 +18,7 @@ size_t CQuestionStates::GetCount()const
 	return m_questionStates.size();
 }
 
-void CQuestionStates::AddQuestionState(CQuestionStatePtr questionState)
+void CQuestionStates::AddQuestionState(IQuestionStatePtr questionState)
 {
 	if (find(m_questionStates.begin(), m_questionStates.end(), questionState) == m_questionStates.end())
 	{
@@ -30,7 +30,7 @@ void CQuestionStates::AddQuestionState(CQuestionStatePtr questionState)
 	}
 }
 
-CQuestionStatePtr CQuestionStates::GetQuestionStateAtIndex(size_t index)const
+IQuestionStatePtr CQuestionStates::GetQuestionStateAtIndex(size_t index)const
 {
 	if (index >= GetCount())
 	{

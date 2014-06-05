@@ -27,6 +27,7 @@ struct TestQuestionView : public CQuestionView
 	TestQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 	:CQuestionView(questionState, outputStream, inputStream)
 	,detailsWereShown(false)
+	,promptWasShown(false)
 	{}
 
 	void ShowDetails() override
@@ -34,13 +35,20 @@ struct TestQuestionView : public CQuestionView
 		detailsWereShown = true;
 	}
 
-	void ProcessString(std::string const& inputString) override
+	void ShowPrompt() override
+	{
+		promptWasShown = true;
+	}
+
+	bool ProcessString(std::string const& inputString) override
 	{
 		inputStrings.push_back(inputString);
 		CQuestionView::ProcessString(inputString);
+		return true;
 	}
 
 	bool detailsWereShown;
+	bool promptWasShown;
 	vector<string> inputStrings;
 };
 
