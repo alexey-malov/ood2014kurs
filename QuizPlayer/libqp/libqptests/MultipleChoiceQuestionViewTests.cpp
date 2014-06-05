@@ -36,7 +36,6 @@ BOOST_AUTO_TEST_CASE(MultipleChoiceQuestionViewShowsDescriptionAndDetails)
 		"( ) B. Venus\n"
 		"( ) C. The Earth\n"
 		"( ) D. Mars\n"
-		"Choose an answer (A-D) or type 'submit': "
 		);
 }
 
@@ -113,7 +112,9 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectLetter)
 		});
 		BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
 		BOOST_CHECK(!answerSelectedRequested);
-		BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': "); 
+		BOOST_CHECK_EQUAL(ostrm.str(), 
+			"Choose an answer (A-D) or type 'submit': " 
+			"Choose an answer (A-D) or type 'submit': "); 
 }
 
 BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
@@ -127,7 +128,10 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
 	});
 	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
 	BOOST_CHECK(!answerSelectedRequested);
-	BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': ");
+	BOOST_CHECK_EQUAL(ostrm.str(), 
+		"Choose an answer (A-D) or type 'submit': "
+		"Choose an answer (A-D) or type 'submit': "
+		);
 }
 
 

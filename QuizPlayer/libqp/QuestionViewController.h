@@ -12,6 +12,7 @@ class CQuestionViewController : public boost::noncopyable
 public:
 	CQuestionViewController(IQuestionStatePtr const& questionState, IQuestionViewPtr const& view);
 	virtual ~CQuestionViewController();
+	void Run();
 private:
 	void OnSubmitRequest();
 private:

@@ -24,11 +24,11 @@ void CQuestionView::Show()
 {
 	ShowDescription();
 	ShowDetails();
-	ShowPrompt();
 }
 
 void CQuestionView::HandleUserInput()
 {
+	ShowPrompt();
 	string inputString;
 	getline(m_inputStream, inputString);
 	ProcessString(inputString);

@@ -6,6 +6,7 @@
 #include "libqp/MultipleChoiceQuestion.h"
 #include "libqp/MultipleChoiceQuestionState.h"
 #include "libqp/MultipleChoiceQuestionView.h"
+#include "libqp/MultipleChoiceQuestionViewController.h"
 
 #include "libqp/MultipleResponseQuestion.h"
 #include "libqp/MultipleResponseQuestionState.h"
@@ -29,8 +30,8 @@ void TestMultipleChoiceQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
-	questionView->Show();
+	auto questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
+	auto controller = make_shared<CMultipleChoiceQuestionViewController>(questionState, questionView);
 }
 
 void TestMultipleResponseQuestionVisualization()
