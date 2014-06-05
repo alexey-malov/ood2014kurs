@@ -6,36 +6,36 @@ BOOST_AUTO_TEST_SUITE(SequenceQuestionTests)
 
 using namespace qp;
 using namespace std;
-using MatchedItems = CSequenceQuestion::MatchedItems;
+using Sequence = CSequenceQuestion::Sequence;
 
 BOOST_AUTO_TEST_CASE(CorrectConstruction)
 {
 	{
 		// test constructor
-		MatchedItems matchedItems = { "one", "two", "three" };
-		CSequenceQuestion sq("another test question", 1.0, matchedItems);
+		Sequence sequence = { "one", "two", "three" };
+		CSequenceQuestion sequenceQuestion("another test question", 1.0, sequence);
 
-		BOOST_REQUIRE_EQUAL(sq.GetDescription(), "another test question");
-		BOOST_REQUIRE_CLOSE(sq.GetScore(), 1.0, 0.0001);
-		BOOST_REQUIRE_EQUAL_COLLECTIONS(matchedItems.begin(), matchedItems.end(), sq.GetMatchedItems().begin(), sq.GetMatchedItems().end());
+		BOOST_REQUIRE_EQUAL(sequenceQuestion.GetDescription(), "another test question");
+		BOOST_REQUIRE_CLOSE(sequenceQuestion.GetScore(), 1.0, 0.0001);
+		BOOST_REQUIRE_EQUAL_COLLECTIONS(sequence.begin(), sequence.end(), sequenceQuestion.GetSequence().begin(), sequenceQuestion.GetSequence().end());
 	}
 
 	{
 		// test matching items count exception
-		MatchedItems matchedItems = { "one", "two" };
-		BOOST_REQUIRE_THROW(CSequenceQuestion sq("another test question", 1.0, matchedItems), invalid_argument)
+		Sequence sequence = { "one", "two" };
+		BOOST_REQUIRE_THROW(CSequenceQuestion sequenceQuestion("another test question", 1.0, sequence), invalid_argument)
 	}
 
 	{
 		// test empty matching item exception
-		MatchedItems matchedItems = { "one", "", "three" };
-		BOOST_REQUIRE_THROW(CSequenceQuestion sq("another test question", 1.0, matchedItems), invalid_argument)
+		Sequence sequence = { "one", "", "three" };
+		BOOST_REQUIRE_THROW(CSequenceQuestion sequenceQuestion("another test question", 1.0, sequence), invalid_argument)
 	}
 
 	{
 		// test duplicates in matching items exception
-		MatchedItems matchedItems = { "one", "two", "one" };
-		BOOST_REQUIRE_THROW(CSequenceQuestion sq("another test question", 1.0, matchedItems), invalid_argument)
+		Sequence sequence = { "one", "two", "one" };
+		BOOST_REQUIRE_THROW(CSequenceQuestion sequenceQuestion("another test question", 1.0, sequence), invalid_argument)
 	}
 }
 
