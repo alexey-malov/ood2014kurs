@@ -12,6 +12,8 @@ public:
 	~CTypeInQuestionView();
 
 	virtual void ShowDetails() override {};
+	virtual void ShowPrompt() override final;
+	virtual bool ProcessString(std::string const& inputString) override final;
 
 private:
 	const CTypeInQuestionStatePtr m_questionState;

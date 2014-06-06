@@ -7,20 +7,75 @@
 using namespace qp;
 using namespace std;
 
-BOOST_AUTO_TEST_SUITE(TypeInQuestionViewTests)
+set<string> TypeInAnswers = {"First answer", "Second answer"};
+
+struct TypeInQuestionStateFixture
+{
+	TypeInQuestionStateFixture()
+	:state(make_shared<CTypeInQuestionState>(make_shared<CTypeInQuestion>("Question description", TypeInAnswers, 10)))
+	{
+	}
+	CTypeInQuestionStatePtr state;
+	ostringstream ostrm;
+};
+
+BOOST_FIXTURE_TEST_SUITE(TypeInQuestionViewTests, TypeInQuestionStateFixture)
 
 BOOST_AUTO_TEST_CASE(TypeInQuestionViewShowsDescription)
 {
-	string description = "Description";
-	set<string> answers = {"First answer", "Second answer"};
-	auto question = make_shared<CTypeInQuestion>(description, answers, 10);
-	auto state = make_shared<CTypeInQuestionState>(question);
-
-	ostringstream ostrm;
 	istringstream istrm;
-	CTypeInQuestionView view(state, ostrm, istrm);
-	view.Show();
-	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
+	shared_ptr<IQuestionView> questionView = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	questionView->Show();
+	BOOST_CHECK_EQUAL(ostrm.str(), "Question description\n");
 }
+
+BOOST_AUTO_TEST_CASE(SubmitRequest)
+{
+	istringstream istrm("submit\n");
+	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	bool submitRequested = false;
+	view->DoOnSubmit([&submitRequested](){
+		submitRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_CHECK(submitRequested);
+}
+
+BOOST_AUTO_TEST_CASE(SkipRequest)
+{
+	istringstream istrm("skip\n");
+	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	bool skipRequested = false;
+	view->DoOnSkip([&skipRequested](){
+		skipRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_CHECK(skipRequested);
+}
+
+BOOST_AUTO_TEST_CASE(NextQuestionRequest)
+{
+	istringstream istrm("\n");
+	state->Submit();
+	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	bool nextQuestionRequested = false;
+	view->DoOnNextQuestion([&nextQuestionRequested](){
+		nextQuestionRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_CHECK(nextQuestionRequested);
+}
+
+/*BOOST_AUTO_TEST_CASE(SubmitUserAnswer)
+{
+	istringstream istrm("First answer");
+	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	bool submitRequested = false;
+	view->DoOnAnswerInputed([&submitRequested](){
+		submitRequested = true;
+	});
+	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_CHECK(submitRequested);
+}*/
 
 BOOST_AUTO_TEST_SUITE_END()
