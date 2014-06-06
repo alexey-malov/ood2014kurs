@@ -77,7 +77,7 @@ bool CMultipleChoiceQuestionView::ProcessString(string const& inputString)
 		}
 		else
 		{
-			ShowPrompt();
+			return false;
 		}
 	}
 	return true;

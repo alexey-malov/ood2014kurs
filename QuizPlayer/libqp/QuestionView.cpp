@@ -26,12 +26,12 @@ void CQuestionView::Show()
 	ShowDetails();
 }
 
-void CQuestionView::HandleUserInput()
+bool CQuestionView::HandleUserInput()
 {
 	ShowPrompt();
 	string inputString;
 	getline(m_inputStream, inputString);
-	ProcessString(inputString);
+	return ProcessString(inputString);
 }
 
 bool CQuestionView::ProcessString(std::string const& inputString)

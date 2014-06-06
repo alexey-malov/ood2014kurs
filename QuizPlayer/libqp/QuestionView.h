@@ -13,7 +13,7 @@ public:
 	CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CQuestionView();
 
-	virtual void HandleUserInput() override final;
+	virtual bool HandleUserInput() override final;
 	virtual void Show() override final;
 
 	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;

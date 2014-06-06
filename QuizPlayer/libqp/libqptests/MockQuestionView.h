@@ -30,10 +30,11 @@ public:
 		return onNextQuestion.connect(nextQuestionHandler);
 	}
 
-	virtual void HandleUserInput()
+	virtual bool HandleUserInput()
 	{
 		++handleUserInputCallCounter;
 		onHandleUserInput();
+		return true;
 	}
 
 	virtual void Show()

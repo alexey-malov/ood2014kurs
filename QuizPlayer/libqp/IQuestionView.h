@@ -22,7 +22,7 @@ public:
 	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) = 0;
 	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) = 0;
 	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) = 0;
-	virtual void HandleUserInput() = 0;
+	virtual bool HandleUserInput() = 0;
 	virtual void Show() = 0;
 	virtual ~IQuestionView(){}
 };
