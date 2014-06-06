@@ -14,25 +14,3 @@ CTypeInQuestionView::CTypeInQuestionView(CTypeInQuestionStatePtr const& question
 CTypeInQuestionView::~CTypeInQuestionView()
 {
 }
-
-void CTypeInQuestionView::ShowPrompt()
-{
-	auto & outputStream = GetOutputStream();
-	if (m_questionState->Submitted())
-	{
-		outputStream << "Press Enter to go to the next question";
-	}
-	else
-	{
-		outputStream << "Enter an answer or type 'submit': ";
-	}
-}
-
-bool CTypeInQuestionView::ProcessString(std::string const& inputString)
-{
-	if (!CQuestionView::ProcessString(inputString))
-	{
-		ShowPrompt();
-	}
-	return true;
-}

@@ -143,7 +143,6 @@
     </ClCompile>
     <ClCompile Include="TypeInQuestionStateTests.cpp" />
     <ClCompile Include="TypeInQuestionTests.cpp" />
-    <ClCompile Include="TypeInQuestionViewTests.cpp" />
     <ClCompile Include="UtilsTests.cpp" />
   </ItemGroup>
   <ItemGroup>

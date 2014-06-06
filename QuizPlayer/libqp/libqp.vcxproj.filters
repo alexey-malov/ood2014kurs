@@ -198,9 +198,6 @@
     <ClInclude Include="QuestionStateImpl.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
-    <ClInclude Include="TypeInQuestionView_fwd.h">
-      <Filter>Views\Questions</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
