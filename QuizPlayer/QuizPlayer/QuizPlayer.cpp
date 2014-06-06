@@ -32,6 +32,7 @@ void TestMultipleChoiceQuestionVisualization()
 
 	auto questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
 	auto controller = make_shared<CMultipleChoiceQuestionViewController>(questionState, questionView);
+	controller->Run();
 }
 
 void TestMultipleResponseQuestionVisualization()

@@ -13,12 +13,18 @@ public:
 	CQuestionViewController(IQuestionStatePtr const& questionState, IQuestionViewPtr const& view);
 	virtual ~CQuestionViewController();
 	void Run();
+protected:
+	enum UserInput { DEFAULT, SUBMIT, SKIP };
 private:
 	void OnSubmitRequest();
-private:
-	IQuestionStatePtr const m_questionState;
-	IQuestionViewPtr const m_view;
+	void OnSkipRequest();
 
 	ScopedConnection m_submitRequestConnection;
+	ScopedConnection m_skipRequestConnection;
+	
+	IQuestionStatePtr const m_questionState;
+	IQuestionViewPtr const m_view;
+	UserInput m_handleUserInputResult;
+	
 };
 }

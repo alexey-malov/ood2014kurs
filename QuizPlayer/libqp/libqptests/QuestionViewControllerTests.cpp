@@ -12,11 +12,10 @@ using namespace std;
 struct QuestionViewControllerTestFixture
 {
 	QuestionViewControllerTestFixture()
-	: qs(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("descr", 10)))
-	, qv(make_shared<CMockQuestionView>())
-	, qvc(qs, qv)
+	:qs(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("descr", 10)))
+	,qv(make_shared<CMockQuestionView>())
+	,qvc(qs, qv)
 	{
-
 	}
 	shared_ptr<CMockQuestionState> qs;
 	shared_ptr<CMockQuestionView> qv;
@@ -60,7 +59,7 @@ BOOST_AUTO_TEST_CASE(SkippingSubmittedQuestion)
 {
 	qv->onHandleUserInput.connect([this](){
 		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
-		qv->onNextQuestion();
+		qv->onSkip();
 	});
 
 	qs->submitted = true;

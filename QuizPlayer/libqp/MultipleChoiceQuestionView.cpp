@@ -62,7 +62,7 @@ void CMultipleChoiceQuestionView::ShowPrompt()
 	}
 	else
 	{
-		outputStream << format("Choose an answer (%1%-%2%) or type 'submit': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
+		outputStream << format("Choose an answer (%1%-%2%) or type 'submit' or 'skip': ") % GetResponseBullet(0) % GetResponseBullet(boost::numeric_cast<unsigned char>(numChoices - 1));
 	}
 }
 
