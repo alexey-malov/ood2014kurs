@@ -6,10 +6,15 @@
 #include "libqp/MultipleChoiceQuestion.h"
 #include "libqp/MultipleChoiceQuestionState.h"
 #include "libqp/MultipleChoiceQuestionView.h"
+#include "libqp/MultipleChoiceQuestionViewController.h"
 
 #include "libqp/MultipleResponseQuestion.h"
 #include "libqp/MultipleResponseQuestionState.h"
 #include "libqp/MultipleResponseQuestionView.h"
+
+#include "libqp/MatchingQuestion.h"
+#include "libqp/MatchingQuestionState.h"
+#include "libqp/MatchingQuestionView.h"
 
 using namespace qp;
 using namespace std;
@@ -25,8 +30,8 @@ void TestMultipleChoiceQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout);
-	questionView->Show();
+	auto questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
+	auto controller = make_shared<CMultipleChoiceQuestionViewController>(questionState, questionView);
 }
 
 void TestMultipleResponseQuestionVisualization()
@@ -40,24 +45,35 @@ void TestMultipleResponseQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleResponseQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout);
+	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
 	questionView->Show();
 }
 
 void TestMatchingQuestionVisualization()
 {
-	// TODO: implement me
+	CMatchingQuestion::MatchedItemsCollection matchedItems = {
+		CMatchingQuestion::MatchedItems("Germany", "Berlin"),
+		CMatchingQuestion::MatchedItems("Spain", "Madrid"),
+		CMatchingQuestion::MatchedItems("France", "Paris")
+	};
+	CMatchingQuestion::StandaloneItems extraItems = { "Moscow", "Peking" };
+	CConstMatchingQuestionPtr question = make_shared<CMatchingQuestion>("Match countries with its capitols:", 20, matchedItems, extraItems);
+
+	auto questionState = make_shared<CMatchingQuestionState>(question);
+
+	shared_ptr<IQuestionView> questionView = make_shared<CMatchingQuestionView>(questionState, cout, cin);
+	questionView->Show();
 }
 
 void TestQuestionVisualization()
 {
-	cout << "===========Multiple choice question============\n";
+	cout << "\n===========Multiple choice question============\n";
 	TestMultipleChoiceQuestionVisualization();
 
-	cout << "===========Multiple response question============\n";
+	cout << "\n===========Multiple response question============\n";
 	TestMultipleResponseQuestionVisualization();
 
-	cout << "===========Matching question============\n";
+	cout << "\n===========Matching question============\n";
 	TestMatchingQuestionVisualization();
 }
 

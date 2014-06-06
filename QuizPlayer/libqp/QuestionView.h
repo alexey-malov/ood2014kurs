@@ -10,19 +10,33 @@ namespace qp
 class CQuestionView : public IQuestionView
 {
 public:
-	CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream);
+	CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CQuestionView();
 
+	virtual bool HandleUserInput() override final;
 	virtual void Show() override final;
+
+	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;
+	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) override final;
+	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override final;
+
 protected:
+	virtual bool ProcessString(std::string const& inputString);
 	virtual void ShowDetails() = 0;
+	virtual void ShowPrompt(){};
 	std::ostream & GetOutputStream() { return m_outputStream; };
 private:
 	void ShowDescription()const;
 	const CQuestion & GetQuestion()const;
 private:
 	std::ostream & m_outputStream;
-	CQuestionStatePtr m_questionState;
+	std::istream & m_inputStream;
+	IQuestionStatePtr m_questionState;
+
+	// Signals
+	OnSubmit m_onSubmit;
+	OnSkip m_onSkip;
+	OnNextQuestion m_onNextQuestion;
 };
 
 }

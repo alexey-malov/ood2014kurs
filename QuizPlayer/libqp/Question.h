@@ -9,6 +9,7 @@ namespace qp
 class CQuestion 
 	: boost::noncopyable
 	, public Loki::BaseVisitable<void, Loki::DefaultCatchAll, true>
+	, public std::enable_shared_from_this<CQuestion>
 {
 public:
 	CQuestion(std::string const& description, double score = 0.0);

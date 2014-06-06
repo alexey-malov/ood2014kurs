@@ -30,15 +30,18 @@ BOOST_AUTO_TEST_CASE(QuestionHasNoEmptyAnswer)
 	BOOST_REQUIRE_THROW(CTypeInQuestion quest("Question description", answers), invalid_argument);
 }
 
-/*BOOST_AUTO_TEST_CASE(RemoveEmptyAnswers)
+BOOST_AUTO_TEST_CASE(RemoveExtraSpacesInAnswers)
 {
-	set<string> answers = {"", "      ", "  Answer   with extra    spaces"};
-	CTypeInQuestion quest("Question description", answers);
+	set<string> answers1 = {"    Answer   with   extra spaces   "};
+	CTypeInQuestion quest1("Question description", answers1);
 
-	set<string> const& gotAnswers = quest.GetAnswers();
-	set<string> const& rightAnswers = { "Answer with extra spaces" };
+	set<string> const& gotAnswers = quest1.GetAnswers();
+	set<string> const& rightAnswers = {"Answer with extra spaces"};
 	BOOST_REQUIRE(rightAnswers == gotAnswers);
-}*/
+
+	set<string> answers2 = {"     ", "Answer"};
+	BOOST_REQUIRE_THROW(CTypeInQuestion quest2("Question description", answers2), invalid_argument);
+}
 
 
 BOOST_AUTO_TEST_SUITE_END()

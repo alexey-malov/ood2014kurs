@@ -63,10 +63,10 @@ size_t CMatchingQuestion::GetExtraItemsCount()const
 
 size_t CMatchingQuestion::GetLeftMatchingItemsCount()const
 {
-	return GetLeftMatchingItems().size();
+	return m_matchedItems.size();
 }
 
 size_t CMatchingQuestion::GetRightMatchingItemsCount()const
 {
-	return GetRightMatchingItems().size();
+	return m_matchedItems.size() + m_extraItems.size();
 }

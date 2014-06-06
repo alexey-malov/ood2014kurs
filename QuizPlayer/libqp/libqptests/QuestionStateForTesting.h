@@ -1,6 +1,6 @@
 #pragma once
 
-#include "QuestionState.h"
+#include "QuestionStateImpl.h"
 
 class CQuestionStateForTesting : public qp::CQuestionState
 {

@@ -9,8 +9,7 @@ namespace qp
 using namespace std;
 
 CMultipleChoiceQuestionState::CMultipleChoiceQuestionState(CConstMultipleChoiceQuestionPtr const& question)
-:CQuestionState(question)
-,m_question(question)
+:CQuestionStateWithCustomQuestion(question)
 {
 }
 
@@ -22,10 +21,11 @@ void CMultipleChoiceQuestionState::DoSubmit()
 {
 	if (m_answerIndex)
 	{
-		CGradedChoices const& choices = m_question->GetChoices();
+		auto const& question = GetConcreteQuestion();
+		auto const& choices = question->GetChoices();
 		if (choices.GetChoice(*m_answerIndex).isCorrect)
 		{
-			m_review = make_unique<CQuestionReview>(m_question->GetScore(), true);
+			m_review = make_unique<CQuestionReview>(question->GetScore(), true);
 			return;
 		}
 	}

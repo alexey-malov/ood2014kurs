@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "QuestionView.h"
-#include "QuestionState.h"
 #include "Question.h"
+#include "IQuestionState.h"
 
 namespace qp
 {
 
 using namespace std;
 
-CQuestionView::CQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
+CQuestionView::CQuestionView(const IQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :m_questionState(questionState)
 ,m_outputStream(outputStream)
+,m_inputStream(inputStream)
 {
 }
 
@@ -25,6 +26,36 @@ void CQuestionView::Show()
 	ShowDetails();
 }
 
+bool CQuestionView::HandleUserInput()
+{
+	ShowPrompt();
+	string inputString;
+	getline(m_inputStream, inputString);
+	return ProcessString(inputString);
+}
+
+bool CQuestionView::ProcessString(std::string const& inputString)
+{
+	bool stringProcessed = true;
+	if (inputString == "submit")
+	{
+		m_onSubmit();
+	}
+	else if (inputString == "skip")
+	{
+		m_onSkip();
+	}
+	else if (m_questionState->Submitted() && inputString == "")
+	{
+		m_onNextQuestion();
+	}
+	else
+	{
+		stringProcessed = false;
+	}
+	return stringProcessed;
+}
+
 void CQuestionView::ShowDescription() const
 {
 	m_outputStream << GetQuestion().GetDescription() << endl;
@@ -33,6 +64,21 @@ void CQuestionView::ShowDescription() const
 const CQuestion & CQuestionView::GetQuestion() const
 {
 	return *m_questionState->GetQuestion();
+}
+
+Connection CQuestionView::DoOnSubmit(const OnSubmitSlotType & submitHandler)
+{
+	return m_onSubmit.connect(submitHandler);
+}
+
+Connection CQuestionView::DoOnSkip(const OnSkipSlotType & skipHandler)
+{
+	return m_onSkip.connect(skipHandler);
+}
+
+Connection CQuestionView::DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler)
+{
+	return m_onNextQuestion.connect(nextQuestionHandler);
 }
 
 }

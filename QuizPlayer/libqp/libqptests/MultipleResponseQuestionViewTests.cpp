@@ -1,11 +1,8 @@
 #include "stdafx.h"
 
-#include "Question.h"
 #include "MultipleResponseQuestion.h"
-#include "QuestionState.h"
-#include "QuestionView.h"
 #include "MultipleResponseQuestionView.h"
-#include "QuestionStateForTesting.h"
+#include "MultipleResponseQuestionState.h"
 
 using namespace qp;
 using namespace std;
@@ -16,29 +13,20 @@ BOOST_AUTO_TEST_CASE(MultipleResponseQuestionViewShowsDescriptionAndDetails)
 {
 	string description = "Description";
 	auto question = make_shared<CMultipleResponseQuestion>(description, 10);
-	auto state = make_shared<CQuestionStateForTesting>(question);
-	
-	struct TestQuestionView : public CMultipleResponseQuestionView
-	{
-		TestQuestionView(const CQuestionStatePtr & questionState, std::ostream & outputStream)
-		:CMultipleResponseQuestionView(questionState, outputStream)
-		, detailsWereShown(false)
-		{}
-
-		void ShowDetails() override
-		{
-			detailsWereShown = true;
-		}
-
-		bool detailsWereShown;
-	};
+	auto state = make_shared<CMultipleResponseQuestionState>(question);
 	
 	ostringstream ostrm;
-	TestQuestionView view(state, ostrm);
+	istringstream istrm;
+	CMultipleResponseQuestionView view(state, ostrm, istrm);
 	view.Show();
 	BOOST_CHECK_EQUAL(ostrm.str(), description + "\n");
-	BOOST_CHECK(view.detailsWereShown);
-	
+	/*
+	Description
+	1. [ ] Choice 1
+	2. [ ] Choice 2
+	3. [ ] Choice 3
+	*/
+	BOOST_MESSAGE("TODO: verify that choices are shown");
 }
 
 

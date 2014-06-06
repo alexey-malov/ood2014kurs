@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "TypeInQuestion.h"
+#include "utils.h"
+
 
 namespace qp
 {
@@ -7,11 +9,20 @@ namespace qp
 CTypeInQuestion::CTypeInQuestion(std::string const& description, std::set<std::string> const& answers, double score)
 :CQuestion(description, score)
 {
-	if (answers.empty())
+	for (auto answer : answers)
 	{
-		throw std::invalid_argument("Answer cannot be empty");
+		std::string answerWithoutExtraSpaces = RemoveExtraSpaces(answer);
+		if (answerWithoutExtraSpaces.empty())
+		{
+			throw std::invalid_argument("Answer cannot be empty");
+		}
+		m_answers.insert(answerWithoutExtraSpaces);
 	}
-	m_answers = answers;
+
+	if (m_answers.empty())
+	{
+		throw std::invalid_argument("Answers cannot be empty");
+	}
 }
 
 
