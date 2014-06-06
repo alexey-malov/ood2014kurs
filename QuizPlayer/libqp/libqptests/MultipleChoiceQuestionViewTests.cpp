@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(SubmitRequest)
 	view->DoOnSubmit([&submitRequested](){
 		submitRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
 	BOOST_CHECK(submitRequested);
 }
 
@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_CASE(SkipRequest)
 	view->DoOnSkip([&skipRequested](){
 		skipRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
 	BOOST_CHECK(skipRequested);
 }
 
@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(NextQuestionRequest)
 	view->DoOnNextQuestion([&nextQuestionRequested](){
 		nextQuestionRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
 	BOOST_CHECK(nextQuestionRequested);
 }
 
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_CASE(AnswerRequestedByProcessingCorrectLetter)
 		answerIndexIsCorrect = (answerIndex == 0);
 		answerSelectedRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+	BOOST_REQUIRE(view.HandleUserInput());
 	BOOST_CHECK(answerSelectedRequested);
 	BOOST_CHECK(answerIndexIsCorrect);
 	BOOST_CHECK_EQUAL(ostrm.str(),
@@ -110,11 +110,9 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectLetter)
 			answerIndex;
 			answerSelectedRequested = true;
 		});
-		BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+		BOOST_REQUIRE(!view.HandleUserInput());
 		BOOST_CHECK(!answerSelectedRequested);
-		BOOST_CHECK_EQUAL(ostrm.str(), 
-			"Choose an answer (A-D) or type 'submit': " 
-			"Choose an answer (A-D) or type 'submit': "); 
+		BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': "); 
 }
 
 BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
@@ -126,12 +124,9 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
 		answerIndex;
 		answerSelectedRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view.HandleUserInput());
+	BOOST_REQUIRE(!view.HandleUserInput());
 	BOOST_CHECK(!answerSelectedRequested);
-	BOOST_CHECK_EQUAL(ostrm.str(), 
-		"Choose an answer (A-D) or type 'submit': "
-		"Choose an answer (A-D) or type 'submit': "
-		);
+	BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': ");
 }
 
 
