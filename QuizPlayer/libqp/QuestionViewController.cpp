@@ -21,9 +21,16 @@ CQuestionViewController::~CQuestionViewController()
 
 }
 
+void  CQuestionViewController::Run()
+{
+	m_view->Show();
+	m_view->HandleUserInput();
+}
+
 void CQuestionViewController::OnSubmitRequest()
 {
 	m_questionState->Submit();
+	m_view->Show();
 }
 
 }

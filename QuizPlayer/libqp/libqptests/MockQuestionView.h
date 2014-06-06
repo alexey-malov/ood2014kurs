@@ -5,6 +5,8 @@ struct CMockQuestionView : public qp::IQuestionView
 {
 public:
 	CMockQuestionView()
+		:showCallCounter(0)
+		,handleUserInputCallCounter(0)
 	{
 
 	}
@@ -30,13 +32,21 @@ public:
 
 	virtual void HandleUserInput()
 	{
-		throw std::logic_error("The method or operation is not implemented.");
+		++handleUserInputCallCounter;
+		onHandleUserInput();
 	}
 
 	virtual void Show()
 	{
-		throw std::logic_error("The method or operation is not implemented.");
+		++showCallCounter;
 	}
+	
+	int showCallCounter;
+	int handleUserInputCallCounter;
+
+	typedef boost::signals2::signal<void()> OnHandleUserInput;
+	
+	OnHandleUserInput onHandleUserInput;
 
 	OnSubmit onSubmit;
 	OnSkip onSkip;
