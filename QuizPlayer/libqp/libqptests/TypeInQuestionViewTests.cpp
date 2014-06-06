@@ -53,17 +53,17 @@ BOOST_AUTO_TEST_CASE(SkipRequest)
 	BOOST_CHECK(skipRequested);
 }
 
-BOOST_AUTO_TEST_CASE(NextQuestionRequest)
+BOOST_AUTO_TEST_CASE(SkipSubmittedQuestionRequest)
 {
 	istringstream istrm("\n");
 	state->Submit();
 	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
-	bool nextQuestionRequested = false;
-	view->DoOnNextQuestion([&nextQuestionRequested](){
-		nextQuestionRequested = true;
+	bool skipRequested = false;
+	view->DoOnSkip([&skipRequested](){
+		skipRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
-	BOOST_CHECK(nextQuestionRequested);
+	BOOST_REQUIRE(view->HandleUserInput());
+	BOOST_CHECK(skipRequested);
 }
 
 /*BOOST_AUTO_TEST_CASE(SubmitUserAnswer)
