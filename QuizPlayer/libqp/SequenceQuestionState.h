@@ -10,7 +10,7 @@ namespace qp
 class CSequenceQuestionState : CQuestionState
 {
 public:
-	CSequenceQuestionState(CSequenceQuestionPtr const& question);
+	CSequenceQuestionState(CConstSequenceQuestionPtr const& question);
 	~CSequenceQuestionState();
 
 	void SetAnswer(std::vector<std::string> sequence);

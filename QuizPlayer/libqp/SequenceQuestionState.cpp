@@ -7,11 +7,15 @@ using namespace std;
 
 using Sequence = CSequenceQuestion::Sequence;
 
-CSequenceQuestionState::CSequenceQuestionState(CSequenceQuestionPtr const& question)
+CSequenceQuestionState::CSequenceQuestionState(CConstSequenceQuestionPtr const& question)
 :CQuestionState(question)
 , m_question(question)
 {
+	
+}
 
+CSequenceQuestionState::~CSequenceQuestionState()
+{
 }
 
 const Sequence & CSequenceQuestionState::GetAnswer()const
@@ -21,6 +25,7 @@ const Sequence & CSequenceQuestionState::GetAnswer()const
 
 void CSequenceQuestionState::SetAnswer(Sequence sequence)
 {
+	m_answer = sequence;
 }
 
 void CSequenceQuestionState::DoSubmit()
