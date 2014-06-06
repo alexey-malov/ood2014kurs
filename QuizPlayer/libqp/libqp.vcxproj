@@ -130,6 +130,7 @@
     <ClInclude Include="TypeInQuestionState.h" />
     <ClInclude Include="TypeInQuestionState_fwd.h" />
     <ClInclude Include="TypeInQuestionView.h" />
+    <ClInclude Include="TypeInQuestionView_fwd.h" />
     <ClInclude Include="TypeInQuestion_fwd.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="Question.h" />
