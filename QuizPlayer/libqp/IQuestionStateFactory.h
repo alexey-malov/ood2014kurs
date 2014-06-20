@@ -10,6 +10,8 @@ class IQuestionStateFactory : boost::noncopyable
 {
 public:
 	virtual std::unique_ptr<IQuestionState> CreateStateForQuestion(CConstQuestionPtr const& question)const = 0;
+
+	virtual ~IQuestionStateFactory(){};
 };
 
 }
