@@ -78,25 +78,18 @@ BOOST_AUTO_TEST_CASE(SkipSubmittedQuestionRequest)
 
 BOOST_AUTO_TEST_CASE(AnswerRequestedByProcessingCorrectLetter)
 {
-	istringstream istrm("A\n");
+	istringstream istrm("C\n");
 	CMultipleChoiceQuestionView view(state, ostrm, istrm);
-	view.Show();
 
-	bool answerSelectedRequested = false;
-	bool answerIndexIsCorrect = false;
-	view.DoOnAnswerSelected([&answerSelectedRequested, &answerIndexIsCorrect](size_t answerIndex){
-		answerIndexIsCorrect = (answerIndex == 0);
-		answerSelectedRequested = true;
+	size_t selectedAnswerIndex = 0;
+	view.DoOnAnswerSelected([&selectedAnswerIndex](size_t answerIndex){
+		selectedAnswerIndex = answerIndex;
 	});
+
 	BOOST_REQUIRE(view.HandleUserInput());
-	BOOST_CHECK(answerSelectedRequested);
-	BOOST_CHECK(answerIndexIsCorrect);
+
+	BOOST_CHECK_EQUAL(selectedAnswerIndex, 2u);
 	BOOST_CHECK_EQUAL(ostrm.str(),
-		"What is the name of our planet?\n"
-		"( ) A. Mercury\n"
-		"( ) B. Venus\n"
-		"( ) C. The Earth\n"
-		"( ) D. Mars\n"
 		"Choose an answer (A-D) or type 'submit' or 'skip': " 
 		);
 }
