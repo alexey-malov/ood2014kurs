@@ -51,4 +51,8 @@ unique_ptr<IQuestionState> CQuestionStateFactory::CreateStateForQuestion(CConstQ
 	return move(visitor.questionState);
 }
 
+CQuestionStateFactory::~CQuestionStateFactory()
+{
+}
+
 }

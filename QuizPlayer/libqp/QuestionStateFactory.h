@@ -12,6 +12,7 @@ class CQuestionStateFactory : public IQuestionStateFactory
 public:
 	std::unique_ptr<IQuestionState> CreateStateForQuestion(CConstQuestionPtr const& question)const override;
 
+	~CQuestionStateFactory();
 private:
 	struct QuestionStateCreationVisitor;
 };
