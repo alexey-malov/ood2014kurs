@@ -24,7 +24,7 @@ void CTypeInQuestionView::ShowPrompt()
 	}
 	else
 	{
-		outputStream << "Enter an answer or type 'submit': ";
+		outputStream << "Enter an answer or type 'submit' or 'skip': ";
 	}
 }
 
@@ -32,7 +32,19 @@ bool CTypeInQuestionView::ProcessString(std::string const& inputString)
 {
 	if (!CQuestionView::ProcessString(inputString))
 	{
-		ShowPrompt();
+		if (inputString == "")
+		{
+			return false;
+		}
+		else
+		{
+			m_onAnswerEntered(inputString);
+		}
 	}
 	return true;
+}
+
+Connection CTypeInQuestionView::DoOnAnswerEntered(const OnAnswerEnteredSlotType & answerEnteredHandler)
+{
+	return m_onAnswerEntered.connect(answerEnteredHandler);
 }

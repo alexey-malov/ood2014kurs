@@ -15,8 +15,13 @@ public:
 	virtual void ShowPrompt() override final;
 	virtual bool ProcessString(std::string const& inputString) override final;
 
+	typedef boost::signals2::signal<void(std::string const& answer)> OnAnswerEntered;
+	typedef OnAnswerEntered::slot_type OnAnswerEnteredSlotType;
+	virtual Connection DoOnAnswerEntered(const OnAnswerEnteredSlotType & answerEnteredHandler);
+
 private:
 	const CTypeInQuestionStatePtr m_questionState;
+	OnAnswerEntered m_onAnswerEntered;
 };
 
 }
