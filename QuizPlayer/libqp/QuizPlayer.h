@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Quiz_fwd.h"
+#include "QuizSession_fwd.h"
 
 namespace qp
 {
@@ -14,8 +15,14 @@ public:
 
 	// Запуск теста
 	void Start();
+
+
 	~CQuizPlayer(void);
 private:
+	CQuizSessionPtr CreateNewSession()const;
+private:
+	CConstQuizPtr m_quiz;
+	IQuizView & m_quizView;
 };
 
 }

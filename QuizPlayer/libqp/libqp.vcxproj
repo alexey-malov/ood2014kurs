@@ -126,6 +126,7 @@
     <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
+    <ClInclude Include="SessionController.h" />
     <ClInclude Include="TypeInQuestion.h" />
     <ClInclude Include="TypeInQuestionState.h" />
     <ClInclude Include="TypeInQuestionState_fwd.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="QuizPlayer.cpp" />
     <ClCompile Include="QuizSession.cpp" />
     <ClCompile Include="QuizView.cpp" />
+    <ClCompile Include="SessionController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

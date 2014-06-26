@@ -161,5 +161,8 @@
     <ClCompile Include="MultipleChoiceQuestionViewControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="SessionControllerTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
