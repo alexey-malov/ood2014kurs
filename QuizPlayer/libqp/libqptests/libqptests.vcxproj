@@ -130,6 +130,7 @@
     <ClCompile Include="QuestionStateTests.cpp" />
     <ClCompile Include="QuestionsTests.cpp" />
     <ClCompile Include="QuestionTests.cpp" />
+    <ClCompile Include="QuestionViewFactoryTests.cpp" />
     <ClCompile Include="QuestionViewTests.cpp" />
     <ClCompile Include="QuestionWithChoicesTests.cpp" />
     <ClCompile Include="QuizPlayerTests.cpp" />

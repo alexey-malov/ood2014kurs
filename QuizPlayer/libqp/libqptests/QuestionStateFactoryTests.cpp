@@ -9,7 +9,7 @@
 #include "TypeInQuestion.h"
 #include "TypeInQuestionState.h"
 
-BOOST_AUTO_TEST_SUITE(QuestionTests)
+BOOST_AUTO_TEST_SUITE(QuestionStateFactoryTests)
 
 using namespace qp;
 using namespace std;
