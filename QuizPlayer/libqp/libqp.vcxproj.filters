@@ -201,6 +201,9 @@
     <ClInclude Include="TypeInQuestionView_fwd.h">
       <Filter>Views\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="SessionController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
     <ClInclude Include="IQuestionViewFactory.h">
       <Filter>Views\Questions</Filter>
     </ClInclude>
@@ -297,6 +300,9 @@
       <Filter>Controllers</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>

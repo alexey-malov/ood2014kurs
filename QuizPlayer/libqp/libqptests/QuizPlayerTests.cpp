@@ -2,12 +2,17 @@
 #include "QuizPlayer.h"
 #include "Quiz.h"
 #include "MockQuizView.h"
+#include <vld.h>
 
 using namespace qp;
 using namespace std;
 
 struct QuizPlayerTestSuiteFixture
 {
+	QuizPlayerTestSuiteFixture() :quiz(make_shared<CQuiz>("Quiz title"))
+	{
+
+	}
 	CQuizPtr quiz;
 	CMockQuizView mockView;
 };

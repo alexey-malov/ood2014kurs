@@ -13,9 +13,13 @@ public:
 	CQuizSession(CConstQuizPtr const& quiz, const CQuestionStates & questionStates);
 	~CQuizSession();
 
+	IQuestionStatePtr GetCurrentQuestionState()const;
+	void GotoNextQuestion();
+
 	const CQuestionStates & GetQuestionStates()const;
 private:
 	CQuestionStates m_questionStates;
+	size_t m_currentQuestionIndex;
 };
 
 }
