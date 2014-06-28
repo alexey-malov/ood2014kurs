@@ -101,6 +101,7 @@
     <ClInclude Include="MultipleChoiceQuestionState.h" />
     <ClInclude Include="MultipleChoiceQuestionView.h" />
     <ClInclude Include="MultipleChoiceQuestionViewController.h" />
+    <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h" />
     <ClInclude Include="MultipleChoiceQuestionView_fwd.h" />
     <ClInclude Include="MultipleChoiceQuestion_fwd.h" />
     <ClInclude Include="MultipleResponseQuestionState.h" />

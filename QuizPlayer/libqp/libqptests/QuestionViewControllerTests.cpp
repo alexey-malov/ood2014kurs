@@ -48,6 +48,7 @@ BOOST_AUTO_TEST_CASE(SubmittingQuestion)
 		BOOST_CHECK(!qs->submitted);
 		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
 		qv->onSubmit();
+		qv->onSkip();
 	});
 	BOOST_CHECK_NO_THROW(qvc.Run());
 	BOOST_CHECK_EQUAL(qv->showCallCounter, 2);
@@ -69,3 +70,5 @@ BOOST_AUTO_TEST_CASE(SkippingSubmittedQuestion)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+
+/*добавить тесты на EXIT*/

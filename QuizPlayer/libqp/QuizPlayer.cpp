@@ -14,8 +14,8 @@ namespace qp
 using namespace std;
 
 CQuizPlayer::CQuizPlayer(CConstQuizPtr const& quiz, IQuizView & view)
-	:m_quiz(quiz)
-	,m_quizView(view)
+:m_quiz(quiz)
+,m_quizView(view)
 {
 
 }
@@ -28,7 +28,6 @@ CQuizPlayer::~CQuizPlayer(void)
 void CQuizPlayer::Start()
 {
 	auto session = CreateNewSession();
-
 	CSessionController controller(session);
 	controller.Run();
 }

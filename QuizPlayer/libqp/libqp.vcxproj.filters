@@ -204,6 +204,9 @@
     <ClInclude Include="SessionController.h">
       <Filter>Controllers</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
