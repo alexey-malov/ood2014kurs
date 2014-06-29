@@ -34,9 +34,7 @@ void CSessionController::Run()
 	bool exit = false;
 	while (!exit)
 	{
-		cout << "\n**Before state\n";
 		IQuestionStatePtr state = m_session->GetCurrentQuestionState();
-		cout << "**Before function\n";
 		auto controller = CreateMultipleChoiceQuestionViewController(state);
 		
 		if (controller->Run())
