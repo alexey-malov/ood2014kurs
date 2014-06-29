@@ -207,6 +207,15 @@
     <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h">
       <Filter>Controllers</Filter>
     </ClInclude>
+    <ClInclude Include="IMultipleResponseQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="ITypeInQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="IMatchingQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

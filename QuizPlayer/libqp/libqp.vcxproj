@@ -87,10 +87,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GradedChoice.h" />
+    <ClInclude Include="IMatchingQuestionState.h" />
     <ClInclude Include="IMultipleChoiceQuestionState.h" />
+    <ClInclude Include="IMultipleResponseQuestionState.h" />
     <ClInclude Include="IQuestionState.h" />
     <ClInclude Include="IQuestionStateFactory.h" />
     <ClInclude Include="IQuestionView_fwd.h" />
+    <ClInclude Include="ITypeInQuestionState.h" />
     <ClInclude Include="MatchingQuestionState.h" />
     <ClInclude Include="MatchingQuestionState_fwd.h" />
     <ClInclude Include="MatchingQuestionView.h" />

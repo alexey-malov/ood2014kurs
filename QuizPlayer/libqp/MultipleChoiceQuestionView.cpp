@@ -7,7 +7,7 @@ using namespace qp;
 using namespace std;
 using boost::format;
 
-CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const IMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
