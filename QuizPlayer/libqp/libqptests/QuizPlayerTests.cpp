@@ -2,7 +2,7 @@
 #include "QuizPlayer.h"
 #include "Quiz.h"
 #include "MockQuizView.h"
-#include <vld.h>
+#include <vld.h> // Visual Leak Detector. Download and install from http://vld.codeplex.com
 
 using namespace qp;
 using namespace std;
