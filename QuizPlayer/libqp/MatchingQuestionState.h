@@ -2,6 +2,7 @@
 #include "QuestionStateWithCustomQuestion.h"
 #include "IMatchingQuestionState.h"
 #include "MatchingQuestion_fwd.h"
+#include "IMatchingQuestionState.h"
 #include "QuestionReview.h"
 #include "types.h"
 

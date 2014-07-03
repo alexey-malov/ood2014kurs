@@ -13,6 +13,7 @@ CQuestionViewController::CQuestionViewController(IQuestionStatePtr const& questi
 	,m_handleUserInputResult(DEFAULT)
 	,m_submitRequestConnection(view->DoOnSubmit(bind(&CQuestionViewController::OnSubmitRequest, this)))
 	,m_skipRequestConnection(view->DoOnSkip(bind(&CQuestionViewController::OnSkipRequest, this)))
+	,m_exitRequestConnection(view->DoOnExit(bind(&CQuestionViewController::OnExitRequest, this)))
 {
 }
 
@@ -20,17 +21,18 @@ CQuestionViewController::~CQuestionViewController()
 {
 }
 
-void CQuestionViewController::Run()
+bool CQuestionViewController::Run()
 {
+	m_handleUserInputResult = DEFAULT;
 	m_view->Show();
-	while (m_handleUserInputResult != SUBMIT)
+	while (m_handleUserInputResult != EXIT)
 	{
 		if (m_view->HandleUserInput() && (m_handleUserInputResult == SKIP))
 		{
 			break;
 		}
 	}
-	m_handleUserInputResult = DEFAULT;
+	return (m_handleUserInputResult != EXIT);
 }
 
 void CQuestionViewController::OnSubmitRequest()
@@ -43,6 +45,11 @@ void CQuestionViewController::OnSubmitRequest()
 void CQuestionViewController::OnSkipRequest()
 {
 	m_handleUserInputResult = SKIP;
+}
+
+void CQuestionViewController::OnExitRequest()
+{
+	m_handleUserInputResult = EXIT;
 }
 
 }

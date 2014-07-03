@@ -18,6 +18,7 @@ public:
 
 	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;
 	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) override final;
+	virtual Connection DoOnExit(const OnExitSlotType & exitHandler) override final;
 
 protected:
 	virtual bool ProcessString(std::string const& inputString);
@@ -35,6 +36,7 @@ private:
 	// Signals
 	OnSubmit m_onSubmit;
 	OnSkip m_onSkip;
+	OnSkip m_onExit;
 };
 
 }

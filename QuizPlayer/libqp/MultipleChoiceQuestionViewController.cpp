@@ -6,7 +6,7 @@
 namespace qp
 {
 
-CMultipleChoiceQuestionViewController::CMultipleChoiceQuestionViewController(CMultipleChoiceQuestionStatePtr const& questionState, CMultipleChoiceQuestionViewPtr const& view)
+CMultipleChoiceQuestionViewController::CMultipleChoiceQuestionViewController(IMultipleChoiceQuestionStatePtr const& questionState, CMultipleChoiceQuestionViewPtr const& view)
 :CQuestionViewController(questionState, view)
 ,m_questionState(questionState)
 ,m_view(view)

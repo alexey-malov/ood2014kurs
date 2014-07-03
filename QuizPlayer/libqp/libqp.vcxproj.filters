@@ -210,6 +210,9 @@
     <ClInclude Include="QuestionViewFactory.h">
       <Filter>Views\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
     <ClInclude Include="IMatchingQuestionState.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>

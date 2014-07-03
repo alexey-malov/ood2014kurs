@@ -11,8 +11,8 @@ class CQuestionStateImpl : public Base
 {
 public:
 	CQuestionStateImpl(CConstQuestionPtr const& question)
-		:m_question(Verify(question))
-		,m_submitted(false)
+	:m_question(Verify(question))
+	,m_submitted(false)
 	{
 
 	}

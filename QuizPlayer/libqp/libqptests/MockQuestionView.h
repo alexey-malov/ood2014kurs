@@ -24,6 +24,11 @@ public:
 		return onSkip.connect(skipHandler);
 	}
 
+	virtual qp::Connection DoOnExit(const OnExitSlotType & exitHandler) override
+	{
+		return onExit.connect(exitHandler);
+	}
+
 	virtual bool HandleUserInput()
 	{
 		++handleUserInputCallCounter;
@@ -45,5 +50,6 @@ public:
 
 	OnSubmit onSubmit;
 	OnSkip onSkip;
+	OnExit onExit;
 };
 

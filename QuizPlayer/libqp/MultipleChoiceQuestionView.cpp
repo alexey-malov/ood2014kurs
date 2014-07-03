@@ -7,7 +7,7 @@ using namespace qp;
 using namespace std;
 using boost::format;
 
-CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
+CMultipleChoiceQuestionView::CMultipleChoiceQuestionView(const IMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream)
 :CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
@@ -58,7 +58,7 @@ void CMultipleChoiceQuestionView::ShowPrompt()
 	const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
 	if (m_questionState->Submitted())
 	{
-		outputStream << "Press Enter to go to the next question";
+		outputStream << "Press Enter to go to the next question or type 'exit'";
 	}
 	else
 	{

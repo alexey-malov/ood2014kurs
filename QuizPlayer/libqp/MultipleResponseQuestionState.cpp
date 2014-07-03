@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MultipleResponseQuestionState.h"
 #include "MultipleResponseQuestion.h"
+#include "IMultipleResponseQuestionState.h"
 #include "QuestionReview.h"
 
 namespace qp
