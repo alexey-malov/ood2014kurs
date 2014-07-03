@@ -17,6 +17,7 @@
 #include "libqp/MultipleResponseQuestion.h"
 #include "libqp/MultipleResponseQuestionState.h"
 #include "libqp/MultipleResponseQuestionView.h"
+#include "libqp/MultipleResponseQuestionViewController.h"
 
 #include "libqp/MatchingQuestion.h"
 #include "libqp/MatchingQuestionState.h"
@@ -73,8 +74,9 @@ void TestMultipleResponseQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleResponseQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
-	questionView->Show();
+	auto questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
+	auto controller = make_shared<CMultipleResponseQuestionViewController>(questionState, questionView);
+	controller->Run();
 }
 
 void TestMatchingQuestionVisualization()
