@@ -58,7 +58,7 @@ void CMultipleChoiceQuestionView::ShowPrompt()
 	const auto numChoices = m_questionState->GetConcreteQuestion()->GetChoices().GetChoiceCount();
 	if (m_questionState->Submitted())
 	{
-		outputStream << "Press Enter to go to the next question or type 'exit'";
+		outputStream << "Press Enter to go to the next question or type 'exit': ";
 	}
 	else
 	{
