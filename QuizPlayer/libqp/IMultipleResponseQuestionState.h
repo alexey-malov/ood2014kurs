@@ -12,6 +12,7 @@ class IMultipleResponseQuestionState : public IQuestionState
 {
 public:
 	virtual CConstMultipleResponseQuestionPtr GetConcreteQuestion()const = 0;
+	virtual bool ResponseIsSelected(size_t index) const = 0;
 	virtual ~IMultipleResponseQuestionState(){}
 };
 
