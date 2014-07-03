@@ -164,6 +164,7 @@
     <ClCompile Include="QuestionStates.cpp" />
     <ClCompile Include="QuestionView.cpp" />
     <ClCompile Include="QuestionViewController.cpp" />
+    <ClCompile Include="QuestionViewFactory.cpp" />
     <ClCompile Include="QuestionWithChoices.cpp" />
     <ClCompile Include="Quiz.cpp" />
     <ClCompile Include="QuizPlayer.cpp" />

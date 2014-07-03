@@ -4,7 +4,10 @@
 
 namespace qp
 {
-class IQuestionState : public boost::noncopyable
+class IQuestionState
+	: public boost::noncopyable
+	, public Loki::BaseVisitable<void, Loki::DefaultCatchAll, true>
+	, public std::enable_shared_from_this<IQuestionState>
 {
 public:
 

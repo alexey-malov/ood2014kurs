@@ -1,5 +1,6 @@
 #pragma once
 #include "QuestionStateWithCustomQuestion.h"
+#include "IMatchingQuestionState.h"
 #include "MatchingQuestion_fwd.h"
 #include "QuestionReview.h"
 #include "types.h"
@@ -7,7 +8,9 @@
 namespace qp
 {
 
-class CMatchingQuestionState : public CQuestionStateWithCustomQuestion<CMatchingQuestion>
+class CMatchingQuestionState :
+	public CQuestionStateWithCustomQuestion<CMatchingQuestion,
+		CQuestionStateImpl<IMatchingQuestionState>>
 {
 public:
 	CMatchingQuestionState(CConstMatchingQuestionPtr const& question, bool shuffleAnswers = true);

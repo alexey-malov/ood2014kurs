@@ -11,9 +11,11 @@ namespace qp
 class CQuestionViewFactory : public IQuestionViewFactory
 {
 public:
-	std::unique_ptr<IQuestionView> CreateView(CQuestionStatePtr const& questionState)const override;
+	std::unique_ptr<IQuestionView> CreateView(IQuestionStatePtr const& questionState)const override;
 
 	~CQuestionViewFactory();
+private:
+	struct QuestionViewCreationVisitor;
 };
 
 }

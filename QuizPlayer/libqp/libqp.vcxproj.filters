@@ -305,5 +305,8 @@
     <ClCompile Include="SessionController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="QuestionViewFactory.cpp">
+      <Filter>Views\Questions</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
