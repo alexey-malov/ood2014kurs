@@ -55,8 +55,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <MultiProcessorCompilation>
-      </MultiProcessorCompilation>
+
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -73,6 +73,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -132,6 +133,10 @@
     <ClInclude Include="QuizSession_fwd.h" />
     <ClInclude Include="QuizView.h" />
     <ClInclude Include="Quiz_fwd.h" />
+    <ClInclude Include="SequenceQuestion.h" />
+    <ClInclude Include="SequenceQuestionState.h" />
+    <ClInclude Include="SequenceQuestionState_fwd.h" />
+    <ClInclude Include="SequenceQuestion_fwd.h" />
     <ClInclude Include="SessionController.h" />
     <ClInclude Include="TypeInQuestion.h" />
     <ClInclude Include="TypeInQuestionState.h" />
@@ -172,6 +177,8 @@
     <ClCompile Include="QuizPlayer.cpp" />
     <ClCompile Include="QuizSession.cpp" />
     <ClCompile Include="QuizView.cpp" />
+    <ClCompile Include="SequenceQuestion.cpp" />
+    <ClCompile Include="SequenceQuestionState.cpp" />
     <ClCompile Include="SessionController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -137,6 +137,12 @@
     <ClCompile Include="MatchingQuestionStateTests.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+    <ClCompile Include="SequenceQuestionTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceQuestionStateTests.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionViewTests.cpp">
       <Filter>Views</Filter>
     </ClCompile>
