@@ -11,6 +11,8 @@ namespace qp
 class IMultipleResponseQuestionState : public IQuestionState
 {
 public:
+	LOKI_DEFINE_VISITABLE()
+
 	virtual CConstMultipleResponseQuestionPtr GetConcreteQuestion()const = 0;
 	virtual ~IMultipleResponseQuestionState(){}
 };

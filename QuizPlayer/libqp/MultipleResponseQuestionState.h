@@ -7,8 +7,8 @@
 namespace qp
 {
 
-class CMultipleResponseQuestionState :
-	public CQuestionStateWithCustomQuestion<CMultipleResponseQuestion,
+class CMultipleResponseQuestionState
+	: public CQuestionStateWithCustomQuestion<CMultipleResponseQuestion,
 		CQuestionStateImpl<IMultipleResponseQuestionState>>
 {
 public:

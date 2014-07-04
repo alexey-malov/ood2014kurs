@@ -8,8 +8,9 @@
 namespace qp
 {
 
-class CMultipleChoiceQuestionState : public CQuestionStateWithCustomQuestion<CMultipleChoiceQuestion, 
-									CQuestionStateImpl<IMultipleChoiceQuestionState>>
+class CMultipleChoiceQuestionState
+	: public CQuestionStateWithCustomQuestion<CMultipleChoiceQuestion,
+		CQuestionStateImpl<IMultipleChoiceQuestionState>>
 {
 public:
 	CMultipleChoiceQuestionState(CConstMultipleChoiceQuestionPtr const& question);

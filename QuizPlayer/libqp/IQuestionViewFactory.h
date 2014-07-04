@@ -10,7 +10,7 @@ namespace qp
 class IQuestionViewFactory : boost::noncopyable
 {
 public:
-	virtual std::unique_ptr<IQuestionView> CreateView(IQuestionStatePtr const& questionState)const = 0;
+	virtual std::unique_ptr<IQuestionView> CreateView(IQuestionStatePtr const & questionState)const = 0;
 
 	virtual ~IQuestionViewFactory(){};
 };

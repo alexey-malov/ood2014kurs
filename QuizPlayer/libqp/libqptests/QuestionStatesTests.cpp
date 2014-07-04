@@ -3,6 +3,7 @@
 #include "QuestionStateImpl.h"
 #include "Question.h"
 #include "QuestionForTest.h"
+#include "QuestionStateForTesting.h"
 
 using namespace qp;
 using namespace std;
@@ -18,24 +19,6 @@ struct QuestionStateTestsFixture
 };
 
 BOOST_FIXTURE_TEST_SUITE(QuestionStatesTestSuite, QuestionStateTestsFixture)
-
-class CQuestionStateForTesting : public CQuestionState
-{
-public:
-	CQuestionStateForTesting(CConstQuestionPtr const& question)
-		:CQuestionState(question)
-		, doSubmitCallCounter(0)
-	{
-	}
-
-	int doSubmitCallCounter;
-
-protected:
-	void DoSubmit()override
-	{
-		++doSubmitCallCounter;
-	}
-};
 
 BOOST_AUTO_TEST_CASE(QuestionStatesCollectionIsInitiallyEmpty)
 {

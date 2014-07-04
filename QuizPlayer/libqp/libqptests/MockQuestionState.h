@@ -5,6 +5,7 @@
 
 struct CMockQuestionState : public qp::IQuestionState
 {
+	LOKI_DEFINE_VISITABLE()
 	typedef qp::CConstQuestionPtr QuestionPtrType;
 
 	bool submitted;

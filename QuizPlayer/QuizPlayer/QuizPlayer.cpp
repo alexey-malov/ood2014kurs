@@ -16,6 +16,9 @@
 #include "libqp/MatchingQuestionState.h"
 #include "libqp/MatchingQuestionView.h"
 
+#include "libqp/QuestionViewFactory.h"
+#include "libqp/QuestionStateFactory.h"
+
 using namespace qp;
 using namespace std;
 
@@ -80,8 +83,16 @@ void TestQuestionVisualization()
 
 int main()
 {
-	TestQuestionVisualization();
+	CQuestionStateFactory stateFactory;
+	CQuestionViewFactory viewFactory(&cout, &cin);
 	
+	CConstMultipleChoiceQuestionPtr multipleChoiceQuestionPtr(new CMultipleChoiceQuestion("MultipleChoiceQuestion description", 0.0, CGradedChoices{ { "one", "two" } }));
+	IQuestionStatePtr mcqStatePtr = stateFactory.CreateStateForQuestion(multipleChoiceQuestionPtr);
+	auto mcqVieqPtr = viewFactory.CreateView(mcqStatePtr);
+	dynamic_cast<CMultipleChoiceQuestionView*>(mcqVieqPtr.get());
 	return 0;
+//	TestQuestionVisualization();
+	
+	//return 0;
 }
 

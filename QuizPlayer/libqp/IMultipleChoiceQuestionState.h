@@ -11,6 +11,8 @@ namespace qp
 class IMultipleChoiceQuestionState : public IQuestionState
 {
 public:
+	LOKI_DEFINE_VISITABLE()
+
 	virtual optional_size_t GetUserAnswerIndex()const = 0;
 	virtual void SetUserAnswerIndex(size_t answerIndex) = 0;
 	virtual CConstMultipleChoiceQuestionPtr GetConcreteQuestion()const = 0;
