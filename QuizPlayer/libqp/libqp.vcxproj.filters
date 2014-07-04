@@ -153,6 +153,18 @@
     <ClInclude Include="MatchingQuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="SequenceQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestionState_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestion_fwd.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
     <ClInclude Include="TypeInQuestion_fwd.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
@@ -215,6 +227,9 @@
     </ClInclude>
     <ClInclude Include="QuestionViewFactory.h">
       <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeInQuestionViewController.h">
+      <Filter>Controllers</Filter>
     </ClInclude>
     <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h">
       <Filter>Controllers</Filter>
@@ -290,6 +305,12 @@
     <ClCompile Include="MatchingQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
+    <ClCompile Include="SequenceQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceQuestionState.cpp">
+      <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -319,6 +340,9 @@
     </ClCompile>
     <ClCompile Include="QuestionViewFactory.cpp">
       <Filter>Views\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeInQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

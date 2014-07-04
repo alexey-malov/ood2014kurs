@@ -68,6 +68,7 @@ BOOST_AUTO_TEST_CASE(SubmitAndReviewIncorrectAnswer)
 		"- (o) B. Venus\n"
 		"+ ( ) C. The Earth\n"
 		"  ( ) D. Mars\n"
+		"Answer is not correct.\n"
 		);
 }
 
@@ -92,6 +93,7 @@ BOOST_AUTO_TEST_CASE(SubmitAndReviewCorrectAnswer)
 		"  ( ) B. Venus\n"
 		"+ (o) C. The Earth\n"
 		"  ( ) D. Mars\n"
+		"Answer is correct. Score: 10\n"
 		);
 }
 
@@ -122,6 +124,7 @@ BOOST_AUTO_TEST_CASE(TestMethodRunEndingBySubmit)
 		"  ( ) B. Venus\n"
 		"+ (o) C. The Earth\n"
 		"  ( ) D. Mars\n"
+		"Answer is correct. Score: 10\n"
 		"Press Enter to go to the next question or type 'exit': "
 		);
 }

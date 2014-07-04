@@ -15,6 +15,11 @@ CTypeInQuestionView::~CTypeInQuestionView()
 {
 }
 
+void CTypeInQuestionView::ShowDetails()
+{
+
+}
+
 void CTypeInQuestionView::ShowPrompt()
 {
 	auto & outputStream = GetOutputStream();
@@ -27,6 +32,8 @@ void CTypeInQuestionView::ShowPrompt()
 		outputStream << "Enter an answer or type 'submit' or 'skip': ";
 	}
 }
+
+
 
 bool CTypeInQuestionView::ProcessString(std::string const& inputString)
 {

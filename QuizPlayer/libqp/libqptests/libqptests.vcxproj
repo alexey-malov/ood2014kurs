@@ -136,6 +136,8 @@
     <ClCompile Include="QuizPlayerTests.cpp" />
     <ClCompile Include="QuizSessionTests.cpp" />
     <ClCompile Include="QuizTests.cpp" />
+    <ClCompile Include="SequenceQuestionStateTests.cpp" />
+    <ClCompile Include="SequenceQuestionTests.cpp" />
     <ClCompile Include="SessionControllerTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -145,6 +147,7 @@
     </ClCompile>
     <ClCompile Include="TypeInQuestionStateTests.cpp" />
     <ClCompile Include="TypeInQuestionTests.cpp" />
+    <ClCompile Include="TypeInQuestionViewControllerTests.cpp" />
     <ClCompile Include="TypeInQuestionViewTests.cpp" />
     <ClCompile Include="UtilsTests.cpp" />
   </ItemGroup>

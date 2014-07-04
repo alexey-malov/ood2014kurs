@@ -18,6 +18,7 @@ public:
 
 	virtual void ShowDetails() override final;
 	virtual void ShowPrompt() override final;
+	virtual void ShowReview() override final;
 	virtual bool ProcessString(std::string const& inputString) override final;
 
 private:

@@ -2,6 +2,7 @@
 #include "MultipleChoiceQuestion.h"
 #include "MultipleChoiceQuestionView.h"
 #include "MultipleChoiceQuestionState.h"
+#include "QuestionReview.h"
 
 using namespace qp;
 using namespace std;
@@ -49,6 +50,20 @@ void CMultipleChoiceQuestionView::ShowDetails()
 		string radioVal = (userAnswer == (size_t)idx) ? "o" : " ";
 		outputStream << "(" << radioVal << ") ";
 		outputStream << GetResponseBullet(idx) << ". " << choices.GetChoice(idx).text << endl;
+	}
+}
+
+void CMultipleChoiceQuestionView::ShowReview()
+{
+	auto & outputStream = GetOutputStream();
+	auto const& review = m_questionState->GetReview();
+	if (review.AnswerIsCorrect())
+	{
+		outputStream << "Answer is correct. Score: " << review.GetAwardedScore() << endl;
+	}
+	else
+	{
+		outputStream << "Answer is not correct." << endl;
 	}
 }
 
