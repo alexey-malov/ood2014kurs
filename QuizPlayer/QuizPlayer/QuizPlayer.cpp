@@ -3,6 +3,12 @@
 
 #include "stdafx.h"
 
+#include "libqp/Questions.h"
+#include "libqp/QuestionStates.h"
+#include "libqp/Quiz.h"
+#include "libqp/QuizSession.h"
+#include "libqp/SessionController.h"
+
 #include "libqp/MultipleChoiceQuestion.h"
 #include "libqp/MultipleChoiceQuestionState.h"
 #include "libqp/MultipleChoiceQuestionView.h"
@@ -11,6 +17,7 @@
 #include "libqp/MultipleResponseQuestion.h"
 #include "libqp/MultipleResponseQuestionState.h"
 #include "libqp/MultipleResponseQuestionView.h"
+#include "libqp/MultipleResponseQuestionViewController.h"
 
 #include "libqp/MatchingQuestion.h"
 #include "libqp/MatchingQuestionState.h"
@@ -31,11 +38,32 @@ void TestMultipleChoiceQuestionVisualization()
 		{ "Mars", false }
 	}));
 
+	auto question1 = make_shared<CMultipleChoiceQuestion>("Choose correct answer", 5, CGradedChoices({
+		{ "Incorrect", false },
+		{ "Correct", true },
+		{ "Wrong answer", false },
+		{ "Mistake", false }
+	}));
+
 	auto questionState = make_shared<CMultipleChoiceQuestionState>(question);
+	auto questionState1 = make_shared<CMultipleChoiceQuestionState>(question1);
 
 	auto questionView = make_shared<CMultipleChoiceQuestionView>(questionState, cout, cin);
 	auto controller = make_shared<CMultipleChoiceQuestionViewController>(questionState, questionView);
-	controller->Run();
+
+	CQuestions questions;
+	questions.AddQuestion(question);
+	questions.AddQuestion(question1);
+	
+	CQuestionStates states;
+	states.AddQuestionState(questionState);
+	states.AddQuestionState(questionState1);
+
+	auto quiz = make_shared<CQuiz>("Quiz name");
+	quiz->SetQuestions(questions);
+	auto session = make_shared<CQuizSession>(quiz, states);
+	CSessionController sessionController(session);
+	sessionController.Run();
 }
 
 void TestMultipleResponseQuestionVisualization()
@@ -49,8 +77,9 @@ void TestMultipleResponseQuestionVisualization()
 
 	auto questionState = make_shared<CMultipleResponseQuestionState>(question);
 
-	shared_ptr<IQuestionView> questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
-	questionView->Show();
+	auto questionView = make_shared<CMultipleResponseQuestionView>(questionState, cout, cin);
+	auto controller = make_shared<CMultipleResponseQuestionViewController>(questionState, questionView);
+	controller->Run();
 }
 
 void TestMatchingQuestionVisualization()
@@ -71,14 +100,15 @@ void TestMatchingQuestionVisualization()
 
 void TestQuestionVisualization()
 {
-	cout << "\n===========Multiple choice question============\n";
+	cout << "\n===========Multiple choice questions quiz==========\n";
 	TestMultipleChoiceQuestionVisualization();
-
-	cout << "\n===========Multiple response question============\n";
+	
+	cout << "\n\n===========Multiple response question============\n";
 	TestMultipleResponseQuestionVisualization();
 
 	cout << "\n===========Matching question============\n";
 	TestMatchingQuestionVisualization();
+	
 }
 
 int main()

@@ -27,9 +27,15 @@ bool CQuestionViewController::Run()
 	m_view->Show();
 	while (m_handleUserInputResult != EXIT)
 	{
-		if (m_view->HandleUserInput() && (m_handleUserInputResult == SKIP))
+		try
 		{
-			break;
+			if (m_view->HandleUserInput() && (m_handleUserInputResult == SKIP))
+			{
+				break;
+			}
+		}
+		catch (exception const&)
+		{
 		}
 	}
 	return (m_handleUserInputResult != EXIT);

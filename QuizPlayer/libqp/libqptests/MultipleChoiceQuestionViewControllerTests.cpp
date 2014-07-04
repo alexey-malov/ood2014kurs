@@ -122,7 +122,7 @@ BOOST_AUTO_TEST_CASE(TestMethodRunEndingBySubmit)
 		"  ( ) B. Venus\n"
 		"+ (o) C. The Earth\n"
 		"  ( ) D. Mars\n"
-		"Press Enter to go to the next question or type 'exit'"
+		"Press Enter to go to the next question or type 'exit': "
 		);
 }
 
