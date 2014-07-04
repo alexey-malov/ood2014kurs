@@ -153,6 +153,18 @@
     <ClInclude Include="MatchingQuestionState_fwd.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="SequenceQuestion.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestionState_fwd.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceQuestion_fwd.h">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClInclude>
     <ClInclude Include="TypeInQuestion_fwd.h">
       <Filter>Model\Quiz\Questions</Filter>
     </ClInclude>
@@ -282,6 +294,12 @@
       <Filter>Model\Quiz\Questions</Filter>
     </ClCompile>
     <ClCompile Include="MatchingQuestionState.cpp">
+      <Filter>Model\Session\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceQuestion.cpp">
+      <Filter>Model\Quiz\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="SequenceQuestionState.cpp">
       <Filter>Model\Session\Questions</Filter>
     </ClCompile>
     <ClCompile Include="utils.cpp">
