@@ -11,6 +11,7 @@
 #pragma warning (disable: 4996)
 
 #include <string>
+#include <iostream>
 #include <memory>
 #include <vector>
 #include <set>

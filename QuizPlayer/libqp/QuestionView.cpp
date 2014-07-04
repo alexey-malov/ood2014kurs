@@ -24,6 +24,10 @@ void CQuestionView::Show()
 {
 	ShowDescription();
 	ShowDetails();
+	if (m_questionState->Submitted())
+	{
+		ShowReview();
+	}
 }
 
 bool CQuestionView::HandleUserInput()
