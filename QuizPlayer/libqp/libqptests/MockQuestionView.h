@@ -5,14 +5,13 @@ struct CMockQuestionView : public qp::IQuestionView
 {
 public:
 	CMockQuestionView()
-		:showCallCounter(0)
-		,handleUserInputCallCounter(0)
+	:showCallCounter(0)
+	,handleUserInputCallCounter(0)
 	{
-
 	}
+
 	~CMockQuestionView()
 	{
-
 	}
 
 	virtual qp::Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override
@@ -25,9 +24,9 @@ public:
 		return onSkip.connect(skipHandler);
 	}
 
-	virtual qp::Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override
+	virtual qp::Connection DoOnExit(const OnExitSlotType & exitHandler) override
 	{
-		return onNextQuestion.connect(nextQuestionHandler);
+		return onExit.connect(exitHandler);
 	}
 
 	virtual bool HandleUserInput()
@@ -51,6 +50,6 @@ public:
 
 	OnSubmit onSubmit;
 	OnSkip onSkip;
-	OnNextQuestion onNextQuestion;
+	OnExit onExit;
 };
 

@@ -29,7 +29,7 @@ struct QuesionVisitor : public virtual BasicQuesionVisitor, public Loki::Visitor
 {
 	void Visit(Q const& question)
 	{
-		questionState = std::move(std::make_unique<S>(static_pointer_cast<Q const>(question.shared_from_this())));
+		questionState = move(make_unique<S>(static_pointer_cast<Q const>(question.shared_from_this())));
 	}
 };
 }
@@ -49,6 +49,10 @@ unique_ptr<IQuestionState> CQuestionStateFactory::CreateStateForQuestion(CConstQ
 	question->Accept(visitor);
 
 	return move(visitor.questionState);
+}
+
+CQuestionStateFactory::~CQuestionStateFactory()
+{
 }
 
 }

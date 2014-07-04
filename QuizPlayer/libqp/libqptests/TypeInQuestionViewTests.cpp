@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(SubmitRequest)
 	view->DoOnSubmit([&submitRequested](){
 		submitRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
 	BOOST_CHECK(submitRequested);
 }
 
@@ -49,33 +49,48 @@ BOOST_AUTO_TEST_CASE(SkipRequest)
 	view->DoOnSkip([&skipRequested](){
 		skipRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
 	BOOST_CHECK(skipRequested);
 }
 
-BOOST_AUTO_TEST_CASE(NextQuestionRequest)
+BOOST_AUTO_TEST_CASE(SkipSubmittedQuestionRequest)
 {
 	istringstream istrm("\n");
 	state->Submit();
 	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
-	bool nextQuestionRequested = false;
-	view->DoOnNextQuestion([&nextQuestionRequested](){
-		nextQuestionRequested = true;
+	bool skipRequested = false;
+	view->DoOnSkip([&skipRequested](){
+		skipRequested = true;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
-	BOOST_CHECK(nextQuestionRequested);
+	BOOST_REQUIRE(view->HandleUserInput());
+	BOOST_CHECK(skipRequested);
 }
 
-/*BOOST_AUTO_TEST_CASE(SubmitUserAnswer)
+BOOST_AUTO_TEST_CASE(EnterEmptyUserAnswerNoSubmit)
 {
-	istringstream istrm("First answer");
-	shared_ptr<IQuestionView> view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
-	bool submitRequested = false;
-	view->DoOnAnswerInputed([&submitRequested](){
-		submitRequested = true;
+	string answerEntered = "answer";
+	istringstream istrm("\n");
+	CTypeInQuestionView view(state, ostrm, istrm);
+	
+	view.DoOnAnswerEntered([&answerEntered](string const& answer){
+		answerEntered = answer;
 	});
-	BOOST_REQUIRE_NO_THROW(view->HandleUserInput());
-	BOOST_CHECK(submitRequested);
-}*/
+
+	BOOST_REQUIRE(!view.HandleUserInput());
+	BOOST_CHECK_EQUAL(answerEntered, "answer");
+}
+
+BOOST_AUTO_TEST_CASE(EnterNotEmptyUserAnswer)
+{
+	string answerEntered = "First answer";
+	istringstream istrm("Second answer\n");
+	CTypeInQuestionView view(state, ostrm, istrm);
+	
+	view.DoOnAnswerEntered([&answerEntered](string const& answer){
+	answerEntered = answer;
+	});
+	BOOST_REQUIRE(view.HandleUserInput());
+	BOOST_CHECK_EQUAL(answerEntered, "Second answer");
+}
 
 BOOST_AUTO_TEST_SUITE_END()

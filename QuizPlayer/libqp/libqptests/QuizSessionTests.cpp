@@ -17,10 +17,19 @@ struct QuizSessionTestSuiteFixture
 		{ "Correct", true }, 
 		{ "Incorrect", false } 
 	}))
+	, question2(CreateMultipleChoiceQuestion("Question 2", 5, { 
+			{"Correct answer", true}, 
+			{"Incorrect answer", false} 
+	}))
 	{
 		CQuestions questions;
 		questions.AddQuestion(question1);
+		questions.AddQuestion(question2);
 		quiz->SetQuestions(questions);
+
+		questionStates.AddQuestionState(make_shared<CMultipleChoiceQuestionState>(question1));
+		questionStates.AddQuestionState(make_shared<CMultipleChoiceQuestionState>(question2));
+
 	}
 
 	static CMultipleChoiceQuestionPtr CreateMultipleChoiceQuestion(
@@ -32,7 +41,9 @@ struct QuizSessionTestSuiteFixture
 	}
 
 	CQuizPtr quiz;
+	CQuestionStates questionStates;
 	CMultipleChoiceQuestionPtr question1;
+	CMultipleChoiceQuestionPtr question2;
 
 };
 
@@ -40,13 +51,20 @@ BOOST_FIXTURE_TEST_SUITE(QuizSessionTests, QuizSessionTestSuiteFixture)
 
 BOOST_AUTO_TEST_CASE(SessionConstruction)
 {
-	CQuestionStates questionStates;
-	questionStates.AddQuestionState(make_shared<CMultipleChoiceQuestionState>(question1));
-
 	CQuizSession session(quiz, questionStates);
 	auto & sessionQuestionStates = session.GetQuestionStates();
 	BOOST_REQUIRE_EQUAL(sessionQuestionStates.GetCount(), questionStates.GetCount());
 	BOOST_CHECK_EQUAL(sessionQuestionStates.GetQuestionStateAtIndex(0), questionStates.GetQuestionStateAtIndex(0));
+}
+
+BOOST_AUTO_TEST_CASE(QuestionStateNavigation)
+{
+	CQuizSession session(quiz, questionStates);
+	BOOST_CHECK(session.GetCurrentQuestionState() == questionStates.GetQuestionStateAtIndex(0));
+	BOOST_CHECK_NO_THROW(session.GotoNextQuestion());
+	BOOST_CHECK(session.GetCurrentQuestionState() == questionStates.GetQuestionStateAtIndex(1));
+	BOOST_CHECK_NO_THROW(session.GotoNextQuestion());
+	BOOST_CHECK(session.GetCurrentQuestionState() == questionStates.GetQuestionStateAtIndex(0));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

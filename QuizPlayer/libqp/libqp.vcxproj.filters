@@ -213,6 +213,27 @@
     <ClInclude Include="TypeInQuestionView_fwd.h">
       <Filter>Views\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="MultipleResponseQuestionViewController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleResponseQuestionView_fwd.h">
+      <Filter>Views\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleChoiceQuestionViewController_fwd.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultipleResponseQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="ITypeInQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="IMatchingQuestionState.h">
+      <Filter>Model\Session\Questions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -300,6 +321,12 @@
       <Filter>Controllers</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleResponseQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>

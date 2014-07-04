@@ -160,10 +160,14 @@
     </ClCompile>
     <ClCompile Include="TypeInQuestionViewTests.cpp">
       <Filter>Views</Filter>
-    </ClCompile>    <ClCompile Include="QuestionViewControllerTests.cpp">
+    </ClCompile>
+    <ClCompile Include="QuestionViewControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
     <ClCompile Include="MultipleChoiceQuestionViewControllerTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>

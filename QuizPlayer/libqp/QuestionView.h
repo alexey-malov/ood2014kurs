@@ -18,7 +18,7 @@ public:
 
 	virtual Connection DoOnSubmit(const OnSubmitSlotType & submitHandler) override final;
 	virtual Connection DoOnSkip(const OnSkipSlotType & skipHandler) override final;
-	virtual Connection DoOnNextQuestion(const OnNextQuestionSlotType & nextQuestionHandler) override final;
+	virtual Connection DoOnExit(const OnExitSlotType & exitHandler) override final;
 
 protected:
 	virtual bool ProcessString(std::string const& inputString);
@@ -28,7 +28,7 @@ protected:
 private:
 	void ShowDescription()const;
 	const CQuestion & GetQuestion()const;
-private:
+
 	std::ostream & m_outputStream;
 	std::istream & m_inputStream;
 	IQuestionStatePtr m_questionState;
@@ -36,7 +36,7 @@ private:
 	// Signals
 	OnSubmit m_onSubmit;
 	OnSkip m_onSkip;
-	OnNextQuestion m_onNextQuestion;
+	OnSkip m_onExit;
 };
 
 }

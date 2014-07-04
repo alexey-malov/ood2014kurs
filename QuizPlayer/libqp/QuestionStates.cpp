@@ -18,7 +18,7 @@ size_t CQuestionStates::GetCount()const
 	return m_questionStates.size();
 }
 
-void CQuestionStates::AddQuestionState(IQuestionStatePtr questionState)
+void qp::CQuestionStates::AddQuestionState(IQuestionStatePtr const& questionState)
 {
 	if (find(m_questionStates.begin(), m_questionStates.end(), questionState) == m_questionStates.end())
 	{

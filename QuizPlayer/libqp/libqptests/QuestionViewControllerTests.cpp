@@ -12,11 +12,10 @@ using namespace std;
 struct QuestionViewControllerTestFixture
 {
 	QuestionViewControllerTestFixture()
-	: qs(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("descr", 10)))
-	, qv(make_shared<CMockQuestionView>())
-	, qvc(qs, qv)
+	:qs(make_shared<CMockQuestionState>(make_shared<CQuestionForTest>("descr", 10)))
+	,qv(make_shared<CMockQuestionView>())
+	,qvc(qs, qv)
 	{
-
 	}
 	shared_ptr<CMockQuestionState> qs;
 	shared_ptr<CMockQuestionView> qv;
@@ -49,6 +48,7 @@ BOOST_AUTO_TEST_CASE(SubmittingQuestion)
 		BOOST_CHECK(!qs->submitted);
 		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
 		qv->onSubmit();
+		qv->onSkip();
 	});
 	BOOST_CHECK_NO_THROW(qvc.Run());
 	BOOST_CHECK_EQUAL(qv->showCallCounter, 2);
@@ -60,10 +60,35 @@ BOOST_AUTO_TEST_CASE(SkippingSubmittedQuestion)
 {
 	qv->onHandleUserInput.connect([this](){
 		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
-		qv->onNextQuestion();
+		qv->onSkip();
 	});
 
 	qs->submitted = true;
+	BOOST_CHECK_NO_THROW(qvc.Run());
+	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);
+}
+
+BOOST_AUTO_TEST_CASE(ExitingSubmittedQuestion)
+{
+	qv->onHandleUserInput.connect([this](){
+		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+		qv->onSkip();
+	});
+
+	qs->submitted = true;
+	BOOST_CHECK_NO_THROW(qvc.Run());
+	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);
+}
+
+BOOST_AUTO_TEST_CASE(ExitingNotSubmittedQuestion)
+{
+	qv->onHandleUserInput.connect([this](){
+		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+		qv->onSkip();
+	});
+
 	BOOST_CHECK_NO_THROW(qvc.Run());
 	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
 	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);

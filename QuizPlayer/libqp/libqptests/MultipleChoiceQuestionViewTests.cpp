@@ -63,41 +63,34 @@ BOOST_AUTO_TEST_CASE(SkipRequest)
 	BOOST_CHECK(skipRequested);
 }
 
-BOOST_AUTO_TEST_CASE(NextQuestionRequest)
+BOOST_AUTO_TEST_CASE(SkipSubmittedQuestionRequest)
 {
 	istringstream istrm("\n");
 	state->Submit();
 	shared_ptr<IQuestionView> view = make_shared<CMultipleChoiceQuestionView>(state, ostrm, istrm);
-	bool nextQuestionRequested = false;
-	view->DoOnNextQuestion([&nextQuestionRequested](){
-		nextQuestionRequested = true;
+	bool skipRequested = false;
+	view->DoOnSkip([&skipRequested](){
+		skipRequested = true;
 	});
 	BOOST_REQUIRE(view->HandleUserInput());
-	BOOST_CHECK(nextQuestionRequested);
+	BOOST_CHECK(skipRequested);
 }
 
 BOOST_AUTO_TEST_CASE(AnswerRequestedByProcessingCorrectLetter)
 {
-	istringstream istrm("A\n");
+	istringstream istrm("C\n");
 	CMultipleChoiceQuestionView view(state, ostrm, istrm);
-	view.Show();
 
-	bool answerSelectedRequested = false;
-	bool answerIndexIsCorrect = false;
-	view.DoOnAnswerSelected([&answerSelectedRequested, &answerIndexIsCorrect](size_t answerIndex){
-		answerIndexIsCorrect = (answerIndex == 0);
-		answerSelectedRequested = true;
+	size_t selectedAnswerIndex = 0;
+	view.DoOnAnswerSelected([&selectedAnswerIndex](size_t answerIndex){
+		selectedAnswerIndex = answerIndex;
 	});
+
 	BOOST_REQUIRE(view.HandleUserInput());
-	BOOST_CHECK(answerSelectedRequested);
-	BOOST_CHECK(answerIndexIsCorrect);
+
+	BOOST_CHECK_EQUAL(selectedAnswerIndex, 2u);
 	BOOST_CHECK_EQUAL(ostrm.str(),
-		"What is the name of our planet?\n"
-		"( ) A. Mercury\n"
-		"( ) B. Venus\n"
-		"( ) C. The Earth\n"
-		"( ) D. Mars\n"
-		"Choose an answer (A-D) or type 'submit': "
+		"Choose an answer (A-D) or type 'submit' or 'skip': " 
 		);
 }
 
@@ -112,7 +105,7 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectLetter)
 		});
 		BOOST_REQUIRE(!view.HandleUserInput());
 		BOOST_CHECK(!answerSelectedRequested);
-		BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': "); 
+		BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit' or 'skip': "); 
 }
 
 BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
@@ -126,7 +119,7 @@ BOOST_AUTO_TEST_CASE(AnswerNotRequestedByProcessingIncorrectString)
 	});
 	BOOST_REQUIRE(!view.HandleUserInput());
 	BOOST_CHECK(!answerSelectedRequested);
-	BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit': ");
+	BOOST_CHECK_EQUAL(ostrm.str(), "Choose an answer (A-D) or type 'submit' or 'skip': ");
 }
 
 
