@@ -45,6 +45,10 @@ bool CQuestionView::ProcessString(std::string const& inputString)
 	{
 		m_onSkip();
 	}
+	else if (inputString == "exit")
+	{
+		m_onExit();
+	}
 	else
 	{
 		stringProcessed = false;
@@ -70,6 +74,11 @@ Connection CQuestionView::DoOnSubmit(const OnSubmitSlotType & submitHandler)
 Connection CQuestionView::DoOnSkip(const OnSkipSlotType & skipHandler)
 {
 	return m_onSkip.connect(skipHandler);
+}
+
+Connection CQuestionView::DoOnExit(const OnExitSlotType & exitHandler)
+{
+	return m_onExit.connect(exitHandler);
 }
 
 }

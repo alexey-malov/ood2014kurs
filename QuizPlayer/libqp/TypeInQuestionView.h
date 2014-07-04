@@ -8,7 +8,7 @@ namespace qp
 class CTypeInQuestionView :	public CQuestionView
 {
 public:
-	CTypeInQuestionView(CTypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream);
+	CTypeInQuestionView(ITypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CTypeInQuestionView();
 
 	virtual void ShowDetails() override {};
@@ -20,7 +20,7 @@ public:
 	virtual Connection DoOnAnswerEntered(const OnAnswerEnteredSlotType & answerEnteredHandler);
 
 private:
-	const CTypeInQuestionStatePtr m_questionState;
+	const ITypeInQuestionStatePtr m_questionState;
 	OnAnswerEntered m_onAnswerEntered;
 };
 

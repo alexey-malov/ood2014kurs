@@ -9,7 +9,7 @@ namespace qp
 class CMultipleChoiceQuestionView : public CQuestionView
 {
 public:
-	CMultipleChoiceQuestionView(const CMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
+	CMultipleChoiceQuestionView(const IMultipleChoiceQuestionStatePtr & questionState, std::ostream & outputStream, std::istream & inputStream);
 	~CMultipleChoiceQuestionView();
 
 	typedef boost::signals2::signal<void(size_t answerIndex)> OnAnswerSelected;
@@ -21,7 +21,7 @@ public:
 	virtual bool ProcessString(std::string const& inputString) override final;
 
 private:
-	const CMultipleChoiceQuestionStatePtr m_questionState;
+	const IMultipleChoiceQuestionStatePtr m_questionState;
 	OnAnswerSelected m_onAnswerSelected;
 };
 

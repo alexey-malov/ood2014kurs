@@ -9,10 +9,8 @@ namespace qp
 
 using namespace std;
 
-
 CTypeInQuestionState::CTypeInQuestionState(CConstTypeInQuestionPtr const& question)
-	:CQuestionState(question)
-	,m_question(question)
+:CQuestionStateWithCustomQuestion(question)
 {
 }
 
@@ -38,10 +36,10 @@ void CTypeInQuestionState::DoSubmit()
 {
 	if (!m_answer.empty())
 	{
-		auto const& answers = m_question->GetAnswers();
+		auto const& answers = GetConcreteQuestion()->GetAnswers();
 		if (answers.find(m_answer) != answers.end())
 		{
-			m_review = make_unique<CQuestionReview>(m_question->GetScore(), true);
+			m_review = make_unique<CQuestionReview>(GetConcreteQuestion()->GetScore(), true);
 			return;
 		}
 	}

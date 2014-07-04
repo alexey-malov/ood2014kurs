@@ -48,6 +48,7 @@ BOOST_AUTO_TEST_CASE(SubmittingQuestion)
 		BOOST_CHECK(!qs->submitted);
 		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
 		qv->onSubmit();
+		qv->onSkip();
 	});
 	BOOST_CHECK_NO_THROW(qvc.Run());
 	BOOST_CHECK_EQUAL(qv->showCallCounter, 2);
@@ -63,6 +64,31 @@ BOOST_AUTO_TEST_CASE(SkippingSubmittedQuestion)
 	});
 
 	qs->submitted = true;
+	BOOST_CHECK_NO_THROW(qvc.Run());
+	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);
+}
+
+BOOST_AUTO_TEST_CASE(ExitingSubmittedQuestion)
+{
+	qv->onHandleUserInput.connect([this](){
+		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+		qv->onSkip();
+	});
+
+	qs->submitted = true;
+	BOOST_CHECK_NO_THROW(qvc.Run());
+	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);
+}
+
+BOOST_AUTO_TEST_CASE(ExitingNotSubmittedQuestion)
+{
+	qv->onHandleUserInput.connect([this](){
+		BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
+		qv->onSkip();
+	});
+
 	BOOST_CHECK_NO_THROW(qvc.Run());
 	BOOST_CHECK_EQUAL(qv->showCallCounter, 1);
 	BOOST_CHECK_EQUAL(qv->handleUserInputCallCounter, 1);

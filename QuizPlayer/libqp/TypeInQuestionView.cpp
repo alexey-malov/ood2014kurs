@@ -4,7 +4,7 @@
 
 using namespace qp;
 
-CTypeInQuestionView::CTypeInQuestionView(CTypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream)
+CTypeInQuestionView::CTypeInQuestionView(ITypeInQuestionStatePtr const& questionState, std::ostream & outputStream, std::istream & inputStream)
 :CQuestionView(questionState, outputStream, inputStream)
 ,m_questionState(questionState)
 {
