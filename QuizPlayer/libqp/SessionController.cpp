@@ -36,7 +36,6 @@ void CSessionController::Run()
 	{
 		IQuestionStatePtr state = m_session->GetCurrentQuestionState();
 		auto controller = CreateMultipleChoiceQuestionViewController(state);
-		
 		if (!(controller->Run()))
 		{
 			break;
