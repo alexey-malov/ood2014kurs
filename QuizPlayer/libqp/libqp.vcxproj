@@ -131,6 +131,7 @@
     <ClInclude Include="TypeInQuestionState.h" />
     <ClInclude Include="TypeInQuestionState_fwd.h" />
     <ClInclude Include="TypeInQuestionView.h" />
+    <ClInclude Include="TypeInQuestionViewController.h" />
     <ClInclude Include="TypeInQuestionView_fwd.h" />
     <ClInclude Include="TypeInQuestion_fwd.h" />
     <ClInclude Include="types.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="TypeInQuestion.cpp" />
     <ClCompile Include="TypeInQuestionState.cpp" />
     <ClCompile Include="TypeInQuestionView.cpp" />
+    <ClCompile Include="TypeInQuestionViewController.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

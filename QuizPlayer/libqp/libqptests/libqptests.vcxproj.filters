@@ -164,5 +164,8 @@
     <ClCompile Include="SessionControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="TypeInQuestionViewControllerTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
