@@ -19,15 +19,23 @@ CTypeInQuestionView::~CTypeInQuestionView()
 void CTypeInQuestionView::ShowDetails()
 {
 	auto & outputStream = GetOutputStream();
-	outputStream << "Your answer: '";
-	outputStream << m_questionState->GetUserAnswer() << "'\n";
+	std::string userAnswer = m_questionState->GetUserAnswer();
+	if (!userAnswer.empty())
+	{
+		outputStream << "Your answer: '";
+		outputStream << userAnswer << "'\n";
+	}
 	if (m_questionState->Submitted())
 	{
-		outputStream << "Right answer(s): ";
-		std::set<std::string> const& answers = m_questionState->GetConcreteQuestion()->GetAnswers();
-		for (auto i : answers)
+		auto const& review = m_questionState->GetReview();
+		if (!review.AnswerIsCorrect())
 		{
-			outputStream << "'" << i << "'\n";
+			outputStream << "Right answer(s): ";
+			std::set<std::string> const& answers = m_questionState->GetConcreteQuestion()->GetAnswers();
+			for (auto i : answers)
+			{
+				outputStream << "'" << i << "'\n";
+			}
 		}
 	}
 }
@@ -37,7 +45,7 @@ void CTypeInQuestionView::ShowPrompt()
 	auto & outputStream = GetOutputStream();
 	if (m_questionState->Submitted())
 	{
-		outputStream << "Press Enter to go to the next question";
+		outputStream << "Press Enter to go to the next question or type 'exit': ";
 	}
 	else
 	{

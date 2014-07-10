@@ -23,6 +23,11 @@
 #include "libqp/MatchingQuestionState.h"
 #include "libqp/MatchingQuestionView.h"
 
+#include "libqp/TypeInQuestion.h"
+#include "libqp/TypeInQuestionState.h"
+#include "libqp/TypeInQuestionView.h"
+#include "libqp/TypeInQuestionViewController.h"
+
 #include "libqp/QuestionViewFactory.h"
 #include "libqp/QuestionStateFactory.h"
 
@@ -98,6 +103,17 @@ void TestMatchingQuestionVisualization()
 	questionView->Show();
 }
 
+void TestTypeInQuestionVisualization()
+{
+	set<string> rightAnswers = {"Albert Einstein", "A. Einstein", "Einstein"};
+	auto question = make_shared<CTypeInQuestion>("Who is an author of the theory of relativity?", rightAnswers, 10);
+	auto questionState = make_shared<CTypeInQuestionState>(question);
+	auto questionView = make_shared<CTypeInQuestionView>(questionState, cout, cin);
+	auto controller = make_shared<CTypeInQuestionViewController>(questionState, questionView);
+	controller->Run();
+}
+
+
 void TestQuestionVisualization()
 {
 	cout << "\n===========Multiple choice questions quiz==========\n";
@@ -108,7 +124,9 @@ void TestQuestionVisualization()
 
 	cout << "\n===========Matching question============\n";
 	TestMatchingQuestionVisualization();
-	
+
+	cout << "\n==========TypeIn question============\n";
+	TestTypeInQuestionVisualization();
 }
 
 int main()
@@ -120,9 +138,9 @@ int main()
 	IQuestionStatePtr mcqStatePtr = stateFactory.CreateStateForQuestion(multipleChoiceQuestionPtr);
 	auto mcqVieqPtr = viewFactory.CreateView(mcqStatePtr);
 	dynamic_cast<CMultipleChoiceQuestionView*>(mcqVieqPtr.get());
-	return 0;
-//	TestQuestionVisualization();
 	
-	//return 0;
+	TestQuestionVisualization();
+	
+	return 0;
 }
 

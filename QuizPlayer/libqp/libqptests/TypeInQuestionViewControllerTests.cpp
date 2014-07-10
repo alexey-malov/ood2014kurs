@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(ControllerCallsSetUserAnswer)
 								   "Your answer: 'answer'\n");
 }
 
-BOOST_AUTO_TEST_CASE(SubmitAndReviewAnswer)
+BOOST_AUTO_TEST_CASE(SubmitAndReviewIncorrectAnswer)
 {
 	istringstream istrm("answer\nsubmit\n");
 	CTypeInQuestionViewPtr view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
@@ -52,8 +52,24 @@ BOOST_AUTO_TEST_CASE(SubmitAndReviewAnswer)
 		"Your answer: 'answer'\n"
 		"Right answer(s): 'First answer'\n"
 		"'Second answer'\n"
-		"Answer is not correct."
-		);
+		"Answer is not correct.\n");
+}
+
+BOOST_AUTO_TEST_CASE(SubmitAndReviewCorrectAnswer)
+{
+	istringstream istrm("First answer\nsubmit\n");
+	CTypeInQuestionViewPtr view = make_shared<CTypeInQuestionView>(state, ostrm, istrm);
+	CTypeInQuestionViewController qvc(state, view);
+
+	BOOST_REQUIRE(view->HandleUserInput());
+	BOOST_REQUIRE(view->HandleUserInput());
+	BOOST_CHECK_EQUAL(ostrm.str(), "Enter an answer or type 'submit' or 'skip': "
+		"Question description\n"
+		"Your answer: 'First answer'\n"
+		"Enter an answer or type 'submit' or 'skip': "
+		"Question description\n"
+		"Your answer: 'First answer'\n"
+		"Answer is correct. Score: 10\n");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
