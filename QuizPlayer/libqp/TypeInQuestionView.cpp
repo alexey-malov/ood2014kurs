@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "TypeInQuestion.h"
 #include "TypeInQuestionView.h"
 #include "TypeInQuestionState.h"
 
@@ -17,7 +18,18 @@ CTypeInQuestionView::~CTypeInQuestionView()
 
 void CTypeInQuestionView::ShowDetails()
 {
-
+	auto & outputStream = GetOutputStream();
+	outputStream << "Your answer: '";
+	outputStream << m_questionState->GetUserAnswer() << "'\n";
+	if (m_questionState->Submitted())
+	{
+		outputStream << "Right answer(s): ";
+		std::set<std::string> const& answers = m_questionState->GetConcreteQuestion()->GetAnswers();
+		for (auto i : answers)
+		{
+			outputStream << "'" << i << "'\n";
+		}
+	}
 }
 
 void CTypeInQuestionView::ShowPrompt()
@@ -33,7 +45,19 @@ void CTypeInQuestionView::ShowPrompt()
 	}
 }
 
-
+void CTypeInQuestionView::ShowReview()
+{
+	auto & outputStream = GetOutputStream();
+	auto const& review = m_questionState->GetReview();
+	if (review.AnswerIsCorrect())
+	{
+		outputStream << "Answer is correct. Score: " << review.GetAwardedScore() << "\n";
+	}
+	else
+	{
+		outputStream << "Answer is not correct.\n";
+	}
+}
 
 bool CTypeInQuestionView::ProcessString(std::string const& inputString)
 {

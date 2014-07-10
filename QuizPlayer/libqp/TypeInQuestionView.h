@@ -13,6 +13,7 @@ public:
 
 	virtual void ShowDetails() override;
 	virtual void ShowPrompt() override final;
+	virtual void ShowReview() override final;
 	virtual bool ProcessString(std::string const& inputString) override final;
 
 	typedef boost::signals2::signal<void(std::string const& answer)> OnAnswerEntered;
