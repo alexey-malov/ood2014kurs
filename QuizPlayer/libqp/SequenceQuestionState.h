@@ -10,6 +10,7 @@ namespace qp
 class CSequenceQuestionState : CQuestionState
 {
 public:
+	LOKI_DEFINE_VISITABLE()
 	CSequenceQuestionState(CConstSequenceQuestionPtr const& question);
 	~CSequenceQuestionState();
 
