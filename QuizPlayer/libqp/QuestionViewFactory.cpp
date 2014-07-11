@@ -68,7 +68,6 @@ struct CQuestionViewFactory::QuestionViewCreationVisitor
 
 unique_ptr<IQuestionView> CQuestionViewFactory::CreateView(IQuestionStatePtr const & questionState) const 
 {
-	cout << static_cast<bool>(dynamic_pointer_cast<IMatchingQuestionState>(questionState)) << endl;
 	QuestionViewCreationVisitor visitor;
 	visitor.outputStream = m_outputStream;
 	visitor.inputStream = m_inputStream;

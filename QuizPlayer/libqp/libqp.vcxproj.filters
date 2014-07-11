@@ -243,6 +243,12 @@
     <ClInclude Include="IMultipleResponseQuestionState.h">
       <Filter>Model\Session\Questions</Filter>
     </ClInclude>
+    <ClInclude Include="IQuestionViewControllerFactory.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionViewControllerFactory.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -342,6 +348,9 @@
       <Filter>Views\Questions</Filter>
     </ClCompile>
     <ClCompile Include="TypeInQuestionViewController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestionViewControllerFactory.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
   </ItemGroup>

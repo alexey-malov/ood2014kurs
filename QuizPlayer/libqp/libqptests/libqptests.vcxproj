@@ -120,6 +120,7 @@
     <ClCompile Include="MultipleChoiceQuestionStateTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionViewControllerTests.cpp" />
+    <ClCompile Include="QuestionViewControllerFactoryTests.cpp" />
     <ClCompile Include="QuestionViewControllerTests.cpp" />
     <ClCompile Include="MultipleChoiceQuestionViewTests.cpp" />
     <ClCompile Include="MultipleResponseQuestionStateTests.cpp" />

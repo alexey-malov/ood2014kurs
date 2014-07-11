@@ -13,20 +13,13 @@ namespace qp
 using namespace std;
 
 CSessionController::CSessionController(CQuizSessionPtr const& session)
-:m_session(session)
+: m_session(session)
+, m_viewControllerFactory(&cout, &cin)
 {
 }
 
 CSessionController::~CSessionController()
 {
-}
-
-CMultipleChoiceQuestionViewControllerPtr CSessionController::CreateMultipleChoiceQuestionViewController(IQuestionStatePtr state)
-{
-	auto mcState = dynamic_pointer_cast<CMultipleChoiceQuestionState>(state);
-	auto view = make_shared<CMultipleChoiceQuestionView>(mcState, cout, cin);
-	auto controller = make_shared<CMultipleChoiceQuestionViewController>(mcState, view);
-	return controller;
 }
 
 void CSessionController::Run()
@@ -35,7 +28,7 @@ void CSessionController::Run()
 	while (!exit)
 	{
 		IQuestionStatePtr state = m_session->GetCurrentQuestionState();
-		auto controller = CreateMultipleChoiceQuestionViewController(state);
+		auto controller = m_viewControllerFactory.CreateViewControllerForState(state);
 		if (!(controller->Run()))
 		{
 			break;

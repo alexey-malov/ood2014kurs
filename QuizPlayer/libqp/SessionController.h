@@ -2,6 +2,7 @@
 #include "QuizSession_fwd.h"
 #include "QuestionState_fwd.h"
 #include "MultipleChoiceQuestionViewController_fwd.h"
+#include "QuestionViewControllerFactory.h"
 
 namespace qp
 { 
@@ -15,6 +16,7 @@ public:
 private:
 	CMultipleChoiceQuestionViewControllerPtr CreateMultipleChoiceQuestionViewController(IQuestionStatePtr state);
 	CQuizSessionPtr m_session;
+	CQuestionViewControllerFactory m_viewControllerFactory;
 };
 
 }

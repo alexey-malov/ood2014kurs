@@ -176,5 +176,8 @@
     <ClCompile Include="TypeInQuestionViewControllerTests.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="QuestionViewControllerFactoryTests.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -131,14 +131,6 @@ void TestQuestionVisualization()
 
 int main()
 {
-	CQuestionStateFactory stateFactory;
-	CQuestionViewFactory viewFactory(&cout, &cin);
-	
-	CConstMultipleChoiceQuestionPtr multipleChoiceQuestionPtr(new CMultipleChoiceQuestion("MultipleChoiceQuestion description", 0.0, CGradedChoices{ { "one", "two" } }));
-	IQuestionStatePtr mcqStatePtr = stateFactory.CreateStateForQuestion(multipleChoiceQuestionPtr);
-	auto mcqVieqPtr = viewFactory.CreateView(mcqStatePtr);
-	dynamic_cast<CMultipleChoiceQuestionView*>(mcqVieqPtr.get());
-	
 	TestQuestionVisualization();
 	
 	return 0;

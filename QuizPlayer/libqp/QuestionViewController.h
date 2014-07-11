@@ -7,7 +7,8 @@
 namespace qp
 {
 
-class CQuestionViewController : public boost::noncopyable
+class CQuestionViewController
+	: public boost::noncopyable
 {
 public:
 	CQuestionViewController(IQuestionStatePtr const& questionState, IQuestionViewPtr const& view);
